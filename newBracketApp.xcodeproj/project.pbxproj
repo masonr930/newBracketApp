@@ -19,6 +19,7 @@
 		4A999BF72993DE2100F82201 /* newBracketAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999BF62993DE2100F82201 /* newBracketAppTests.swift */; };
 		4A999C012993DE2100F82201 /* newBracketAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999C002993DE2100F82201 /* newBracketAppUITests.swift */; };
 		4A999C032993DE2100F82201 /* newBracketAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999C022993DE2100F82201 /* newBracketAppUITestsLaunchTests.swift */; };
+		683C72E02993E312000059E6 /* matchUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683C72DF2993E312000059E6 /* matchUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4A999BFC2993DE2100F82201 /* newBracketAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newBracketAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A999C002993DE2100F82201 /* newBracketAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newBracketAppUITests.swift; sourceTree = "<group>"; };
 		4A999C022993DE2100F82201 /* newBracketAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newBracketAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		683C72DF2993E312000059E6 /* matchUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				4A999BDC2993DE2000F82201 /* AppDelegate.swift */,
 				4A999BDE2993DE2000F82201 /* SceneDelegate.swift */,
 				4A999BE02993DE2000F82201 /* ViewController.swift */,
+				683C72DF2993E312000059E6 /* matchUp.swift */,
 				4A999BE22993DE2000F82201 /* Main.storyboard */,
 				4A58200429952DA10001B875 /* BracketViewController.swift */,
 				4A58200229952D3D0001B875 /* CreatorViewController.swift */,
@@ -269,6 +272,7 @@
 			files = (
 				4A999BE12993DE2000F82201 /* ViewController.swift in Sources */,
 				4A999BE72993DE2000F82201 /* newBracketApp.xcdatamodeld in Sources */,
+				683C72E02993E312000059E6 /* matchUp.swift in Sources */,
 				4A999BDD2993DE2000F82201 /* AppDelegate.swift in Sources */,
 				4A58200329952D3D0001B875 /* CreatorViewController.swift in Sources */,
 				4A999BDF2993DE2000F82201 /* SceneDelegate.swift in Sources */,
