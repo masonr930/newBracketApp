@@ -9,7 +9,7 @@ import UIKit
 
 class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    var teams = [String]()
 
     @IBOutlet weak var textfieldOutlet: UITextField!
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -36,11 +36,12 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return teams.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableViewOutlet.dequeueReusableCell(withIdentifier: "teamCell")!
+        return cell
     }
     
 }
