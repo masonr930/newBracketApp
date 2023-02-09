@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A58200329952D3D0001B875 /* CreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A58200229952D3D0001B875 /* CreatorViewController.swift */; };
+		4A58200529952DA10001B875 /* BracketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A58200429952DA10001B875 /* BracketViewController.swift */; };
 		4A999BDD2993DE2000F82201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999BDC2993DE2000F82201 /* AppDelegate.swift */; };
 		4A999BDF2993DE2000F82201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999BDE2993DE2000F82201 /* SceneDelegate.swift */; };
 		4A999BE12993DE2000F82201 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999BE02993DE2000F82201 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A58200229952D3D0001B875 /* CreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorViewController.swift; sourceTree = "<group>"; };
+		4A58200429952DA10001B875 /* BracketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketViewController.swift; sourceTree = "<group>"; };
 		4A999BD92993DE2000F82201 /* newBracketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newBracketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A999BDC2993DE2000F82201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A999BDE2993DE2000F82201 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				4A999BE02993DE2000F82201 /* ViewController.swift */,
 				683C72DF2993E312000059E6 /* matchUp.swift */,
 				4A999BE22993DE2000F82201 /* Main.storyboard */,
+				4A58200429952DA10001B875 /* BracketViewController.swift */,
+				4A58200229952D3D0001B875 /* CreatorViewController.swift */,
 				4A999BE82993DE2000F82201 /* Assets.xcassets */,
 				4A999BEA2993DE2000F82201 /* LaunchScreen.storyboard */,
 				4A999BED2993DE2000F82201 /* Info.plist */,
@@ -268,7 +274,9 @@
 				4A999BE72993DE2000F82201 /* newBracketApp.xcdatamodeld in Sources */,
 				683C72E02993E312000059E6 /* matchUp.swift in Sources */,
 				4A999BDD2993DE2000F82201 /* AppDelegate.swift in Sources */,
+				4A58200329952D3D0001B875 /* CreatorViewController.swift in Sources */,
 				4A999BDF2993DE2000F82201 /* SceneDelegate.swift in Sources */,
+				4A58200529952DA10001B875 /* BracketViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

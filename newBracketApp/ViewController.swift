@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var rounds = 0
+
+    @IBOutlet weak var tableviewOutlet: UITableView!
     
     
     override func viewDidLoad() {
