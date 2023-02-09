@@ -24,7 +24,9 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func addTeamButton(_ sender: UIButton) {
         if let x = textfieldOutlet.text {
-            
+            teams.append(textfieldOutlet.text!)
+            tableViewOutlet.reloadData()
+            textfieldOutlet.text = ""
             
         }
     }
@@ -41,6 +43,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewOutlet.dequeueReusableCell(withIdentifier: "teamCell")!
+        cell.textLabel?.text = teams[indexPath.row]
         return cell
     }
     
