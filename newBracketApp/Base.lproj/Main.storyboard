@@ -94,7 +94,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ie8-xV-PFc">
-                                <rect key="frame" x="304" y="116" width="73" height="35"/>
+                                <rect key="frame" x="160" y="117" width="73" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add"/>
@@ -108,6 +108,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-kn-wYD">
+                                <rect key="frame" x="280" y="117" width="97" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Create"/>
+                                <connections>
+                                    <action selector="createButton:" destination="3xt-BI-56u" eventType="touchUpInside" id="sJg-Iq-W6r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZZU-bs-mHh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -121,11 +130,12 @@
                     <navigationItem key="navigationItem" id="Uxo-dp-ojE"/>
                     <connections>
                         <outlet property="tableViewOutlet" destination="aFK-ww-iKt" id="x6K-u1-vC9"/>
+                        <outlet property="textfieldOutlet" destination="raE-bC-aQ5" id="dRI-18-DUu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGp-Ct-eAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="862"/>
+            <point key="canvasLocation" x="110.68702290076335" y="861.97183098591552"/>
         </scene>
         <!--Bracket View Controller-->
         <scene sceneID="ZYs-iS-HvV">
