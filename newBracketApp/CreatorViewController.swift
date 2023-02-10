@@ -32,7 +32,7 @@ print("I'm having fun!")
     
     @IBAction func addTeamButton(_ sender: UIButton) {
         if let x = textfieldOutlet.text {
-            teams.append(textfieldOutlet.text!)
+            teams.append(x)
             tableViewOutlet.reloadData()
             textfieldOutlet.text = ""
             
@@ -116,7 +116,6 @@ print("I'm having fun!")
                 tempTeams.remove(at:0)
                 print(matches[0].homeTeam)
             }
-//            tableViewOutlet.reloadData()
 //            //make table just print one array[0] and array [1] into each seperate spot and then delete them from the temporary array this is only minimum and first round only populate table with first round matches cells only
         }
         else{
@@ -134,7 +133,6 @@ print("I'm having fun!")
                 tempTeams.remove(at: 0)
             }
             
-//            tableViewOutlet.reloadData()
 //           // populate table with only the amount of cells as first round matches and only run the loop to put people in that many times
         }
         print("test")
