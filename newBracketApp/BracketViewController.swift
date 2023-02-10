@@ -36,7 +36,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! VsCell
-        cell.configure(match: AppData.matches[indexPath.row])
+        cell.configure(match: matches[indexPath.row])
         print("CELL MADE")
             return cell
     }

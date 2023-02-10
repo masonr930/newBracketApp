@@ -151,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EhO-nU-5SA">
-                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
+                                <rect key="frame" x="0.0" y="80" width="393" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchCell" id="pOS-mx-z9L">
@@ -164,6 +164,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d8z-u0-tMc">
+                                <rect key="frame" x="16" y="21" width="361" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qtl-Aj-pqT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -171,7 +179,7 @@
                             <constraint firstItem="qtl-Aj-pqT" firstAttribute="bottom" secondItem="EhO-nU-5SA" secondAttribute="bottom" id="7A1-i9-it3"/>
                             <constraint firstItem="qtl-Aj-pqT" firstAttribute="trailing" secondItem="EhO-nU-5SA" secondAttribute="trailing" id="FVs-Ve-8ca"/>
                             <constraint firstItem="EhO-nU-5SA" firstAttribute="leading" secondItem="qtl-Aj-pqT" secondAttribute="leading" id="NaV-hW-pHC"/>
-                            <constraint firstItem="EhO-nU-5SA" firstAttribute="top" secondItem="qtl-Aj-pqT" secondAttribute="top" id="brG-yZ-xyw"/>
+                            <constraint firstItem="EhO-nU-5SA" firstAttribute="top" secondItem="qtl-Aj-pqT" secondAttribute="top" constant="21" id="brG-yZ-xyw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="68k-DX-Cqq"/>
@@ -182,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1024" y="385"/>
+            <point key="canvasLocation" x="1023.6641221374045" y="384.50704225352115"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DdM-2H-75r">
