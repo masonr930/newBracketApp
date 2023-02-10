@@ -12,7 +12,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 
     @IBOutlet weak var matchesTable: UITableView!
-    var rounds: Int
+    var rounds: Int 
     var teams: [String]
     var matches: [MatchupClass] = []
     var teamCheck: Bool
