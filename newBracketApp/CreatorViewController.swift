@@ -8,6 +8,7 @@
 import UIKit
 
 class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    // added a comment
     
     
 
@@ -22,7 +23,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableViewOutlet: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print("I'm having fun!")
         // Do any additional setup after loading the view.
         
         tableViewOutlet.dataSource = self
