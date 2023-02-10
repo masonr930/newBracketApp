@@ -7,12 +7,17 @@
 
 import UIKit
 
-class BracketViewController: UIViewController {
+class BracketViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
 
-    var teams: [String] = []
+    @IBOutlet weak var matchesTable: UITableView!
+    var rounds: Int
+    var teams: [String]
     var matches: [MatchupClass] = []
-    var teamCheck = false
-    var rounds = 0
+    var teamCheck: Bool
+    var labels = ["Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth", "Tenth", "Eleventh", "Twelfth", "Thirteenth", "Fourteenth", "Fifteenth"]
+    
     
     
     @IBOutlet weak var tableviewOutlet: UITableView!
@@ -20,9 +25,21 @@ class BracketViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        matchesTable.dataSource = self
+        matchesTable.delegate = self
     }
     
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matches.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! VsCell
+        cell.configure(match: AppData.matches[indexPath.row])
+        print("CELL MADE")
+            return cell
+    }
     
 
 }

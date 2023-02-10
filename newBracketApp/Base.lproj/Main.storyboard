@@ -176,6 +176,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="68k-DX-Cqq"/>
                     <connections>
+                        <outlet property="matchesTable" destination="EhO-nU-5SA" id="Iye-tf-zQO"/>
                         <outlet property="tableviewOutlet" destination="EhO-nU-5SA" id="qyx-ce-ui0"/>
                     </connections>
                 </viewController>
