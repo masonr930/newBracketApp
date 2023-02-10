@@ -72,8 +72,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aFK-ww-iKt">
-                                <rect key="frame" x="0.0" y="159" width="393" height="624"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aFK-ww-iKt">
+                                <rect key="frame" x="0.0" y="144" width="393" height="639"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="teamCell" textLabel="BsG-Mh-KHr" style="IBUITableViewCellStyleDefault" id="Ej9-a7-2oL">
@@ -96,14 +97,14 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bracket Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5P8-oO-KjE">
-                                <rect key="frame" x="16" y="59" width="361" height="46"/>
+                                <rect key="frame" x="16" y="20" width="361" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ie8-xV-PFc">
-                                <rect key="frame" x="160" y="117" width="73" height="35"/>
+                                <rect key="frame" x="160" y="74" width="73" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add"/>
@@ -112,13 +113,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raE-bC-aQ5">
-                                <rect key="frame" x="16" y="117" width="97" height="34"/>
+                                <rect key="frame" x="16" y="74" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-kn-wYD">
-                                <rect key="frame" x="280" y="117" width="97" height="35"/>
+                                <rect key="frame" x="280" y="74" width="97" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create"/>
@@ -129,33 +130,28 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZZU-bs-mHh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="aFK-ww-iKt" firstAttribute="leading" secondItem="ZZU-bs-mHh" secondAttribute="leading" id="0EO-HJ-DzV"/>
-                            <constraint firstItem="aFK-ww-iKt" firstAttribute="top" secondItem="ZZU-bs-mHh" secondAttribute="top" constant="100" id="Aip-lZ-viD"/>
-                            <constraint firstItem="ZZU-bs-mHh" firstAttribute="bottom" secondItem="aFK-ww-iKt" secondAttribute="bottom" id="avU-Fj-N5l"/>
-                            <constraint firstItem="ZZU-bs-mHh" firstAttribute="trailing" secondItem="aFK-ww-iKt" secondAttribute="trailing" id="hx3-M8-TBb"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Uxo-dp-ojE"/>
                     <connections>
                         <outlet property="tableViewOutlet" destination="aFK-ww-iKt" id="x6K-u1-vC9"/>
                         <outlet property="textfieldOutlet" destination="raE-bC-aQ5" id="dRI-18-DUu"/>
+                        <segue destination="rsB-6z-2FB" kind="show" identifier="createBracket" id="8xR-Zn-0QZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGp-Ct-eAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="736"/>
+            <point key="canvasLocation" x="110.68702290076335" y="735.91549295774655"/>
         </scene>
         <!--Bracket View Controller-->
         <scene sceneID="ZYs-iS-HvV">
             <objects>
                 <viewController id="rsB-6z-2FB" customClass="BracketViewController" customModule="newBracketApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OhY-ar-4Ze">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EhO-nU-5SA">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchCell" id="pOS-mx-z9L">
@@ -178,13 +174,14 @@
                             <constraint firstItem="EhO-nU-5SA" firstAttribute="top" secondItem="qtl-Aj-pqT" secondAttribute="top" id="brG-yZ-xyw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="68k-DX-Cqq"/>
                     <connections>
                         <outlet property="tableviewOutlet" destination="EhO-nU-5SA" id="qyx-ce-ui0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="-2"/>
+            <point key="canvasLocation" x="1024" y="385"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DdM-2H-75r">
@@ -199,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEw-GK-gfg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1947" y="-2"/>
+            <point key="canvasLocation" x="1908" y="385"/>
         </scene>
     </scenes>
     <resources>

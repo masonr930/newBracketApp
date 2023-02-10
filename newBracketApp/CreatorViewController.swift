@@ -41,8 +41,21 @@ print("I'm having fun!")
     
 
    
-    @IBAction func createButton(_ sender: UIButton) {
+    @IBAction func createButton(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "createBracket", sender: self)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createBracket"
+        {
+            let nvc = segue.destination as! BracketViewController
+            nvc.teams = teams
+            nvc.matches = matches
+            nvc.rounds = rounds
+            nvc.teamCheck = teamCheck
+        }
     }
     
     

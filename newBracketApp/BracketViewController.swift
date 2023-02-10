@@ -9,6 +9,12 @@ import UIKit
 
 class BracketViewController: UIViewController {
 
+    var teams: [String] = []
+    var matches: [MatchupClass] = []
+    var teamCheck = false
+    var rounds = 0
+    
+    
     @IBOutlet weak var tableviewOutlet: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
