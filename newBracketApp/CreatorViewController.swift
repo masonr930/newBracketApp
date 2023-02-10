@@ -7,8 +7,12 @@
 
 import UIKit
 
-class CreatorViewController: UIViewController {
+class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    // added a comment
+    
+    
 
+    @IBOutlet weak var textfieldOutlet: UITextField!
      var teams: [String] = []
      var numberOfTeams = 0
     var matches: [MatchupClass] = []
@@ -19,13 +23,40 @@ class CreatorViewController: UIViewController {
     @IBOutlet weak var tableViewOutlet: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print("I'm having fun!")
         // Do any additional setup after loading the view.
+        
+        tableViewOutlet.dataSource = self
+        tableViewOutlet.delegate = self
     }
     
     @IBAction func addTeamButton(_ sender: UIButton) {
+        if let x = textfieldOutlet.text {
+            teams.append(textfieldOutlet.text!)
+            tableViewOutlet.reloadData()
+            textfieldOutlet.text = ""
+            
+        }
     }
     
+
+   
+    @IBAction func createButton(_ sender: UIButton) {
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return teams.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableViewOutlet.dequeueReusableCell(withIdentifier: "teamCell")!
+        cell.textLabel?.text = teams[indexPath.row]
+        return cell
+    }
+    
+
     //Making this do the whole bracket (Trying). The number is the amount of people who move on to round 2 without having to play anyone. Should be correct.
     func makeBracket(teams: [String]){
         //checks if a bracket is a power of 2 or even
@@ -120,5 +151,4 @@ class CreatorViewController: UIViewController {
         }
         return firstRoundMatches
     }
-
 }
