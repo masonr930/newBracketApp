@@ -12,10 +12,6 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 
     @IBOutlet weak var matchesTable: UITableView!
-    var rounds: Int 
-    var teams: [String]
-    var matches: [MatchupClass] = []
-    var teamCheck: Bool
     var labels = ["Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth", "Tenth", "Eleventh", "Twelfth", "Thirteenth", "Fourteenth", "Fifteenth"]
     
     
@@ -30,13 +26,13 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matches.count
+        return AppData.matches.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! VsCell
-        cell.configure(match: matches[indexPath.row])
+        cell.configure(match: AppData.matches[indexPath.row])
         print("CELL MADE")
             return cell
     }
