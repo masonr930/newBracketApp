@@ -13,6 +13,11 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 
     @IBOutlet weak var textfieldOutlet: UITextField!
+     var teams: [String] = []
+     var numberOfTeams = 0
+    var matches: [MatchupClass] = []
+    var teamCheck = false
+    var rounds = 0
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -27,7 +32,7 @@ print("I'm having fun!")
     
     @IBAction func addTeamButton(_ sender: UIButton) {
         if let x = textfieldOutlet.text {
-            AppData.teams.append(x)
+            teams.append(x)
             tableViewOutlet.reloadData()
             textfieldOutlet.text = ""
             
@@ -38,17 +43,30 @@ print("I'm having fun!")
    
     @IBAction func createButton(_ sender: UIButton)
     {
+        performSegue(withIdentifier: "createBracket", sender: self)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        makeBracket(teams: teams)
+        if segue.identifier == "createBracket"
+        {
+            let nvc = segue.destination as! BracketViewController
+            nvc.teams = teams
+            nvc.matches = matches
+            nvc.rounds = rounds
+            nvc.teamCheck = teamCheck
+        }
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppData.teams.count
+        return teams.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewOutlet.dequeueReusableCell(withIdentifier: "teamCell")!
-        cell.textLabel?.text = AppData.teams[indexPath.row]
+        cell.textLabel?.text = teams[indexPath.row]
         return cell
     }
     
@@ -62,7 +80,7 @@ print("I'm having fun!")
         var perfect = false
         var count = teams.count
         var firstRoundMatches: Int
-        AppData.rounds = 0
+        rounds = 0
         if (count%2 == 0){
             while (count%2 == 0 ){
                 count = count/2
@@ -96,37 +114,38 @@ print("I'm having fun!")
         firstRoundMatches = firstRoundMatchesCalc(perfect: perfect, teams: teams, bies: bies)
         var newCount = firstRoundMatches
         newCount = (firstRoundMatches + bies)/2
-        AppData.rounds = 2
+        rounds = 2
         while(newCount != 1){
             newCount = newCount/2
-            AppData.rounds += 1
+            rounds += 1
         }
 //        addSegueButtons(rounds2: rounds)
         //this if else covers first round matches and places them into the table, we need to find a way to show a seperate table for seperate matches
         if(perfect){
             var teamsTemp = teams
             for _ in 0..<firstRoundMatches {
-                AppData.matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
+                matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
                 print(teamsTemp)
                 tempTeams.remove(at: 0)
                 tempTeams.remove(at:0)
-                print(AppData.matches[0].homeTeam)
+                print(matches[0].homeTeam)
             }
 //            //make table just print one array[0] and array [1] into each seperate spot and then delete them from the temporary array this is only minimum and first round only populate table with first round matches cells only
         }
         else{
             var teamsTemp = teams
             for _ in 0..<firstRoundMatches {
-                AppData.matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
+                matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
                 print(teamsTemp)
                 tempTeams.remove(at: 0)
                 tempTeams.remove(at:0)
-                print(AppData.matches[0].homeTeam)
+                print(matches[0].homeTeam)
             }
             for _ in 0..<bies
             {
-                AppData.matches.append(MatchupClass.init(hTeam: tempTeams[0], aTeam: "BYE", hScore: 0, aScore: 0, match: false))
+                matches.append(MatchupClass.init(hTeam: tempTeams[0], aTeam: "BYE", hScore: 0, aScore: 0, match: false))
                 tempTeams.remove(at: 0)
+                print("HI")
             }
             
 //           // populate table with only the amount of cells as first round matches and only run the loop to put people in that many times

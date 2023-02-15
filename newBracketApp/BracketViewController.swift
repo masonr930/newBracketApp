@@ -12,30 +12,53 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 
     @IBOutlet weak var matchesTable: UITableView!
+    @IBOutlet weak var segmentedController: UISegmentedControl!
     var labels = ["Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth", "Tenth", "Eleventh", "Twelfth", "Thirteenth", "Fourteenth", "Fifteenth"]
+    var teams: [String] = []
+   var matches: [MatchupClass] = []
+    var teamCheck = false
+    var rounds = 0
     
     
-    
-    @IBOutlet weak var tableviewOutlet: UITableView!
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         matchesTable.dataSource = self
         matchesTable.delegate = self
+        print(matches[0].homeTeam)
+        matchesTable.reloadData()
+        addSegueButtons(rounds2: rounds)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppData.matches.count
+        print("lmao")
+        
+        return matches.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! VsCell
-        cell.configure(match: AppData.matches[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withIdentifier: "matchCell") as! VsCell
+        cell.configure(match: matches[indexPath.row])
         print("CELL MADE")
             return cell
     }
     
-
+    func addSegueButtons(rounds2: Int){
+        if(rounds2 > 2){
+            for i in 0 ... rounds2-3 {
+                segmentedController.insertSegment(withTitle: labels[i], at: i+2, animated: false)
+            }
+        }
+    }
+    
+    
+    @IBAction func valueChanged(_ sender: UISegmentedControl) {
+        if segmentedController.value(forKey: "First"){
+            
+        }
+    }
+    
+    
 }
