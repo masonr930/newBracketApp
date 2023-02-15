@@ -18,6 +18,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
    var matches: [MatchupClass] = []
     var teamCheck = false
     var rounds = 0
+    var selectedMatch: MatchupClass!
     
     
         override func viewDidLoad() {
@@ -45,6 +46,11 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMatch = matches[indexPath.row]
+        performSegue(withIdentifier: "chooseWinnerSegue", sender: self)
+    }
+    
     func addSegueButtons(rounds2: Int){
         if(rounds2 > 2){
             for i in 0 ... rounds2-3 {
@@ -55,10 +61,15 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @IBAction func valueChanged(_ sender: UISegmentedControl) {
-        if segmentedController.value(forKey: "First"){
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chooseWinnerSegue"
+        {
             
         }
     }
-    
     
 }

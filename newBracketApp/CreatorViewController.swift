@@ -70,6 +70,16 @@ print("I'm having fun!")
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete
+        {
+            teams.remove(at: indexPath.row)
+            tableViewOutlet.deleteRows(at: [indexPath], with: .fade)
+            tableViewOutlet.reloadData()
+        }
+    }
+    
 
     //Making this do the whole bracket (Trying). The number is the amount of people who move on to round 2 without having to play anyone. Should be correct.
     func makeBracket(teams: [String]){

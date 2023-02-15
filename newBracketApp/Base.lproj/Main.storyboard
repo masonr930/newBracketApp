@@ -219,6 +219,7 @@
                     <connections>
                         <outlet property="matchesTable" destination="EhO-nU-5SA" id="6ng-sd-X6E"/>
                         <outlet property="segmentedController" destination="d8z-u0-tMc" id="J5N-Yh-foj"/>
+                        <segue destination="Hc0-9X-4kf" kind="show" identifier="chooseWinnerSegue" id="gqL-fq-s92"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -245,15 +246,16 @@
             <objects>
                 <viewController id="Hc0-9X-4kf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="raS-6P-ZsW">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Hgl-Mx-zWJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="NFQ-E6-ZQh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPd-PR-Iov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1941" y="1072"/>
+            <point key="canvasLocation" x="1825" y="1132"/>
         </scene>
     </scenes>
     <resources>
