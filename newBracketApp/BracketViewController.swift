@@ -20,6 +20,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     var rounds = 0
     var selectedMatch: MatchupClass!
     var sectionChoice = 1
+    var roundMatches = [Int: RoundClass]()
     
     
     override func viewDidLoad() {
@@ -31,6 +32,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         print(matches[0].homeTeam)
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
+        roundMatches[sectionChoice] = RoundClass(bMatches: matches, brounds: sectionChoice)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,4 +105,22 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+    
+    func newRound(rounds: RoundClass) -> RoundClass{
+        var mats = rounds.matches
+        var str1 = ""
+        var str2 = ""
+        var bool = false
+        
+        for i in mats{
+            if bool{
+                if i.winnerCheck == false{
+                    str1 = "Winner of round \(find(mats, i))"
+                }
+            }
+        }
+        
+        
+        return nRound
+    }
     }

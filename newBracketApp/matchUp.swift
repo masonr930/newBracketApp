@@ -27,7 +27,6 @@ class MatchupClass{
         winner = true
         winnerCheck = false
         
-        
     }
     
     
