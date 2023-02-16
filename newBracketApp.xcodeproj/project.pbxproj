@@ -119,6 +119,7 @@
 				4AB3AC5C299D1B3F00431938 /* WinnerVC.swift */,
 				4A9D295E299A7F270092B602 /* VsCell.swift */,
 				4A58200429952DA10001B875 /* BracketViewController.swift */,
+				68329973299D1E72007FF41B /* roundClass.swift */,
 				4A58200229952D3D0001B875 /* CreatorViewController.swift */,
 				4A999BE82993DE2000F82201 /* Assets.xcassets */,
 				4A999BEA2993DE2000F82201 /* LaunchScreen.storyboard */,
@@ -278,6 +279,7 @@
 			files = (
 				4A9D295F299A7F270092B602 /* VsCell.swift in Sources */,
 				4A999BE12993DE2000F82201 /* ViewController.swift in Sources */,
+				68329974299D1E72007FF41B /* roundClass.swift in Sources */,
 				4A999BE72993DE2000F82201 /* newBracketApp.xcdatamodeld in Sources */,
 				683C72E02993E312000059E6 /* matchUp.swift in Sources */,
 				4A999BDD2993DE2000F82201 /* AppDelegate.swift in Sources */,

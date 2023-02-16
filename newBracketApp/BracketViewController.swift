@@ -96,4 +96,10 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
     }
-}
+      
+    //more rounds checkers
+    var newMatches: [MatchupClass] = []
+    
+    
+    
+    }
