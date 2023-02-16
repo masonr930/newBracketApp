@@ -11,6 +11,7 @@ class WinnerVC: UIViewController {
 
     var team1: String!
     var team2: String!
+    var match: MatchupClass!
     
     @IBOutlet weak var homeLabel: UILabel!
     
@@ -23,10 +24,17 @@ class WinnerVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func homeButton(_ sender: UIButton) {
+    @IBAction func homeButton(_ sender: UIButton){
+        
+        match.winner = true
+        match.winnerCheck = true
+        
     }
     
     @IBAction func awayButton(_ sender: UIButton) {
+        
+        match.winner = false
+        match.winnerCheck = true
     }
     
 

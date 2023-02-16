@@ -28,6 +28,9 @@ print("I'm having fun!")
         
         tableViewOutlet.dataSource = self
         tableViewOutlet.delegate = self
+        tableViewOutlet.dragInteractionEnabled = true
+        tableViewOutlet.isEditing = true
+        tableViewOutlet.allowsSelectionDuringEditing = true
     }
     
     @IBAction func addTeamButton(_ sender: UIButton) {
@@ -67,6 +70,7 @@ print("I'm having fun!")
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewOutlet.dequeueReusableCell(withIdentifier: "teamCell")!
         cell.textLabel?.text = teams[indexPath.row]
+        cell.detailTextLabel?.text = "Seed: \(indexPath.row + 1)"
         return cell
     }
     
@@ -78,6 +82,20 @@ print("I'm having fun!")
             tableViewOutlet.deleteRows(at: [indexPath], with: .fade)
             tableViewOutlet.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        teams.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        tableViewOutlet.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
 
@@ -174,4 +192,16 @@ print("I'm having fun!")
         }
         return firstRoundMatches
     }
+    
+    func randomSeeds(matches: [MatchupClass])
+    {
+        matches.shuffle()
+        tableViewOutlet.reloadData()
+    }
+    
+    @IBAction func shuffleButton(_ sender: UIButton) {
+        randomSeeds(matches: matches)
+    }
+    
+    
 }
