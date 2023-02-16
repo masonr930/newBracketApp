@@ -13,6 +13,8 @@ class MatchupClass{
     var homeScore: Int
     var awayScore: Int
     var isMatch: Bool
+    var winner: Bool
+    var winnerCheck: Bool
     
     
     init(hTeam: String, aTeam: String, hScore: Int, aScore: Int, match: Bool) {
@@ -22,6 +24,8 @@ class MatchupClass{
         homeScore = hScore
         awayScore = aScore
         isMatch = match
+        winner = true
+        winnerCheck = false
         
         
     }

@@ -10,21 +10,21 @@ import UIKit
 class BracketViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-
+    
     @IBOutlet weak var matchesTable: UITableView!
     @IBOutlet weak var segmentedController: UISegmentedControl!
     var labels = ["Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth", "Tenth", "Eleventh", "Twelfth", "Thirteenth", "Fourteenth", "Fifteenth"]
     var teams: [String] = []
-   var matches: [MatchupClass] = []
+    var matches: [MatchupClass] = []
     var teamCheck = false
     var rounds = 0
     var selectedMatch: MatchupClass!
     var sectionChoice = 1
     
     
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         matchesTable.dataSource = self
         matchesTable.delegate = self
@@ -41,10 +41,10 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "matchCell") as! VsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "matchCell") as! VsCell
         cell.configure(match: matches[indexPath.row])
         print("CELL MADE")
-            return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -57,6 +57,15 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             for i in 0 ... rounds2-3 {
                 segmentedController.insertSegment(withTitle: labels[i], at: i+2, animated: false)
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chooseWinnerSegue"
+        {
+            let nvc = segue.destination as! WinnerVC
+            nvc.team1 = selectedMatch.homeTeam
+            nvc.team2 = selectedMatch.awayTeam
         }
     }
     
@@ -80,16 +89,11 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 13: sectionChoice = 14
         case 14: sectionChoice = 15
         default: sectionChoice = 1
-        
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "chooseWinnerSegue"
-        {
             
         }
-        print(sectionChoice)
+        
+        
+        
+        
     }
-    
 }
