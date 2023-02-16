@@ -193,14 +193,14 @@ print("I'm having fun!")
         return firstRoundMatches
     }
     
-    func randomSeeds(matches: [MatchupClass])
+    func randomSeeds(teams: [String])
     {
-        matches.shuffle()
+        self.teams.shuffle()
         tableViewOutlet.reloadData()
     }
     
     @IBAction func shuffleButton(_ sender: UIButton) {
-        randomSeeds(matches: matches)
+        randomSeeds(teams: teams)
     }
     
     

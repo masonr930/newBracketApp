@@ -106,21 +106,21 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-    func newRound(rounds: RoundClass) -> RoundClass{
-        var mats = rounds.matches
-        var str1 = ""
-        var str2 = ""
-        var bool = false
-        
-        for i in mats{
-            if bool{
-                if i.winnerCheck == false{
-                    str1 = "Winner of round \(find(mats, i))"
-                }
-            }
-        }
-        
-        
-        return nRound
-    }
+//    func newRound(rounds: RoundClass) -> RoundClass{
+//        var mats = rounds.matches
+//        var str1 = ""
+//        var str2 = ""
+//        var bool = false
+//        
+//        for i in mats{
+//            if bool{
+//                if i.winnerCheck == false{
+//                    str1 = "Winner of round \(find(mats, i))"
+//                }
+//            }
+//        }
+//        
+//        
+//        return nRound
+//    }
     }
