@@ -32,7 +32,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         print(matches[0].homeTeam)
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
-        roundMatches[sectionChoice] = RoundClass(bMatches: matches, brounds: sectionChoice)
+//        roundMatches[sectionChoice] = RoundClass(bMatches: matches, brounds: sectionChoice)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,23 +103,51 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     //more rounds checkers
     var newMatches: [MatchupClass] = []
     
+    func makeRounds(rounds: RoundClass, r: Int) -> [Int: RoundClass]{
+        
+    }
     
     
-    
-    func newRound(rounds: RoundClass) -> RoundClass{
+    func newRound(rounds: RoundClass, r: Int) -> RoundClass{
         var mats = rounds.matches
         var str1 = ""
         var str2 = ""
-        var bool = false
+        var bool = true
+        var newMats: [MatchupClass] = []
         
-        for i in mats{
+        for i in 0 ..< mats.count {
             if bool{
-                if i.winnerCheck == false{
-                    str1 = "Winner of round \(find(mats, i))"
+                if mats[i].winnerCheck == false{
+                    str1 = "Winner of round \(i)"
                 }
+                else{
+                    if mats[i].winnerCheck{
+                        str1 = mats[i].homeTeam
+                    }
+                    else{
+                        str1 = mats[i].awayTeam
+                    }
+                }
+                bool = false
+            }
+            else{
+                if mats[i].winnerCheck == false{
+                    str2 = "Winner of round \(i)"
+                }
+                else{
+                    if mats[i].winnerCheck{
+                        str2 = mats[i].homeTeam
+                    }
+                    else{
+                        str2 = mats[i].awayTeam
+                    }
+                }
+
+                newMats.append(MatchupClass(hTeam: str1, aTeam: str2, hScore: 0, aScore: 0, match: true))
+                bool = true
             }
         }
-        
+        var nRound = RoundClass(bMatches: newMats, brounds: r)
         
         return nRound
     }
