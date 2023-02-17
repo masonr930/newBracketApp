@@ -103,8 +103,9 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     //more rounds checkers
     var newMatches: [MatchupClass] = []
     
-    func makeRounds(rounds: RoundClass, r: Int) -> [Int: RoundClass]{
-        
+    func makeRounds(rounds: [MatchupClass], r: Int) -> [Int: RoundClass]{
+        var rounder = [Int: RoundClass]()
+        rounder[0] = RoundClass.init(bMatches: rounds, brounds: 1)
     }
     
     
