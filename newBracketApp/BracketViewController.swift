@@ -32,10 +32,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         print(matches[0].homeTeam)
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
-//        roundMatches[sectionChoice] = RoundClass(bMatches: matches, brounds: sectionChoice)
+        roundMatches = makeRounds(rounds2: matches, r: rounds)
     }
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("lmao")
@@ -72,7 +70,6 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             nvc.team2 = selectedMatch.awayTeam
             nvc.match = selectedMatch
         }
-        
     }
     
     
@@ -98,14 +95,26 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         
+        matches = roundMatches[sectionChoice-1]!.matches
+        matchesTable.reloadData()
+        
+        
+        
+        
     }
       
     //more rounds checkers
     var newMatches: [MatchupClass] = []
     
-    func makeRounds(rounds: [MatchupClass], r: Int) -> [Int: RoundClass]{
+    func makeRounds(rounds2: [MatchupClass], r: Int) -> [Int: RoundClass]{
         var rounder = [Int: RoundClass]()
-        rounder[0] = RoundClass.init(bMatches: rounds, brounds: 1)
+        rounder[0] = RoundClass.init(bMatches: rounds2, brounds: 1)
+        for i in 1 ..< r {
+            var ron = RoundClass(bMatches: rounds2, brounds: 0)
+            ron = newRound(rounds: rounder[i-1] ?? rounder[0]!, r: i+1)
+            rounder[i] = ron
+        }
+        return rounder
     }
     
     
