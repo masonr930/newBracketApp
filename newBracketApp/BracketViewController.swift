@@ -35,6 +35,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        roundMatches[sectionChoice] = RoundClass(bMatches: matches, brounds: sectionChoice)
     }
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("lmao")
         
@@ -70,6 +72,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             nvc.team2 = selectedMatch.awayTeam
             nvc.match = selectedMatch
         }
+        
     }
     
     
@@ -94,9 +97,6 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         default: sectionChoice = 1
             
         }
-        
-        
-        
         
     }
       
@@ -152,4 +152,13 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return nRound
     }
+    
+    @IBAction func goToBracket(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "toBracket", sender: self)
+    }
+    
+    
+    
+    
     }
