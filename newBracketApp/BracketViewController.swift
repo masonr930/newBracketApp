@@ -29,11 +29,20 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         matchesTable.dataSource = self
         matchesTable.delegate = self
+        
+        
         print(matches[0].homeTeam)
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
         roundMatches = makeRounds(rounds2: matches, r: rounds)
+        
+        
+        
     }
+    
+    
+    //pass match to winnerVC then in that VC viewDidDisappear func to show winner
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("lmao")
