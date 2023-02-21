@@ -12,6 +12,7 @@ class WinnerVC: UIViewController {
     var team1: String!
     var team2: String!
     var match: MatchupClass!
+    var cell: VsCell!
     
     @IBOutlet weak var homeLabel: UILabel!
     
@@ -26,7 +27,7 @@ class WinnerVC: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        
+        cell.configure(match: match)
     }
     
     @IBAction func homeButton(_ sender: UIButton){

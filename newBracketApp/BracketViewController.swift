@@ -14,6 +14,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var matchesTable: UITableView!
     @IBOutlet weak var segmentedController: UISegmentedControl!
     var labels = ["Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth", "Tenth", "Eleventh", "Twelfth", "Thirteenth", "Fourteenth", "Fifteenth"]
+    var cell: VsCell!
     var teams: [String] = []
     var matches: [MatchupClass] = []
     var teamCheck = false
@@ -47,7 +48,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "matchCell") as! VsCell
+        cell = tableView.dequeueReusableCell(withIdentifier: "matchCell") as! VsCell
         cell.configure(match: matches[indexPath.row])
         print("CELL MADE")
         return cell
@@ -73,6 +74,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             nvc.team1 = selectedMatch.homeTeam
             nvc.team2 = selectedMatch.awayTeam
             nvc.match = selectedMatch
+            nvc.cell = cell
         }
     }
     
