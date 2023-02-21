@@ -41,8 +41,6 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    //pass match to winnerVC then in that VC viewDidDisappear func to show winner
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("lmao")

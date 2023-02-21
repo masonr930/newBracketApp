@@ -24,6 +24,10 @@ class WinnerVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+    }
+    
     @IBAction func homeButton(_ sender: UIButton){
         
         match.winner = true
