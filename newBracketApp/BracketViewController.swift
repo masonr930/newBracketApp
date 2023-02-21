@@ -29,6 +29,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         matchesTable.dataSource = self
         matchesTable.delegate = self
+        
+        
         print(matches[0].homeTeam)
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
@@ -168,7 +170,6 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         return nRound
     }
     
-
     @IBAction func goToBracket(_ sender: UIButton)
     {
         performSegue(withIdentifier: "toBracket", sender: self)
