@@ -21,7 +21,8 @@ class WinnerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        homeLabel.text = team1
+        awayLabel.text = team2
     }
     
     @IBAction func homeButton(_ sender: UIButton){

@@ -76,6 +76,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func valueChanged(_ sender: UISegmentedControl) {
         let select = sender.selectedSegmentIndex
         switch select {
+    
         case 0: sectionChoice = 1
         case 1: sectionChoice = 2
         case 2: sectionChoice = 3
@@ -94,7 +95,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         default: sectionChoice = 1
             
         }
-        
+        //this updates the tableView based on the selection made
         matches = roundMatches[sectionChoice-1]!.matches
         matchesTable.reloadData()
         
@@ -105,7 +106,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
       
     //more rounds checkers
     var newMatches: [MatchupClass] = []
-    
+    //This creates a dictionary of rounds which can be updated by the table
     func makeRounds(rounds2: [MatchupClass], r: Int) -> [Int: RoundClass]{
         var rounder = [Int: RoundClass]()
         rounder[0] = RoundClass.init(bMatches: rounds2, brounds: 1)
@@ -117,7 +118,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         return rounder
     }
     
-    
+    //This creates a round based on the round before it
+    //Will be updated to that it can track a round made I suppose
     func newRound(rounds: RoundClass, r: Int) -> RoundClass{
         var mats = rounds.matches
         var str1 = ""
@@ -128,7 +130,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         for i in 0 ..< mats.count {
             if bool{
                 if mats[i].winnerCheck == false{
-                    str1 = "Winner of round \(i)"
+                    str1 = "Winner of round \(i+1)"
                 }
                 else{
                     if mats[i].winnerCheck{
@@ -142,7 +144,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             else{
                 if mats[i].winnerCheck == false{
-                    str2 = "Winner of round \(i)"
+                    str2 = "Winner of round \(i+1)"
                 }
                 else{
                     if mats[i].winnerCheck{
@@ -161,4 +163,5 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return nRound
     }
+    
     }
