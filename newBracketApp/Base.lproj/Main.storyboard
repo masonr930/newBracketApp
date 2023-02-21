@@ -227,6 +227,15 @@
                                     <action selector="valueChanged:" destination="rsB-6z-2FB" eventType="valueChanged" id="BkB-3W-Nou"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55M-FW-yYg">
+                                <rect key="frame" x="130" y="59" width="132" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Bracket"/>
+                                <connections>
+                                    <action selector="goToBracket:" destination="rsB-6z-2FB" eventType="touchUpInside" id="uCE-tp-mXa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qtl-Aj-pqT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -236,6 +245,7 @@
                         <outlet property="matchesTable" destination="EhO-nU-5SA" id="6ng-sd-X6E"/>
                         <outlet property="segmentedController" destination="d8z-u0-tMc" id="J5N-Yh-foj"/>
                         <segue destination="Hc0-9X-4kf" kind="show" identifier="chooseWinnerSegue" id="gqL-fq-s92"/>
+                        <segue destination="0Vs-cb-EHR" kind="show" identifier="toBracket" id="bfG-7L-TFS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -322,8 +332,11 @@
         <scene sceneID="wN2-Mr-ggY">
             <objects>
                 <viewController id="0Vs-cb-EHR" customClass="BracketViewController" customModule="newBracketApp" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <viewController id="0Vs-cb-EHR" customClass="TheBracket" sceneMemberID="viewController">
+>>>>>>> main
                     <view key="view" contentMode="scaleToFill" id="Ly3-aP-nPX">
-                        <rect key="frame" x="0.0" y="0.0" width="2400" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.66666666666674"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xmh-2Q-X7s">
@@ -741,6 +754,7 @@
                             <constraint firstItem="xmh-2Q-X7s" firstAttribute="leading" secondItem="Wqa-Ln-Te8" secondAttribute="leading" id="qnB-6w-ET5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="TJW-ZZ-jYG"/>
                     <size key="freeformSize" width="2400" height="1200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGr-LY-gAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

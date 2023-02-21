@@ -35,6 +35,10 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         roundMatches = makeRounds(rounds2: matches, r: rounds)
     }
     
+    
+    //pass match to winnerVC then in that VC viewDidDisappear func to show winner
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("lmao")
         
@@ -163,5 +167,14 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return nRound
     }
+    
+
+    @IBAction func goToBracket(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "toBracket", sender: self)
+    }
+    
+    
+    
     
     }

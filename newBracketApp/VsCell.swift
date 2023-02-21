@@ -20,6 +20,27 @@ class VsCell: UITableViewCell{
     func labelChange(teamOne: String, teamTwo: String){
         
     }
+    
+    func chooseWinner(matches: [MatchupClass])
+    {
+        if cellMatch?.winnerCheck == false
+        {
+            winnerLabel.text = "N/A"
+        }
+        else
+        {
+            if cellMatch?.winner == true
+            {
+                winnerLabel.text = "\(cellMatch?.homeTeam)"
+            }
+            else
+            {
+                winnerLabel.text = "\(cellMatch?.awayTeam)"
+            }
+            
+        }
+    }
+    
     func configure (match: MatchupClass){
         cellMatch = match
         teamOneLabel.text = cellMatch!.homeTeam
