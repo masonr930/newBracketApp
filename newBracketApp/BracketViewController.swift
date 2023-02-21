@@ -165,9 +165,26 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
                 bool = true
             }
         }
-        var nRound = RoundClass(bMatches: newMats, brounds: r)
+        let nRound = RoundClass(bMatches: newMats, brounds: r)
         
         return nRound
+    }
+    
+    func winnerMoment(r: Int, matNum: Int){
+        var dub: String!
+        if (roundMatches[r]!.matches[matNum].winner){
+            dub = roundMatches[r]!.matches[matNum].homeTeam
+        }
+        else {
+            dub = roundMatches[r]!.matches[matNum].awayTeam
+        }
+        if matNum%2 == 0{
+            roundMatches[r+1]!.matches[(matNum/2)+1].homeTeam = dub
+        }
+        else {
+            roundMatches[r+1]!.matches[(matNum/2)+1].awayTeam = dub
+        }
+        
     }
     
     @IBAction func goToBracket(_ sender: UIButton)
