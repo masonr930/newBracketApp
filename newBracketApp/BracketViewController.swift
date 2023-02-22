@@ -38,10 +38,6 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         roundMatches = makeRounds(rounds2: matches, r: rounds)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        matchesTable.reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("lmao")
         
@@ -196,7 +192,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func unwind(_seg: UIStoryboardSegue)
     {
-        
+        matchesTable.reloadData()
     }
     
     

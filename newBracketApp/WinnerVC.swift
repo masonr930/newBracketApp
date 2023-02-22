@@ -30,7 +30,7 @@ class WinnerVC: UIViewController {
         
         if isMovingFromParent
         {
-            prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>)
+            performSegue(withIdentifier: "unwindSegue", sender: nil)
         }
     }
     
@@ -38,6 +38,7 @@ class WinnerVC: UIViewController {
         
         match.winner = true
         match.winnerCheck = true
+        performSegue(withIdentifier: "unwindSegue", sender: nil)
         
     }
     
@@ -45,6 +46,7 @@ class WinnerVC: UIViewController {
         
         match.winner = false
         match.winnerCheck = true
+        performSegue(withIdentifier: "unwindSegue", sender: nil)
     }
     
 
