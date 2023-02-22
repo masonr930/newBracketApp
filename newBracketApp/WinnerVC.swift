@@ -27,7 +27,7 @@ class WinnerVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        cell.configure(match: match)
+        
     }
     
     @IBAction func homeButton(_ sender: UIButton){
