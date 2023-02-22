@@ -46,7 +46,20 @@ print("I'm having fun!")
    
     @IBAction func createButton(_ sender: UIButton)
     {
-        performSegue(withIdentifier: "createBracket", sender: self)
+        
+        
+        let alert = UIAlertController(title: "Are you sure?", message: "Is the bracket complete?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: nil)
+        let noAction = UIAlertAction(title: "No", style: .destructive)
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        present(alert, animated: true, completion: nil)
+        
+        
+        
+            performSegue(withIdentifier: "createBracket", sender: self)
+        
+        
         
     }
     
