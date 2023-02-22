@@ -27,7 +27,11 @@ class WinnerVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        cell.configure(match: match)
+        
+        if isMovingFromParent
+        {
+            prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>)
+        }
     }
     
     @IBAction func homeButton(_ sender: UIButton){

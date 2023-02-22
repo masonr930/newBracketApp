@@ -308,11 +308,13 @@
                     <connections>
                         <outlet property="awayLabel" destination="bWR-1q-sg6" id="eao-vF-MvD"/>
                         <outlet property="homeLabel" destination="FPF-pS-inu" id="fca-ct-aqt"/>
+                        <segue destination="2YH-kk-pW7" kind="unwind" identifier="unwindSegue" unwindAction="unwindWith_seg:" id="ncO-0Q-GyB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPd-PR-Iov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="2YH-kk-pW7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1966" y="1078"/>
+            <point key="canvasLocation" x="3857" y="1160"/>
         </scene>
         <!--The Bracket-->
         <scene sceneID="wN2-Mr-ggY">
