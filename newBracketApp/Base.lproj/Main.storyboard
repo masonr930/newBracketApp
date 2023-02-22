@@ -137,19 +137,26 @@
                                     <action selector="shuffleButton:" destination="3xt-BI-56u" eventType="touchUpInside" id="EgP-wW-u1T"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bracket Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5P8-oO-KjE">
-                                <rect key="frame" x="16" y="125" width="361" height="46"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bracket Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5P8-oO-KjE">
+                                <rect key="frame" x="0.0" y="125" width="203" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZBJ-Al-wQX">
+                                <rect key="frame" x="211" y="131" width="146" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZZU-bs-mHh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Uxo-dp-ojE"/>
                     <connections>
+                        <outlet property="nameOutlet" destination="ZBJ-Al-wQX" id="ctp-z0-BpH"/>
                         <outlet property="tableViewOutlet" destination="aFK-ww-iKt" id="x6K-u1-vC9"/>
                         <outlet property="textfieldOutlet" destination="raE-bC-aQ5" id="dRI-18-DUu"/>
                         <segue destination="rsB-6z-2FB" kind="show" identifier="createBracket" id="8xR-Zn-0QZ"/>
@@ -157,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGp-Ct-eAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="756"/>
+            <point key="canvasLocation" x="1038.9312977099237" y="755.63380281690149"/>
         </scene>
         <!--Bracket View Controller-->
         <scene sceneID="ZYs-iS-HvV">
@@ -262,14 +269,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOME TEAM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPF-pS-inu">
-                                <rect key="frame" x="44" y="136" width="113" height="69"/>
+                                <rect key="frame" x="16" y="136" width="173" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AWAY TEAM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWR-1q-sg6">
-                                <rect key="frame" x="238" y="136" width="113" height="69"/>
+                                <rect key="frame" x="197" y="136" width="180" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -314,7 +321,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPd-PR-Iov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2YH-kk-pW7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3857" y="1160"/>
+            <point key="canvasLocation" x="3855.7251908396943" y="1159.8591549295775"/>
         </scene>
         <!--The Bracket-->
         <scene sceneID="wN2-Mr-ggY">

@@ -22,6 +22,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     var selectedMatch: MatchupClass!
     var sectionChoice = 1
     var roundMatches = [Int: RoundClass]()
+    var matIndex = 0
     
     
     override func viewDidLoad() {
@@ -39,7 +40,6 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("lmao")
         
         return matches.count
         
@@ -48,12 +48,12 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(withIdentifier: "matchCell") as! VsCell
         cell.configure(match: matches[indexPath.row])
-        print("CELL MADE")
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedMatch = matches[indexPath.row]
+        matIndex = indexPath.row
         performSegue(withIdentifier: "chooseWinnerSegue", sender: self)
     }
     
@@ -170,19 +170,22 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func winnerMoment(r: Int, matNum: Int){
         var dub: String!
-        if (roundMatches[r]!.matches[matNum].winner){
-            dub = roundMatches[r]!.matches[matNum].homeTeam
+        if roundMatches[r]!.matches[matNum].winnerCheck{
+            if (roundMatches[r]!.matches[matNum].winner){
+                dub = roundMatches[r]!.matches[matNum].homeTeam
+                print("Home")
+            }
+            else {
+                dub = roundMatches[r]!.matches[matNum].awayTeam
+                print("away")
+            }
+            if matNum%2 == 0{
+                roundMatches[r+1]!.matches[(matNum/2)].homeTeam = dub
+            }
+            else {
+                roundMatches[r+1]!.matches[(matNum/2)].awayTeam = dub
+            }
         }
-        else {
-            dub = roundMatches[r]!.matches[matNum].awayTeam
-        }
-        if matNum%2 == 0{
-            roundMatches[r+1]!.matches[(matNum/2)+1].homeTeam = dub
-        }
-        else {
-            roundMatches[r+1]!.matches[(matNum/2)+1].awayTeam = dub
-        }
-        
     }
     
     @IBAction func goToBracket(_ sender: UIButton)
@@ -192,6 +195,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func unwind(_seg: UIStoryboardSegue)
     {
+        winnerMoment(r: sectionChoice-1, matNum: matIndex)
         matchesTable.reloadData()
     }
     

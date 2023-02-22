@@ -21,7 +21,7 @@ class WinnerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         homeLabel.text = team1
         awayLabel.text = team2
     }
