@@ -21,30 +21,27 @@ class VsCell: UITableViewCell{
         
     }
     
-    func chooseWinner(matches: [MatchupClass])
-    {
-        if cellMatch?.winnerCheck == false
+    
+    
+    func configure (match: MatchupClass){
+        teamOneLabel.text = match.homeTeam
+        teamTwoLabel.text = match.awayTeam
+        
+        if match.winnerCheck == false
         {
             winnerLabel.text = "N/A"
         }
         else
         {
-            if cellMatch?.winner == true
+            if match.winner == true
             {
-                winnerLabel.text = "\(cellMatch?.homeTeam)"
+                winnerLabel.text = "\(match.homeTeam)"
             }
             else
             {
-                winnerLabel.text = "\(cellMatch?.awayTeam)"
+                winnerLabel.text = "\(match.awayTeam)"
             }
             
         }
-    }
-    
-    func configure (match: MatchupClass){
-        cellMatch = match
-        teamOneLabel.text = cellMatch!.homeTeam
-        teamTwoLabel.text = cellMatch!.awayTeam
-        winnerLabel.text = "N/A"
     }
 }
