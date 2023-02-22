@@ -26,7 +26,7 @@ class WinnerVC: UIViewController {
         awayLabel.text = team2
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         cell.configure(match: match)
     }
     
