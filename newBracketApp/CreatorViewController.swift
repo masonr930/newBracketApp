@@ -13,11 +13,13 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 
     @IBOutlet weak var textfieldOutlet: UITextField!
+    @IBOutlet weak var nameOutlet: UITextField!
      var teams: [String] = []
      var numberOfTeams = 0
     var matches: [MatchupClass] = []
     var teamCheck = false
     var rounds = 0
+    var name = ""
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -46,6 +48,8 @@ print("I'm having fun!")
    
     @IBAction func createButton(_ sender: UIButton)
     {
+        name = nameOutlet.text!
+        //add alert controller here to confirm
         performSegue(withIdentifier: "createBracket", sender: self)
         
     }
