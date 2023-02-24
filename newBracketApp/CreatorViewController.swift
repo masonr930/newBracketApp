@@ -50,22 +50,36 @@ print("I'm having fun!")
     {
         name = nameOutlet.text!
         //add alert controller here to confirm
-        performSegue(withIdentifier: "createBracket", sender: self)
+        
+        if teams.count < 3
+        {
+            let theAlert = UIAlertController(title: "Not enough teams", message: "The bracket needs at least 3 teams", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+            theAlert.addAction(yesAction)
+            present(theAlert, animated: true, completion: nil)
+        }
+        
+        else if nameOutlet.text == ""
+        {
+            let theAlert = UIAlertController(title: "No bracket name", message: "Enter a bracket name", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+            theAlert.addAction(yesAction)
+            present(theAlert, animated: true, completion: nil)
+        }
+                    
         
         
         let alert = UIAlertController(title: "Are you sure?", message: "Is the bracket complete?", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: nil)
-        let noAction = UIAlertAction(title: "No", style: .destructive)
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
+            self.performSegue(withIdentifier: "createBracket", sender: self)
+        }
+        let noAction = UIAlertAction(title: "No", style: .cancel)
         alert.addAction(yesAction)
         alert.addAction(noAction)
         present(alert, animated: true, completion: nil)
         
         
-        
-            performSegue(withIdentifier: "createBracket", sender: self)
-        
-        
-        
+            
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
