@@ -72,11 +72,13 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "chooseWinnerSegue"
         {
            
-                let nvc = segue.destination as! WinnerVC
-                nvc.team1 = selectedMatch.homeTeam
-                nvc.team2 = selectedMatch.awayTeam
-                nvc.match = selectedMatch
-                nvc.cell = cell
+            let nvc = segue.destination as! WinnerVC
+            nvc.team1 = selectedMatch.homeTeam
+            nvc.team2 = selectedMatch.awayTeam
+            nvc.match = selectedMatch
+            nvc.cell = cell
+            nvc.segment = segmentedController.selectedSegmentIndex + 1
+            nvc.finalSegment = segmentedController.numberOfSegments
                 
         }
     }

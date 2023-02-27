@@ -27,21 +27,30 @@ class VsCell: UITableViewCell{
         teamOneLabel.text = match.homeTeam
         teamTwoLabel.text = match.awayTeam
         
-        if match.winnerCheck == false
+        
+        if match.isMatch == false
         {
-            winnerLabel.text = "N/A"
+            winnerLabel.text = "\(match.homeTeam)"
         }
         else
         {
-            if match.winner == true
+            if match.winnerCheck == false
             {
-                winnerLabel.text = "\(match.homeTeam)"
+                winnerLabel.text = "N/A"
             }
             else
             {
-                winnerLabel.text = "\(match.awayTeam)"
+                if match.winner == true
+                {
+                    winnerLabel.text = "\(match.homeTeam)"
+                }
+                else
+                {
+                    winnerLabel.text = "\(match.awayTeam)"
+                }
+                
             }
-            
         }
+        
     }
 }

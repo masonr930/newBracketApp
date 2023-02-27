@@ -316,12 +316,41 @@
                         <outlet property="awayLabel" destination="bWR-1q-sg6" id="eao-vF-MvD"/>
                         <outlet property="homeLabel" destination="FPF-pS-inu" id="fca-ct-aqt"/>
                         <segue destination="2YH-kk-pW7" kind="unwind" identifier="unwindSegue" unwindAction="unwindWith_seg:" id="ncO-0Q-GyB"/>
+                        <segue destination="FNz-nX-7cv" kind="show" identifier="finalWinnerSegue" id="WTR-7L-roZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPd-PR-Iov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2YH-kk-pW7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3855.7251908396943" y="1159.8591549295775"/>
+        </scene>
+        <!--Final Winner View Controller-->
+        <scene sceneID="Lbw-LR-S9d">
+            <objects>
+                <viewController id="FNz-nX-7cv" customClass="FinalWinnerViewController" customModule="newBracketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ceX-Pb-Bg9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKv-Ek-7AB">
+                                <rect key="frame" x="16" y="141" width="361" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5QI-1W-wuN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qBl-ht-VU7"/>
+                    <connections>
+                        <outlet property="winnerLabel" destination="fKv-Ek-7AB" id="CPr-6s-Bp7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTi-Oi-iKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2354.9618320610684" y="1032.3943661971832"/>
         </scene>
         <!--The Bracket-->
         <scene sceneID="wN2-Mr-ggY">
