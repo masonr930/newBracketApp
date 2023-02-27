@@ -55,7 +55,9 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedMatch = matches[indexPath.row]
         matIndex = indexPath.row
-        performSegue(withIdentifier: "chooseWinnerSegue", sender: self)
+        if selectedMatch.winnerCheck == false && selectedMatch.isMatch == true{
+            performSegue(withIdentifier: "chooseWinnerSegue", sender: self)
+        }
     }
     
     func addSegueButtons(rounds2: Int){
@@ -69,13 +71,12 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "chooseWinnerSegue"
         {
-            if selectedMatch.winnerCheck == false && selectedMatch.isMatch == false{
+           
                 let nvc = segue.destination as! WinnerVC
                 nvc.team1 = selectedMatch.homeTeam
                 nvc.team2 = selectedMatch.awayTeam
                 nvc.match = selectedMatch
                 nvc.cell = cell
-            }
                 
         }
     }
