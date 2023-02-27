@@ -37,6 +37,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
         roundMatches = makeRounds(rounds2: matches, r: rounds)
+        byeCheck()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,11 +69,14 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "chooseWinnerSegue"
         {
-            let nvc = segue.destination as! WinnerVC
-            nvc.team1 = selectedMatch.homeTeam
-            nvc.team2 = selectedMatch.awayTeam
-            nvc.match = selectedMatch
-            nvc.cell = cell
+            if selectedMatch.winnerCheck == false && selectedMatch.isMatch == false{
+                let nvc = segue.destination as! WinnerVC
+                nvc.team1 = selectedMatch.homeTeam
+                nvc.team2 = selectedMatch.awayTeam
+                nvc.match = selectedMatch
+                nvc.cell = cell
+            }
+                
         }
     }
     
@@ -184,6 +188,22 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             else {
                 roundMatches[r+1]!.matches[(matNum/2)].awayTeam = dub
+            }
+        }
+    }
+    
+    func byeCheck(){
+        var matNum = roundMatches[0]!.matches.count
+        for i in 0 ..< matNum{
+            if !roundMatches[0]!.matches[i].isMatch{
+                if i%2 == 0{
+                    roundMatches[1]!.matches[(i/2)].homeTeam = roundMatches[0]!.matches[i].homeTeam
+                    print("BOOOOO")
+                }
+                else {
+                    roundMatches[1]!.matches[(i/2)].awayTeam = roundMatches[0]!.matches[i].homeTeam
+                    print("hooray!")
+                }
             }
         }
     }
