@@ -21,8 +21,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     var rounds = 0
     var selectedMatch: MatchupClass!
     var sectionChoice = 1
-    var roundMatches = [Int: RoundClass]()
     var matIndex = 0
+    var bigBracket: BracketObject!
     
     
     override func viewDidLoad() {
@@ -33,10 +33,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         matchesTable.delegate = self
         
         
-        print(matches[0].homeTeam)
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
-        roundMatches = makeRounds(rounds2: matches, r: rounds)
         byeCheck()
     }
     
@@ -55,7 +53,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedMatch = matches[indexPath.row]
         matIndex = indexPath.row
-        if selectedMatch.winnerCheck == false && selectedMatch.isMatch == true{
+        if  selectedMatch.isMatch == true{
             performSegue(withIdentifier: "chooseWinnerSegue", sender: self)
         }
     }
@@ -105,7 +103,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         //this updates the tableView based on the selection made
-        matches = roundMatches[sectionChoice-1]!.matches
+        matches = bigBracket.rounds[sectionChoice-1]!.matches
         matchesTable.reloadData()
         
         
@@ -115,94 +113,38 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
       
     //more rounds checkers
     var newMatches: [MatchupClass] = []
-    //This creates a dictionary of rounds which can be updated by the table
-    func makeRounds(rounds2: [MatchupClass], r: Int) -> [Int: RoundClass]{
-        var rounder = [Int: RoundClass]()
-        rounder[0] = RoundClass.init(bMatches: rounds2, brounds: 1)
-        for i in 1 ..< r {
-            var ron = RoundClass(bMatches: rounds2, brounds: 0)
-            ron = newRound(rounds: rounder[i-1] ?? rounder[0]!, r: i+1)
-            rounder[i] = ron
-        }
-        return rounder
-    }
     
-    //This creates a round based on the round before it
-    //Will be updated to that it can track a round made I suppose
-    func newRound(rounds: RoundClass, r: Int) -> RoundClass{
-        var mats = rounds.matches
-        var str1 = ""
-        var str2 = ""
-        var bool = true
-        var newMats: [MatchupClass] = []
-        
-        for i in 0 ..< mats.count {
-            if bool{
-                if mats[i].winnerCheck == false{
-                    str1 = "Winner of round \(i+1)"
-                }
-                else{
-                    if mats[i].winnerCheck{
-                        str1 = mats[i].homeTeam
-                    }
-                    else{
-                        str1 = mats[i].awayTeam
-                    }
-                }
-                bool = false
-            }
-            else{
-                if mats[i].winnerCheck == false{
-                    str2 = "Winner of round \(i+1)"
-                }
-                else{
-                    if mats[i].winnerCheck{
-                        str2 = mats[i].homeTeam
-                    }
-                    else{
-                        str2 = mats[i].awayTeam
-                    }
-                }
-
-                newMats.append(MatchupClass(hTeam: str1, aTeam: str2, hScore: 0, aScore: 0, match: true))
-                bool = true
-            }
-        }
-        let nRound = RoundClass(bMatches: newMats, brounds: r)
-        
-        return nRound
-    }
     
     func winnerMoment(r: Int, matNum: Int){
         var dub: String!
-        if roundMatches[r]!.matches[matNum].winnerCheck{
-            if (roundMatches[r]!.matches[matNum].winner){
-                dub = roundMatches[r]!.matches[matNum].homeTeam
+        if bigBracket.rounds[r]!.matches[matNum].winnerCheck{
+            if (bigBracket.rounds[r]!.matches[matNum].winner){
+                dub = bigBracket.rounds[r]!.matches[matNum].homeTeam
                 print("Home")
             }
             else {
-                dub = roundMatches[r]!.matches[matNum].awayTeam
+                dub = bigBracket.rounds[r]!.matches[matNum].awayTeam
                 print("away")
             }
             if matNum%2 == 0{
-                roundMatches[r+1]!.matches[(matNum/2)].homeTeam = dub
+                bigBracket.rounds[r+1]!.matches[(matNum/2)].homeTeam = dub
             }
             else {
-                roundMatches[r+1]!.matches[(matNum/2)].awayTeam = dub
+                bigBracket.rounds[r+1]!.matches[(matNum/2)].awayTeam = dub
             }
         }
     }
     
     func byeCheck(){
-        var matNum = roundMatches[0]!.matches.count
+        var matNum = bigBracket.rounds[0]!.matches.count
         for i in 0 ..< matNum{
-            if !roundMatches[0]!.matches[i].isMatch{
+            if bigBracket.rounds[0]!.matches[i].isMatch{
                 if i%2 == 0{
-                    roundMatches[1]!.matches[(i/2)].homeTeam = roundMatches[0]!.matches[i].homeTeam
+                    bigBracket.rounds[1]!.matches[(i/2)].homeTeam = bigBracket.rounds[0]!.matches[i].homeTeam
                     print("BOOOOO")
                 }
                 else {
-                    roundMatches[1]!.matches[(i/2)].awayTeam = roundMatches[0]!.matches[i].homeTeam
+                    bigBracket.rounds[1]!.matches[(i/2)].awayTeam = bigBracket.rounds[0]!.matches[i].homeTeam
                     print("hooray!")
                 }
             }

@@ -20,6 +20,8 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     var teamCheck = false
     var rounds = 0
     var name = ""
+    var Bracket1: BracketObject!
+    var rounding = [Int: RoundClass]()
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -48,8 +50,9 @@ print("I'm having fun!")
    
     @IBAction func createButton(_ sender: UIButton)
     {
-        name = nameOutlet.text!
+       
         //add alert controller here to confirm
+        
         
         if teams.count < 3
         {
@@ -78,17 +81,21 @@ print("I'm having fun!")
         alert.addAction(noAction)
         present(alert, animated: true, completion: nil)
         
+        name = nameOutlet.text!
+        print(rounds)
         
             
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         makeBracket(teams: teams)
+        rounding = makeRounds(rounds2: matches, r: rounds)
+        Bracket1 = BracketObject(title: name, rounds: rounding)
         if segue.identifier == "createBracket"
         {
             let nvc = segue.destination as! BracketViewController
             nvc.teams = teams
-            nvc.matches = matches
+            nvc.bigBracket = Bracket1
             nvc.rounds = rounds
             nvc.teamCheck = teamCheck
         }
@@ -210,7 +217,8 @@ print("I'm having fun!")
             
 //           // populate table with only the amount of cells as first round matches and only run the loop to put people in that many times
         }
-        print("test")
+        print("Test")
+        print(rounds)
     }
     
     //calclulates first roundMatches
@@ -235,5 +243,66 @@ print("I'm having fun!")
         randomSeeds(teams: teams)
     }
     
+    //This creates a dictionary of rounds which can be updated by the table
+    
+    func makeRounds(rounds2: [MatchupClass], r: Int) -> [Int: RoundClass]{
+        var rounder = [Int: RoundClass]()
+        rounder[0] = RoundClass.init(bMatches: rounds2, brounds: 1)
+        for i in 1 ..< r {
+            var ron = RoundClass(bMatches: rounds2, brounds: 0)
+            ron = newRound(rounds: rounder[i-1] ?? rounder[0]!, r: i+1)
+            rounder[i] = ron
+        }
+        return rounder
+    }
+    
+   
+        
+    //This creates a round based on the round before it
+    //Will be updated to that it can track a round made I suppose
+    func newRound(rounds: RoundClass, r: Int) -> RoundClass{
+        var mats = rounds.matches
+        var str1 = ""
+        var str2 = ""
+        var bool = true
+        var newMats: [MatchupClass] = []
+        
+        for i in 0 ..< mats.count {
+            if bool{
+                if mats[i].winnerCheck == false{
+                    str1 = "Winner of round \(i+1)"
+                }
+                else{
+                    if mats[i].winnerCheck{
+                        str1 = mats[i].homeTeam
+                    }
+                    else{
+                        str1 = mats[i].awayTeam
+                    }
+                }
+                bool = false
+            }
+            else{
+                if mats[i].winnerCheck == false{
+                    str2 = "Winner of round \(i+1)"
+                }
+                else{
+                    if mats[i].winnerCheck{
+                        str2 = mats[i].homeTeam
+                    }
+                    else{
+                        str2 = mats[i].awayTeam
+                    }
+                }
+
+                newMats.append(MatchupClass(hTeam: str1, aTeam: str2, hScore: 0, aScore: 0, match: true))
+                bool = true
+            }
+        }
+        let nRound = RoundClass(bMatches: newMats, brounds: r)
+        
+        return nRound
+    }
+
     
 }
