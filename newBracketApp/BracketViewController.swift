@@ -55,7 +55,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedMatch = matches[indexPath.row]
         matIndex = indexPath.row
-        if selectedMatch.winnerCheck == false && selectedMatch.isMatch == true{
+        if selectedMatch.isMatch == true {
             performSegue(withIdentifier: "chooseWinnerSegue", sender: self)
         }
     }
