@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A58200329952D3D0001B875 /* CreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A58200229952D3D0001B875 /* CreatorViewController.swift */; };
 		4A58200529952DA10001B875 /* BracketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A58200429952DA10001B875 /* BracketViewController.swift */; };
+		4A5E30D629ACF54A00219E34 /* FinalWinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E30D529ACF54A00219E34 /* FinalWinnerViewController.swift */; };
 		4A999BDD2993DE2000F82201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999BDC2993DE2000F82201 /* AppDelegate.swift */; };
 		4A999BDF2993DE2000F82201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999BDE2993DE2000F82201 /* SceneDelegate.swift */; };
 		4A999BE12993DE2000F82201 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A999BE02993DE2000F82201 /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		4A58200229952D3D0001B875 /* CreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorViewController.swift; sourceTree = "<group>"; };
 		4A58200429952DA10001B875 /* BracketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketViewController.swift; sourceTree = "<group>"; };
+		4A5E30D529ACF54A00219E34 /* FinalWinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalWinnerViewController.swift; sourceTree = "<group>"; };
 		4A999BD92993DE2000F82201 /* newBracketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newBracketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A999BDC2993DE2000F82201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A999BDE2993DE2000F82201 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				68641AB929ACF366000294E8 /* BracketObject.swift */,
 				683C72DF2993E312000059E6 /* matchUp.swift */,
 				4A999BE22993DE2000F82201 /* Main.storyboard */,
+				4A5E30D529ACF54A00219E34 /* FinalWinnerViewController.swift */,
 				4AB3AC5C299D1B3F00431938 /* WinnerVC.swift */,
 				4A9D295E299A7F270092B602 /* VsCell.swift */,
 				6884ADB9299E68A100C353AD /* roundClass.swift */,
@@ -288,6 +291,7 @@
 				68641ABA29ACF366000294E8 /* BracketObject.swift in Sources */,
 				4A999BE72993DE2000F82201 /* newBracketApp.xcdatamodeld in Sources */,
 				683C72E02993E312000059E6 /* matchUp.swift in Sources */,
+				4A5E30D629ACF54A00219E34 /* FinalWinnerViewController.swift in Sources */,
 				4A999BDD2993DE2000F82201 /* AppDelegate.swift in Sources */,
 				4AB3AC5D299D1B3F00431938 /* WinnerVC.swift in Sources */,
 				4A58200329952D3D0001B875 /* CreatorViewController.swift in Sources */,

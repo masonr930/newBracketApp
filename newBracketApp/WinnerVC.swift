@@ -13,6 +13,8 @@ class WinnerVC: UIViewController {
     var team2: String!
     var match: MatchupClass!
     var cell: VsCell!
+    var segment: Int!
+    var finalSegment: Int!
     
     @IBOutlet weak var homeLabel: UILabel!
     
@@ -38,16 +40,49 @@ class WinnerVC: UIViewController {
         
         match.winner = true
         match.winnerCheck = true
-        performSegue(withIdentifier: "unwindSegue", sender: nil)
         
+        if segment == finalSegment
+        {
+            performSegue(withIdentifier: "finalWinnerSegue", sender: nil)
+        }
+        else
+        {
+            performSegue(withIdentifier: "unwindSegue", sender: nil)
+        }
     }
     
     @IBAction func awayButton(_ sender: UIButton) {
         
         match.winner = false
         match.winnerCheck = true
-        performSegue(withIdentifier: "unwindSegue", sender: nil)
+        
+        if segment == finalSegment
+        {
+            performSegue(withIdentifier: "finalWinnerSegue", sender: nil)
+        }
+        else
+        {
+            performSegue(withIdentifier: "unwindSegue", sender: nil)
+        }
+        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "finalWinnerSegue"
+        {
+            let nvc = segue.destination as! FinalWinnerViewController
+            
+            if match.winner == true
+            {
+                nvc.text = "\(match.homeTeam) won!"
+            }
+            else
+            {
+                nvc.text = "\(match.awayTeam) won!"
+            }
+        }
+    }
+    
     
 
 }
