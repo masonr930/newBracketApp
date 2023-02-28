@@ -31,11 +31,12 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         matchesTable.dataSource = self
         matchesTable.delegate = self
-        
+        matches = bigBracket.rounds[0]!.matches
         
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
         byeCheck()
+        matchesTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -140,7 +141,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     func byeCheck(){
         var matNum = bigBracket.rounds[0]!.matches.count
         for i in 0 ..< matNum{
-            if bigBracket.rounds[0]!.matches[i].isMatch{
+            if !bigBracket.rounds[0]!.matches[i].isMatch{
                 if i%2 == 0{
                     bigBracket.rounds[1]!.matches[(i/2)].homeTeam = bigBracket.rounds[0]!.matches[i].homeTeam
                     print("BOOOOO")
