@@ -270,7 +270,7 @@ print("I'm having fun!")
         for i in 0 ..< mats.count {
             if bool{
                 if mats[i].winnerCheck == false{
-                    str1 = "Winner of round \(i+1)"
+                    str1 = "Winner of round \(i+1) masonshouldntgotoalabama"
                 }
                 else{
                     if mats[i].winnerCheck{
@@ -284,7 +284,7 @@ print("I'm having fun!")
             }
             else{
                 if mats[i].winnerCheck == false{
-                    str2 = "Winner of round \(i+1)"
+                    str2 = "Winner of round \(i+1) masonshouldntgotoalabama"
                 }
                 else{
                     if mats[i].winnerCheck{

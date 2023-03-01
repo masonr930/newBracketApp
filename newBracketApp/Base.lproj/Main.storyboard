@@ -351,10 +351,10 @@
             </objects>
             <point key="canvasLocation" x="6644" y="-106"/>
         </scene>
-        <!--The Bracket-->
+        <!--New Bracket View Controller-->
         <scene sceneID="wN2-Mr-ggY">
             <objects>
-                <viewController id="0Vs-cb-EHR" customClass="TheBracket" sceneMemberID="viewController">
+                <viewController id="0Vs-cb-EHR" customClass="NewBracketViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ly3-aP-nPX">
                         <rect key="frame" x="0.0" y="0.0" width="2400" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -15,6 +15,9 @@ class MatchupClass{
     var isMatch: Bool
     var winner: Bool
     var winnerCheck: Bool
+    var hNah: String
+    var aNah: String
+    var hasTeams: Bool
     
     
     init(hTeam: String, aTeam: String, hScore: Int, aScore: Int, match: Bool) {
@@ -26,6 +29,9 @@ class MatchupClass{
         isMatch = match
         winner = true
         winnerCheck = false
+        hNah = ""
+        aNah = ""
+        hasTeams = true
         
     }
     

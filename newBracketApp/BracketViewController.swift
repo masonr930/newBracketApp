@@ -54,7 +54,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedMatch = matches[indexPath.row]
         matIndex = indexPath.row
-        if selectedMatch.isMatch == true {
+        if selectedMatch.isMatch == true && gotTeams(match: selectedMatch) == true{
             performSegue(withIdentifier: "chooseWinnerSegue", sender: self)
         }
     }
@@ -79,6 +79,11 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             nvc.segment = segmentedController.selectedSegmentIndex + 1
             nvc.finalSegment = segmentedController.numberOfSegments
                 
+        }
+        else if segue.identifier == "toBracket"
+        {
+            let nvc = segue.destination as! 
+            
         }
     }
     
@@ -159,6 +164,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: "toBracket", sender: self)
     }
     
+    
     @IBAction func unwind(_seg: UIStoryboardSegue)
     {
         winnerMoment(r: sectionChoice-1, matNum: matIndex)
@@ -166,8 +172,19 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    
-    
-    
+    func gotTeams(match: MatchupClass)->Bool
+    {
+        if match.homeTeam.hasSuffix("masonshouldntgotoalabama") || match.awayTeam.hasSuffix("masonshouldntgotoalabama")
+        {
+            match.hasTeams = false
+        }
+        else
+        {
+            return true
+        }
+        
+        
+        return match.hasTeams
+    }
     
     }
