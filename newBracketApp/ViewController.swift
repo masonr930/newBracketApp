@@ -18,9 +18,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     var brackates: [BracketObject] = []
-
+    var rowPick: Int = 0
+    
     @IBOutlet weak var tableviewOutlet: UITableView!
-    @IBOutlet weak var epicCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +32,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return brackates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell =  tableviewOutlet.dequeueReusableCell(withIdentifier: "bracketCell")
+        cell!.textLabel!.text = brackates[indexPath.row].title
+        return cell!
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rowPick = indexPath.row
+        performSegue(withIdentifier: "tableClick", sender: nil)
+      }
 
 
 }
