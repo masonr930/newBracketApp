@@ -120,7 +120,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
       
     //more rounds checkers
-    var newMatches: [MatchupClass] = []
+   
     
     
     func winnerMoment(r: Int, matNum: Int){
