@@ -259,7 +259,6 @@ print("I'm having fun!")
    
         
     //This creates a round based on the round before it
-    //Will be updated to that it can track a round made I suppose
     func newRound(rounds: RoundClass, r: Int) -> RoundClass{
         var mats = rounds.matches
         var str1 = ""
