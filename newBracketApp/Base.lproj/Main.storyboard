@@ -68,11 +68,12 @@
                     <navigationItem key="navigationItem" id="zms-Nr-bZr"/>
                     <connections>
                         <outlet property="tableviewOutlet" destination="fuO-Sl-znA" id="G6k-9w-3Br"/>
+                        <segue destination="rsB-6z-2FB" kind="show" identifier="tableClick" id="zlH-WK-i7d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3633" y="412"/>
+            <point key="canvasLocation" x="428" y="-343"/>
         </scene>
         <!--Creator View Controller-->
         <scene sceneID="txR-5g-1bo">
@@ -250,6 +251,7 @@
                         <viewLayoutGuide key="safeArea" id="qtl-Aj-pqT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="WG6-4T-zb5"/>
                     <connections>
                         <outlet property="matchesTable" destination="EhO-nU-5SA" id="6ng-sd-X6E"/>
                         <outlet property="segmentedController" destination="d8z-u0-tMc" id="J5N-Yh-foj"/>
@@ -259,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4729.0076335877857" y="384.50704225352115"/>
+            <point key="canvasLocation" x="1793" y="563"/>
         </scene>
         <!--WinnerVC-->
         <scene sceneID="3AJ-EM-rCX">
@@ -323,7 +325,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPd-PR-Iov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2YH-kk-pW7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1644" y="439"/>
+            <point key="canvasLocation" x="3561" y="252"/>
         </scene>
         <!--Final Winner View Controller-->
         <scene sceneID="Lbw-LR-S9d">
@@ -798,9 +800,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFH-s9-LhY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192" y="2990"/>
+            <point key="canvasLocation" x="-1161" y="-312"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zlH-WK-i7d"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
