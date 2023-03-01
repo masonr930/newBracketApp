@@ -25,6 +25,7 @@
 		683C72E02993E312000059E6 /* matchUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683C72DF2993E312000059E6 /* matchUp.swift */; };
 		68641ABA29ACF366000294E8 /* BracketObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68641AB929ACF366000294E8 /* BracketObject.swift */; };
 		6884ADBA299E68A100C353AD /* roundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884ADB9299E68A100C353AD /* roundClass.swift */; };
+		D899875329AF902000FE9B8F /* NewBracketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D899875229AF902000FE9B8F /* NewBracketViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		683C72DF2993E312000059E6 /* matchUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchUp.swift; sourceTree = "<group>"; };
 		68641AB929ACF366000294E8 /* BracketObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketObject.swift; sourceTree = "<group>"; };
 		6884ADB9299E68A100C353AD /* roundClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundClass.swift; sourceTree = "<group>"; };
+		D899875229AF902000FE9B8F /* NewBracketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBracketViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				4A9D295E299A7F270092B602 /* VsCell.swift */,
 				6884ADB9299E68A100C353AD /* roundClass.swift */,
 				4A58200429952DA10001B875 /* BracketViewController.swift */,
+				D899875229AF902000FE9B8F /* NewBracketViewController.swift */,
 				4A58200229952D3D0001B875 /* CreatorViewController.swift */,
 				4A999BE82993DE2000F82201 /* Assets.xcassets */,
 				4A999BEA2993DE2000F82201 /* LaunchScreen.storyboard */,
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9D295F299A7F270092B602 /* VsCell.swift in Sources */,
+				D899875329AF902000FE9B8F /* NewBracketViewController.swift in Sources */,
 				6884ADBA299E68A100C353AD /* roundClass.swift in Sources */,
 				4A999BE12993DE2000F82201 /* ViewController.swift in Sources */,
 				68641ABA29ACF366000294E8 /* BracketObject.swift in Sources */,
