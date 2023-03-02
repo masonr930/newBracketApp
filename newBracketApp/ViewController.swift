@@ -45,6 +45,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         rowPick = indexPath.row
         performSegue(withIdentifier: "tableClick", sender: nil)
       }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tableClick"{
+            let nvc = segue.destination as! BracketViewController
+            nvc.bigBracket = brackates[rowPick]
+        }
+    }
 
     @IBAction func unwind(seg: UIStoryboardSegue)
     {
