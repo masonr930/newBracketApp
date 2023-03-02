@@ -39,6 +39,14 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         matchesTable.reloadData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if isMovingFromParent
+        {
+            performSegue(withIdentifier: "unwindToHome", sender: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return matches.count
@@ -187,5 +195,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return match.hasTeams
     }
+    
+    
     
     }
