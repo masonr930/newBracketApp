@@ -194,6 +194,12 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         return match.hasTeams
     }
     
+    @IBAction func homeButton(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "unwindToHome", sender: self)
+    }
+    
+    
     
     
     }

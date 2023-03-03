@@ -18,7 +18,17 @@ class FinalWinnerViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if isMovingFromParent
+        {
+            performSegue(withIdentifier: "toHome", sender: nil)
+        }
+    }
 
     
-
+    @IBAction func backToHome(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "toHome", sender: nil)
+    }
+    
 }

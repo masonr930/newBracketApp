@@ -69,11 +69,9 @@
                     <connections>
                         <outlet property="tableviewOutlet" destination="fuO-Sl-znA" id="G6k-9w-3Br"/>
                         <segue destination="rsB-6z-2FB" kind="show" identifier="tableClick" id="zlH-WK-i7d"/>
-                        <segue destination="d9Q-dV-tn2" kind="unwind" identifier="unwindToHome" unwindAction="unwindWith_seg:" id="AvO-q0-ghY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="d9Q-dV-tn2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="427" y="-313"/>
         </scene>
@@ -254,6 +252,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back to Home"/>
+                                <connections>
+                                    <action selector="homeButton:" destination="rsB-6z-2FB" eventType="touchUpInside" id="qce-hg-upr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qtl-Aj-pqT"/>
@@ -265,9 +266,11 @@
                         <outlet property="segmentedController" destination="d8z-u0-tMc" id="J5N-Yh-foj"/>
                         <segue destination="Hc0-9X-4kf" kind="show" identifier="chooseWinnerSegue" id="gqL-fq-s92"/>
                         <segue destination="0Vs-cb-EHR" kind="show" identifier="toBracket" id="bfG-7L-TFS"/>
+                        <segue destination="6RK-rP-3X6" kind="unwind" identifier="unwindToHome" unwindAction="unwindWithSeg:" id="rj8-aC-NSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6RK-rP-3X6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="970" y="401"/>
         </scene>
@@ -361,6 +364,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back to Home"/>
+                                <connections>
+                                    <action selector="backToHome:" destination="FNz-nX-7cv" eventType="touchUpInside" id="S5w-ZP-nLw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5QI-1W-wuN"/>
@@ -369,9 +375,11 @@
                     <navigationItem key="navigationItem" id="qBl-ht-VU7"/>
                     <connections>
                         <outlet property="winnerLabel" destination="fKv-Ek-7AB" id="CPr-6s-Bp7"/>
+                        <segue destination="J6X-mX-5Pg" kind="unwind" identifier="toHome" unwindAction="unwindWithSeg:" id="zGq-J1-wXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTi-Oi-iKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="J6X-mX-5Pg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2844" y="401"/>
         </scene>
