@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>91903414711-moop7us7vuh6pof8so1f3m21smmqcvlc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.91903414711-moop7us7vuh6pof8so1f3m21smmqcvlc</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA0JgvLrzMtLp_5b6aJ5Uxcxxh4pf5yA5o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>91903414711</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>clc.newBracketApp-Durcan</string>
+	<key>PROJECT_ID</key>
+	<string>newbrack-durc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>newbrack-durc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:91903414711:ios:8a660772ea09886435d832</string>
+</dict>
+</plist>

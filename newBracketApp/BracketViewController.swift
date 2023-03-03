@@ -147,6 +147,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         var matNum = bigBracket.rounds[0]!.matches.count
         for i in 0 ..< matNum{
             if !bigBracket.rounds[0]!.matches[i].isMatch{
+                bigBracket.rounds[0]!.matches[i].winnerCheck = true
                 if i%2 == 0{
                     bigBracket.rounds[1]!.matches[(i/2)].homeTeam = bigBracket.rounds[0]!.matches[i].homeTeam
                     print("BOOOOO")
