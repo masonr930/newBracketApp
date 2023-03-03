@@ -69,11 +69,13 @@
                     <connections>
                         <outlet property="tableviewOutlet" destination="fuO-Sl-znA" id="G6k-9w-3Br"/>
                         <segue destination="rsB-6z-2FB" kind="show" identifier="tableClick" id="zlH-WK-i7d"/>
+                        <segue destination="d9Q-dV-tn2" kind="unwind" identifier="unwindToHome" unwindAction="unwindWith_seg:" id="AvO-q0-ghY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="d9Q-dV-tn2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="428" y="-343"/>
+            <point key="canvasLocation" x="427" y="-313"/>
         </scene>
         <!--Creator View Controller-->
         <scene sceneID="txR-5g-1bo">
@@ -167,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGp-Ct-eAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-103" y="563"/>
+            <point key="canvasLocation" x="-115" y="401"/>
         </scene>
         <!--Bracket View Controller-->
         <scene sceneID="ZYs-iS-HvV">
@@ -247,6 +249,12 @@
                                     <action selector="valueChanged:" destination="rsB-6z-2FB" eventType="valueChanged" id="BkB-3W-Nou"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24g-fJ-VKq">
+                                <rect key="frame" x="16" y="59" width="145" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back to Home"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qtl-Aj-pqT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -261,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="563"/>
+            <point key="canvasLocation" x="970" y="401"/>
         </scene>
         <!--WinnerVC-->
         <scene sceneID="3AJ-EM-rCX">
@@ -310,6 +318,12 @@
                                     <action selector="homeButton:" destination="Hc0-9X-4kf" eventType="touchUpInside" id="GbA-5j-ptg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhi-PS-2qw">
+                                <rect key="frame" x="23" y="59" width="62" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hgl-Mx-zWJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -325,7 +339,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPd-PR-Iov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2YH-kk-pW7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3561" y="252"/>
+            <point key="canvasLocation" x="1915" y="401"/>
         </scene>
         <!--Final Winner View Controller-->
         <scene sceneID="Lbw-LR-S9d">
@@ -342,6 +356,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-pY-vu8">
+                                <rect key="frame" x="128" y="667" width="137" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back to Home"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5QI-1W-wuN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -353,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTi-Oi-iKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6644" y="-106"/>
+            <point key="canvasLocation" x="2844" y="401"/>
         </scene>
         <!--New Bracket View Controller-->
         <scene sceneID="wN2-Mr-ggY">
@@ -783,7 +803,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGr-LY-gAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1643" y="1994"/>
+            <point key="canvasLocation" x="968" y="1383"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bl5-se-l5j">
@@ -800,7 +820,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFH-s9-LhY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1161" y="-312"/>
+            <point key="canvasLocation" x="-11587" y="-313"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
