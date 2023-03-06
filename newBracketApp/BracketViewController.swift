@@ -90,7 +90,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else if segue.identifier == "toBracket"
         {
-            
+            let nvc = segue.destination as! NewBracketViewController
+            nvc.theBracket = bigBracket
         }
     }
     
