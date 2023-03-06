@@ -55,8 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBAction func unwind(seg: UIStoryboardSegue)
     {
-        let svc = seg.source as! BracketViewController
-        let s2vc = seg.source as! FinalWinnerViewController
+        tableviewOutlet.reloadData()
     }
 
 }

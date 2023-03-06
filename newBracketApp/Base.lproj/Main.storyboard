@@ -326,6 +326,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="Hc0-9X-4kf" eventType="touchUpInside" id="WrH-bC-z2r"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hgl-Mx-zWJ"/>
@@ -749,6 +752,15 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uat-LL-KUT">
+                                                <rect key="frame" x="1084" y="8" width="233" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Back to bracket"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="0Vs-cb-EHR" eventType="touchUpInside" id="eJW-wH-UDs"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
@@ -808,10 +820,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="TJW-ZZ-jYG"/>
                     <size key="freeformSize" width="2400" height="1200"/>
+                    <connections>
+                        <segue destination="jhp-eg-aGN" kind="unwind" identifier="backToBracket" unwindAction="unwindWithSeg:" id="5ZM-P1-0AC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGr-LY-gAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="jhp-eg-aGN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="968" y="1383"/>
+            <point key="canvasLocation" x="967.93893129770993" y="1382.3943661971832"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bl5-se-l5j">
@@ -832,7 +848,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zlH-WK-i7d"/>
+        <segue reference="8xR-Zn-0QZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

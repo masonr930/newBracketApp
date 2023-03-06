@@ -165,5 +165,24 @@ class NewBracketViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if isMovingFromParent
+        {
+            performSegue(withIdentifier: "backToBracket", sender: nil)
+        }
+    }
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "backToBracket", sender: nil)
+    }
+    
+    
+    
+    
+        
+        
+
+    
+    
 
 }
