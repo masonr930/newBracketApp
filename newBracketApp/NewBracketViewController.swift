@@ -109,59 +109,91 @@ class NewBracketViewController: UIViewController {
     
     // theBracket.roundMatches[0].matches[0].homeTeam
     func populateRound1() {
-//        for var i = 0 in 0..<round1Cells.count {
-//            round1Cells[i].text = theBracket.roundMatches[1].matches[i].homeTeam
-//            round1Cells[i+1].text = theBracket.roundMatches[1].matches[i].awayTeam
-//
-//        }
+        var i = 0 // cells index
+        var n = 0 // match index
+        while i < round1Cells.count {
+            round1Cells[i].text = "\(theBracket!.rounds[0]!.matches[n].homeTeam)"
+            i+=1
+            round1Cells[i].text = "\(theBracket!.rounds[0]!.matches[n].awayTeam)"
+            i+=1
+            n+=1
+        }
         print("yuh")
     }
     
     func populateRound2() {
         for i in 0..<round2Cells.count {
-            if theBracket.rounds[1]!.matches[i].winner {
-                round2Cells[i].text = theBracket.rounds[1]!.matches[i].homeTeam
+            print("\(i) maxxxxxxx")
+            print("\(theBracket!.rounds[0]?.matches.count)")
+            //print("\(theBracket!.rounds[1]?.matches[i].homeTeam ?? "Round 1 Winner")")
+
+            if theBracket!.rounds[0]!.matches[i].winnerCheck {
+                if theBracket!.rounds[0]!.matches[i].winner {
+                    round2Cells[i].text = "\(theBracket!.rounds[0]?.matches[i].homeTeam ?? "Round 1 Winner")"
+                } else {
+                    round2Cells[i].text = "\(theBracket!.rounds[0]?.matches[i].awayTeam ?? "Round 1 Winner")"
+                }
+            } else {
+                round2Cells[i].text = "Round 1 Winner"
             }
-            else
-            {
-                round2Cells[i].text = theBracket.rounds[1]!.matches[i].awayTeam
-            }
+            
         }
     }
     
     func populateRound3() {
         for i in 0..<round3Cells.count {
-            if theBracket.rounds[2]!.matches[i].winner {
-                round3Cells[i].text = theBracket.rounds[2]!.matches[i].homeTeam
+            print("\(i) maxxxxxxx")
+            print("\(theBracket!.rounds[1]?.matches.count)")
+            //print("\(theBracket!.rounds[1]?.matches[i].homeTeam ?? "Round 1 Winner")")
+
+            if theBracket!.rounds[1]!.matches[i].winnerCheck {
+                if theBracket!.rounds[1]!.matches[i].winner {
+                    round3Cells[i].text = "\(theBracket!.rounds[1]?.matches[i].homeTeam ?? "Round 2 Winner")"
+                } else {
+                    round3Cells[i].text = "\(theBracket!.rounds[1]?.matches[i].awayTeam ?? "Round 2 Winner")"
+                }
+            } else {
+                round3Cells[i].text = "Round 2 Winner"
             }
-            else
-            {
-                round3Cells[i].text = theBracket.rounds[2]!.matches[i].awayTeam
-            }
+            
         }
     }
     
     func populateRound4() {
         for i in 0..<round4Cells.count {
-            if theBracket.rounds[3]!.matches[i].winner {
-                round4Cells[i].text = theBracket.rounds[3]!.matches[i].homeTeam
+            print("\(i) maxxxxxxx")
+            print("\(theBracket!.rounds[2]?.matches.count)")
+            //print("\(theBracket!.rounds[1]?.matches[i].homeTeam ?? "Round 1 Winner")")
+
+            if theBracket!.rounds[2]!.matches[i].winnerCheck {
+                if theBracket!.rounds[2]!.matches[i].winner {
+                    round4Cells[i].text = "\(theBracket!.rounds[2]?.matches[i].homeTeam ?? "Round 3 Winner")"
+                } else {
+                    round4Cells[i].text = "\(theBracket!.rounds[2]?.matches[i].awayTeam ?? "Round 3 Winner")"
+                }
+            } else {
+                round4Cells[i].text = "Round 3 Winner"
             }
-            else
-            {
-                finalsCells[i].text = theBracket.rounds[3]!.matches[i].awayTeam
-            }
+            
         }
     }
     
     func populateFinals() {
         for i in 0..<finalsCells.count {
-            if theBracket.rounds[4]!.matches[i].winner {
-                round1Cells[i].text = theBracket.rounds[4]!.matches[i].homeTeam
+            print("\(i) maxxxxxxx")
+            print("\(theBracket!.rounds[3]?.matches.count)")
+            //print("\(theBracket!.rounds[1]?.matches[i].homeTeam ?? "Round 1 Winner")")
+
+            if theBracket!.rounds[3]!.matches[i].winnerCheck {
+                if theBracket!.rounds[3]!.matches[i].winner {
+                    finalsCells[i].text = "\(theBracket!.rounds[3]?.matches[i].homeTeam ?? "Finalist")"
+                } else {
+                    finalsCells[i].text = "\(theBracket!.rounds[3]?.matches[i].awayTeam ?? "Finalist")"
+                }
+            } else {
+                finalsCells[i].text = "Finalist"
             }
-            else
-            {
-                finalsCells[i].text = theBracket.rounds[4]!.matches[i].awayTeam
-            }
+            
         }
     }
     
