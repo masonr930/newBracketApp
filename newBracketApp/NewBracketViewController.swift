@@ -119,48 +119,48 @@ class NewBracketViewController: UIViewController {
     
     func populateRound2() {
         for i in 0..<round2Cells.count {
-            if theBracket.rounds[1]!.matches[i].winner {
-                round2Cells[i].text = theBracket.rounds[1]!.matches[i].homeTeam
+            if theBracket.rounds[1].matches[i].winner {
+                round2Cells[i].text = theBracket.rounds[1].matches[i].homeTeam
             }
             else
             {
-                round2Cells[i].text = theBracket.rounds[1]!.matches[i].awayTeam
+                round2Cells[i].text = theBracket.rounds[1].matches[i].awayTeam
             }
         }
     }
     
     func populateRound3() {
         for i in 0..<round3Cells.count {
-            if theBracket.rounds[2]!.matches[i].winner {
-                round3Cells[i].text = theBracket.rounds[2]!.matches[i].homeTeam
+            if theBracket.rounds[2].matches[i].winner {
+                round3Cells[i].text = theBracket.rounds[2].matches[i].homeTeam
             }
             else
             {
-                round3Cells[i].text = theBracket.rounds[2]!.matches[i].awayTeam
+                round3Cells[i].text = theBracket.rounds[2].matches[i].awayTeam
             }
         }
     }
     
     func populateRound4() {
         for i in 0..<round4Cells.count {
-            if theBracket.rounds[3]!.matches[i].winner {
-                round4Cells[i].text = theBracket.rounds[3]!.matches[i].homeTeam
+            if theBracket.rounds[3].matches[i].winner {
+                round4Cells[i].text = theBracket.rounds[3].matches[i].homeTeam
             }
             else
             {
-                finalsCells[i].text = theBracket.rounds[3]!.matches[i].awayTeam
+                finalsCells[i].text = theBracket.rounds[3].matches[i].awayTeam
             }
         }
     }
     
     func populateFinals() {
         for i in 0..<finalsCells.count {
-            if theBracket.rounds[4]!.matches[i].winner {
-                round1Cells[i].text = theBracket.rounds[4]!.matches[i].homeTeam
+            if theBracket.rounds[4].matches[i].winner {
+                round1Cells[i].text = theBracket.rounds[4].matches[i].homeTeam
             }
             else
             {
-                finalsCells[i].text = theBracket.rounds[4]!.matches[i].awayTeam
+                finalsCells[i].text = theBracket.rounds[4].matches[i].awayTeam
             }
         }
     }

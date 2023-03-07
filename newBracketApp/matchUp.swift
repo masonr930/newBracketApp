@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MatchupClass{
+class MatchupClass: Codable{
     var homeTeam: String
     var awayTeam: String
     var homeScore: Int
@@ -15,8 +15,6 @@ class MatchupClass{
     var isMatch: Bool
     var winner: Bool
     var winnerCheck: Bool
-    var hNah: String
-    var aNah: String
     var hasTeams: Bool
     
     
@@ -33,8 +31,6 @@ class MatchupClass{
         winner = true
         //winner check, checks if there is a winner has been declared
         winnerCheck = false
-        hNah = ""
-        aNah = ""
         hasTeams = true
         
     }

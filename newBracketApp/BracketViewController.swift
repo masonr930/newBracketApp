@@ -31,7 +31,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         matchesTable.dataSource = self
         matchesTable.delegate = self
-        matches = bigBracket.rounds[0]!.matches
+        matches = bigBracket.rounds[0].matches
         
         matchesTable.reloadData()
         addSegueButtons(rounds2: rounds)
@@ -118,7 +118,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         //this updates the tableView based on the selection made
-        matches = bigBracket.rounds[sectionChoice-1]!.matches
+        matches = bigBracket.rounds[sectionChoice-1].matches
         matchesTable.reloadData()
         
         
@@ -132,35 +132,35 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func winnerMoment(r: Int, matNum: Int){
         var dub: String!
-        if bigBracket.rounds[r]!.matches[matNum].winnerCheck{
-            if (bigBracket.rounds[r]!.matches[matNum].winner){
-                dub = bigBracket.rounds[r]!.matches[matNum].homeTeam
+        if bigBracket.rounds[r].matches[matNum].winnerCheck{
+            if (bigBracket.rounds[r].matches[matNum].winner){
+                dub = bigBracket.rounds[r].matches[matNum].homeTeam
                 print("Home")
             }
             else {
-                dub = bigBracket.rounds[r]!.matches[matNum].awayTeam
+                dub = bigBracket.rounds[r].matches[matNum].awayTeam
                 print("away")
             }
             if matNum%2 == 0{
-                bigBracket.rounds[r+1]!.matches[(matNum/2)].homeTeam = dub
+                bigBracket.rounds[r+1].matches[(matNum/2)].homeTeam = dub
             }
             else {
-                bigBracket.rounds[r+1]!.matches[(matNum/2)].awayTeam = dub
+                bigBracket.rounds[r+1].matches[(matNum/2)].awayTeam = dub
             }
         }
     }
     
     func byeCheck(){
-        var matNum = bigBracket.rounds[0]!.matches.count
+        var matNum = bigBracket.rounds[0].matches.count
         for i in 0 ..< matNum{
-            if !bigBracket.rounds[0]!.matches[i].isMatch{
-                bigBracket.rounds[0]!.matches[i].winnerCheck = true
+            if !bigBracket.rounds[0].matches[i].isMatch{
+                bigBracket.rounds[0].matches[i].winnerCheck = true
                 if i%2 == 0{
-                    bigBracket.rounds[1]!.matches[(i/2)].homeTeam = bigBracket.rounds[0]!.matches[i].homeTeam
+                    bigBracket.rounds[1].matches[(i/2)].homeTeam = bigBracket.rounds[0].matches[i].homeTeam
                     print("BOOOOO")
                 }
                 else {
-                    bigBracket.rounds[1]!.matches[(i/2)].awayTeam = bigBracket.rounds[0]!.matches[i].homeTeam
+                    bigBracket.rounds[1].matches[(i/2)].awayTeam = bigBracket.rounds[0].matches[i].homeTeam
                     print("hooray!")
                 }
             }

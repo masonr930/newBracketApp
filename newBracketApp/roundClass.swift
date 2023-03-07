@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class RoundClass{
+class RoundClass: Codable{
     
     var matches: [MatchupClass] = []
     var round = 0

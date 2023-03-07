@@ -21,7 +21,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     var rounds = 0
     var name = ""
     var Bracket1: BracketObject!
-    var rounding = [Int: RoundClass]()
+    var rounding:[RoundClass] = []
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -245,13 +245,13 @@ print("I'm having fun!")
     
     //This creates a dictionary of rounds which can be updated by the table
     
-    func makeRounds(rounds2: [MatchupClass], r: Int) -> [Int: RoundClass]{
-        var rounder = [Int: RoundClass]()
-        rounder[0] = RoundClass.init(bMatches: rounds2, brounds: 1)
+    func makeRounds(rounds2: [MatchupClass], r: Int) -> [RoundClass]{
+        var rounder: [RoundClass] = []
+        rounder.append(RoundClass(bMatches: rounds2, brounds: r))
         for i in 1 ..< r {
             var ron = RoundClass(bMatches: rounds2, brounds: 0)
-            ron = newRound(rounds: rounder[i-1] ?? rounder[0]!, r: i+1)
-            rounder[i] = ron
+            ron = newRound(rounds: rounder[i-1] , r: i+1)
+            rounder.append(ron)
         }
         return rounder
     }

@@ -10,13 +10,14 @@
 import UIKit
 
 
-
+import FirebaseCore
+import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
     
     
     
-    
+    var ref: DatabaseReference!
     var brackates: [BracketObject] = []
     var rowPick: Int = 0
     
@@ -24,6 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
 
