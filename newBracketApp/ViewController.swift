@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBAction func unwind(seg: UIStoryboardSegue)
     {
-        let svc = seg.source as! ViewController
+        tableviewOutlet.reloadData()
     }
 
 }

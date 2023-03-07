@@ -91,6 +91,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         else if segue.identifier == "toBracket"
         {
             let nvc = segue.destination as! NewBracketViewController
+            nvc.theBracket = bigBracket
         }
     }
     
@@ -194,6 +195,12 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return match.hasTeams
     }
+    
+    @IBAction func homeButton(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "unwindToHome", sender: self)
+    }
+    
     
     
     

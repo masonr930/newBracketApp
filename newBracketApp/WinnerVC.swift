@@ -83,6 +83,10 @@ class WinnerVC: UIViewController {
         }
     }
     
+    @IBAction func backButton(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "unwindSegue", sender: nil)
+    }
     
 
 }
