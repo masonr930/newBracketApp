@@ -212,7 +212,6 @@ print("I'm having fun!")
             {
                 matches.append(MatchupClass.init(hTeam: tempTeams[0], aTeam: "BYE", hScore: 0, aScore: 0, match: false))
                 tempTeams.remove(at: 0)
-                print("HI")
             }
             
 //           // populate table with only the amount of cells as first round matches and only run the loop to put people in that many times
