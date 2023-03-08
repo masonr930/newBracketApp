@@ -8,8 +8,8 @@
 import Foundation
 class RoundClass: Codable{
     
-    var matches: [MatchupClass] = []
-    var round = 0
+    var matches: [MatchupClass]
+    var round: Int
     
     init(bMatches: [MatchupClass], brounds: Int) {
         matches = bMatches

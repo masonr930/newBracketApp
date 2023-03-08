@@ -8,13 +8,16 @@
 import Foundation
 import FirebaseCore
 import FirebaseDatabase
+import UIKit
+import SwiftUI
 
-class BracketObject{
+
+public class BracketObject: Codable{
     
-    var ref = Database.database().reference()
-    var title: String = ""
-    var rounds: [RoundClass] = []
-    
+ 
+   var title: String = ""
+  var rounds: [RoundClass]
+//    var roundsData = [Data]()
     init(title: String, rounds: [RoundClass]) {
         self.title = title
         self.rounds = rounds
@@ -30,20 +33,20 @@ class BracketObject{
 //var hasTeams: Bool
     
 //    rounds[i].matches[j].awayTeam
-//    func saveToFirebase(){
-//        for i in 0..<rounds.count{
-//            for j in 0..<rounds[i].matches.count{
-//                let dictMatch = ["awayTeam": ]
-//            }
-//        }
-//
-//
-//        let dict = ["title": title] as [String: Any]
-//        let uRef = ref.childByAutoId()
-//        uRef.setValue(dict)
-//
-//
-//
-//    }
-//
+    
+    func saveToFirebase(){
+        var dictMatch: [String : Any] = [:]
+        var dictRound: [String : Any] = [:]
+        for i in 0..<rounds.count{
+            for j in 0..<rounds[i].matches.count{
+                dictMatch = ["homeTeam": rounds[i].matches[j].homeTeam, "awayTeam": rounds[i].matches[j].awayTeam,"isMatch": rounds[i].matches[j].isMatch,"winner": rounds[i].matches[j].winner, "winnerCheck": rounds[i].matches[j].winnerCheck, "hasTeams": rounds[i].matches[j].hasTeams] as [String : Any]
+            }
+            dictRound = ["matchDict": dictMatch, "round": rounds[i].round] as [String : Any]
+        }
+        var ref = Database.database().reference()
+        let dictB = ["title": title, "roundDict": dictRound] as [String: Any]
+        let uRef = ref.childByAutoId()
+        uRef.setValue(dictB)
+    }
+
 }
