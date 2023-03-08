@@ -958,7 +958,7 @@
                         <outletCollection property="round4Cells" destination="6VI-g0-hNU" collectionClass="NSMutableArray" id="v48-sm-VW8"/>
                         <outletCollection property="finalsCells" destination="qzC-X1-ovG" collectionClass="NSMutableArray" id="0sb-rC-zVu"/>
                         <outletCollection property="finalsCells" destination="jkO-1q-dzD" collectionClass="NSMutableArray" id="AWU-X5-RHI"/>
-                        <segue destination="jhp-eg-aGN" kind="unwind" identifier="backToBracket" unwindAction="unwindWithSeg:" id="5ZM-P1-0AC"/>
+                        <segue destination="jhp-eg-aGN" kind="unwind" identifier="unwindToBracket" unwindAction="unwind2With_seg:" id="yUV-Un-bVm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGr-LY-gAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

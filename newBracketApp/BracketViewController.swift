@@ -180,6 +180,12 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         matchesTable.reloadData()
     }
     
+    @IBAction func unwind2(_seg: UIStoryboardSegue)
+    {
+        matchesTable.reloadData()
+    }
+    
+    
     
     func gotTeams(match: MatchupClass)->Bool
     {
