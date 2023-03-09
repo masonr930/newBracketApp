@@ -101,6 +101,7 @@ print("I'm having fun!")
         rounding = makeRounds(rounds2: matches, r: rounds)
         Bracket1 = BracketObject(title: name, rounds: rounding)
         Bracket1.bracketKey = keyTextField.text!
+        Bracket1.saveToFirebase()
         if segue.identifier == "createBracket"
         {
             let nvc = segue.destination as! BracketViewController
