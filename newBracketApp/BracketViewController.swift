@@ -185,6 +185,21 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         matchesTable.reloadData()
     }
     
+    @IBAction func unwind3(_seg: UIStoryboardSegue)
+    {
+        matchesTable.reloadData()
+    }
+    
+    @IBAction func unwind4(_seg: UIStoryboardSegue)
+    {
+        matchesTable.reloadData()
+    }
+    
+    @IBAction func unwind5(_seg: UIStoryboardSegue)
+    {
+        matchesTable.reloadData()
+    }
+    
     
     
     func gotTeams(match: MatchupClass)->Bool

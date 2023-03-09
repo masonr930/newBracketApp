@@ -312,6 +312,39 @@ print("I'm having fun!")
         
         return nRound
     }
-
+    
+    func seeds(teams: [String])
+    {
+        var matches: [MatchupClass]
+        var perfect = false
+        var count = teams.count
+        var start = 0
+        var end = teams.count - 1
+        
+        //checks for perfect square
+        while count > 1
+        {
+            if count%2 == 0
+            {
+                perfect = true
+                count = count/2
+            }
+            else
+            {
+                perfect = false
+                break
+            }
+        }
+        
+        //matches by seeds for a perfect bracket
+        while start > end
+        {
+            
+        }
+        
+        
+       // return matches
+    }
+    
     
 }
