@@ -54,12 +54,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let nvc = segue.destination as! BracketViewController
             nvc.bigBracket = brackates[rowPick]
         }
+        else if segue.identifier == "bracketSegue"{
+            let nvc = segue.destination as! NewBracketViewController
+        }
     }
 
     @IBAction func unwind(seg: UIStoryboardSegue)
     {
         tableviewOutlet.reloadData()
     }
+    
+    @IBAction func enterKeyButton(_ sender: UIButton)
+    {
+        
+        
+        performSegue(withIdentifier: "bracketSegue", sender: nil)
+    }
+    
 
 }
 

@@ -56,11 +56,20 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bracket Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="492-lh-u5q">
-                                <rect key="frame" x="250" y="116" width="127" height="34"/>
+                                <rect key="frame" x="139" y="116" width="114" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L44-58-otu">
+                                <rect key="frame" x="261" y="116" width="116" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Enter Key"/>
+                                <connections>
+                                    <action selector="enterKeyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tcs-Xb-Ca6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -76,6 +85,7 @@
                         <outlet property="tableviewOutlet" destination="fuO-Sl-znA" id="G6k-9w-3Br"/>
                         <outlet property="textFieldOutlet" destination="492-lh-u5q" id="md1-eb-a4s"/>
                         <segue destination="rsB-6z-2FB" kind="show" identifier="tableClick" id="zlH-WK-i7d"/>
+                        <segue destination="0Vs-cb-EHR" kind="show" identifier="bracketSegue" id="c0g-h0-Ss3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -293,7 +303,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="6RK-rP-3X6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="970" y="401"/>
+            <point key="canvasLocation" x="1520" y="401"/>
         </scene>
         <!--WinnerVC-->
         <scene sceneID="3AJ-EM-rCX">
@@ -366,7 +376,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPd-PR-Iov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2YH-kk-pW7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1915" y="401"/>
+            <point key="canvasLocation" x="2498" y="401"/>
         </scene>
         <!--Final Winner View Controller-->
         <scene sceneID="Lbw-LR-S9d">
@@ -405,7 +415,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTi-Oi-iKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="J6X-mX-5Pg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="401"/>
+            <point key="canvasLocation" x="3682" y="401"/>
         </scene>
         <!--New Bracket View Controller-->
         <scene sceneID="wN2-Mr-ggY">
@@ -774,10 +784,10 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uat-LL-KUT">
-                                                <rect key="frame" x="1084" y="8" width="233" height="35"/>
+                                                <rect key="frame" x="1053" y="8" width="295" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Back to bracket"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection"/>
                                                 <connections>
                                                     <action selector="backButton:" destination="0Vs-cb-EHR" eventType="touchUpInside" id="eJW-wH-UDs"/>
                                                 </connections>
@@ -993,6 +1003,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="c0g-h0-Ss3"/>
         <segue reference="zlH-WK-i7d"/>
     </inferredMetricsTieBreakers>
     <resources>
