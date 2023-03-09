@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var rowPick: Int = 0
     
     @IBOutlet weak var tableviewOutlet: UITableView!
+    @IBOutlet weak var textFieldOutlet: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

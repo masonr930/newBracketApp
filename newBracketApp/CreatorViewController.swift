@@ -12,6 +12,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
 
+    @IBOutlet weak var keyTextField: UITextField!
     @IBOutlet weak var textfieldOutlet: UITextField!
     @IBOutlet weak var nameOutlet: UITextField!
      var teams: [String] = []
@@ -51,7 +52,7 @@ print("I'm having fun!")
     @IBAction func createButton(_ sender: UIButton)
     {
        
-        //add alert controller here to confirm
+        //alert controller to confirm
         
         
         if teams.count < 3
@@ -69,8 +70,15 @@ print("I'm having fun!")
             theAlert.addAction(yesAction)
             present(theAlert, animated: true, completion: nil)
         }
-                    
         
+        
+        else if keyTextField.text == "" || keyTextField.text == nil
+        {
+            let theAlert = UIAlertController(title: "No bracket code", message: "Enter a bracket code", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+            theAlert.addAction(yesAction)
+            present(theAlert, animated: true, completion: nil)
+        }
         
         let alert = UIAlertController(title: "Are you sure?", message: "Is the bracket complete?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
@@ -82,6 +90,7 @@ print("I'm having fun!")
         present(alert, animated: true, completion: nil)
         
         name = nameOutlet.text!
+        
         print(rounds)
         
             
@@ -91,6 +100,7 @@ print("I'm having fun!")
         makeBracket(teams: teams)
         rounding = makeRounds(rounds2: matches, r: rounds)
         Bracket1 = BracketObject(title: name, rounds: rounding)
+        Bracket1.bracketKey = keyTextField.text!
         if segue.identifier == "createBracket"
         {
             let nvc = segue.destination as! BracketViewController

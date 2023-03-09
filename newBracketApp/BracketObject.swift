@@ -14,7 +14,7 @@ import SwiftUI
 
 public class BracketObject: Codable{
     
- 
+    var bracketKey: String = ""
    var title: String = ""
   var rounds: [RoundClass]
 //    var roundsData = [Data]()

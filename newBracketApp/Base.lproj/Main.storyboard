@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0l7-oh-lRC">
-                                <rect key="frame" x="131" y="116" width="130" height="35"/>
+                                <rect key="frame" x="16" y="116" width="130" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Create New"/>
@@ -55,6 +55,12 @@
                                     <segue destination="3xt-BI-56u" kind="show" id="8lY-yG-sDy"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bracket Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="492-lh-u5q">
+                                <rect key="frame" x="250" y="116" width="127" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,12 +74,13 @@
                     <navigationItem key="navigationItem" id="zms-Nr-bZr"/>
                     <connections>
                         <outlet property="tableviewOutlet" destination="fuO-Sl-znA" id="G6k-9w-3Br"/>
+                        <outlet property="textFieldOutlet" destination="492-lh-u5q" id="md1-eb-a4s"/>
                         <segue destination="rsB-6z-2FB" kind="show" identifier="tableClick" id="zlH-WK-i7d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="427" y="-313"/>
+            <point key="canvasLocation" x="426.71755725190837" y="-313.38028169014086"/>
         </scene>
         <!--Creator View Controller-->
         <scene sceneID="txR-5g-1bo">
@@ -172,6 +179,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Uxo-dp-ojE"/>
                     <connections>
+                        <outlet property="keyTextField" destination="teo-vq-JU9" id="azp-9g-E5y"/>
                         <outlet property="nameOutlet" destination="ZBJ-Al-wQX" id="ctp-z0-BpH"/>
                         <outlet property="tableViewOutlet" destination="aFK-ww-iKt" id="x6K-u1-vC9"/>
                         <outlet property="textfieldOutlet" destination="raE-bC-aQ5" id="dRI-18-DUu"/>
