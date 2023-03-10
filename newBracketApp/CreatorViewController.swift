@@ -257,7 +257,7 @@ print("I'm having fun!")
     
     func makeRounds(rounds2: [MatchupClass], r: Int) -> [RoundClass]{
         var rounder: [RoundClass] = []
-        rounder.append(RoundClass(bMatches: rounds2, brounds: r))
+        rounder.append(RoundClass(bMatches: rounds2, brounds: 1))
         for i in 1 ..< r {
             var ron = RoundClass(bMatches: rounds2, brounds: 0)
             ron = newRound(rounds: rounder[i-1] , r: i+1)

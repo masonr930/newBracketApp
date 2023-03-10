@@ -17,12 +17,16 @@ public class BracketObject: Codable{
     var bracketKey: String = ""
    var title: String = ""
   var rounds: [RoundClass]
+    var fireKey = ""
 //    var roundsData = [Data]()
     init(title: String, rounds: [RoundClass]) {
         self.title = title
         self.rounds = rounds
     }
     
+    init(dict: [String:Any]){
+        self.title
+    }
 //homeTeam: String
 //var awayTeam: String
 //var homeScore: Int
@@ -34,6 +38,10 @@ public class BracketObject: Codable{
     
 //    rounds[i].matches[j].awayTeam
     
+    func read(){
+        
+    }
+    
     func saveToFirebase(){
         var dictMatch: [String : Any] = [:]
         var dictRound: [String : Any] = [:]
@@ -43,6 +51,7 @@ public class BracketObject: Codable{
         var ref = Database.database().reference()
         ref = ref.childByAutoId()
         ref.setValue(dictB)
+        fireKey = ref.key ?? "0"
         
         for i in 0..<rounds.count{
             print("Round: \(rounds[i].round)")

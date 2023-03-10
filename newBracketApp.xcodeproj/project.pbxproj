@@ -137,6 +137,7 @@
 		4A999BDB2993DE2000F82201 /* newBracketApp */ = {
 			isa = PBXGroup;
 			children = (
+				68A9774B29BB6D9B008BF006 /* maxVCs */,
 				4A999BDC2993DE2000F82201 /* AppDelegate.swift */,
 				4A999BDE2993DE2000F82201 /* SceneDelegate.swift */,
 				4A999BE02993DE2000F82201 /* ViewController.swift */,
@@ -148,10 +149,6 @@
 				4A9D295E299A7F270092B602 /* VsCell.swift */,
 				6884ADB9299E68A100C353AD /* roundClass.swift */,
 				4A58200429952DA10001B875 /* BracketViewController.swift */,
-				D8ECDD1729BA3B6C009676C3 /* Bracket4ViewController.swift */,
-				D8ECDD1929BA3B85009676C3 /* Bracket8ViewController.swift */,
-				D8ECDD1B29BA3B94009676C3 /* Bracket16ViewController.swift */,
-				D899875229AF902000FE9B8F /* NewBracketViewController.swift */,
 				4A58200229952D3D0001B875 /* CreatorViewController.swift */,
 				4A999BE82993DE2000F82201 /* Assets.xcassets */,
 				4A999BEA2993DE2000F82201 /* LaunchScreen.storyboard */,
@@ -177,6 +174,17 @@
 				4A999C022993DE2100F82201 /* newBracketAppUITestsLaunchTests.swift */,
 			);
 			path = newBracketAppUITests;
+			sourceTree = "<group>";
+		};
+		68A9774B29BB6D9B008BF006 /* maxVCs */ = {
+			isa = PBXGroup;
+			children = (
+				D899875229AF902000FE9B8F /* NewBracketViewController.swift */,
+				D8ECDD1729BA3B6C009676C3 /* Bracket4ViewController.swift */,
+				D8ECDD1929BA3B85009676C3 /* Bracket8ViewController.swift */,
+				D8ECDD1B29BA3B94009676C3 /* Bracket16ViewController.swift */,
+			);
+			path = maxVCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
