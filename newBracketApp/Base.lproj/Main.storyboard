@@ -303,8 +303,11 @@
                         <outlet property="matchesTable" destination="EhO-nU-5SA" id="6ng-sd-X6E"/>
                         <outlet property="segmentedController" destination="d8z-u0-tMc" id="J5N-Yh-foj"/>
                         <segue destination="Hc0-9X-4kf" kind="show" identifier="chooseWinnerSegue" id="gqL-fq-s92"/>
-                        <segue destination="0Vs-cb-EHR" kind="show" identifier="toBracket" id="bfG-7L-TFS"/>
+                        <segue destination="0Vs-cb-EHR" kind="show" identifier="toBracket32" id="bfG-7L-TFS"/>
                         <segue destination="6RK-rP-3X6" kind="unwind" identifier="unwindToHome" unwindAction="unwindWithSeg:" id="rj8-aC-NSB"/>
+                        <segue destination="jeg-Ra-RiY" kind="show" identifier="toBracket4" id="vNm-5h-5ch"/>
+                        <segue destination="Jhy-Ic-2vD" kind="show" identifier="toBracket8" id="82y-6e-fh0"/>
+                        <segue destination="p8I-N5-ePH" kind="show" identifier="toBracket16" id="L1M-Lg-vY1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuw-av-8X0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -989,7 +992,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGr-LY-gAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="jhp-eg-aGN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="967.93893129770993" y="1382.3943661971832"/>
+            <point key="canvasLocation" x="9032" y="1606"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bl5-se-l5j">
@@ -1008,17 +1011,727 @@
             </objects>
             <point key="canvasLocation" x="-11587" y="-313"/>
         </scene>
+        <!--Bracket4 View Controller-->
+        <scene sceneID="4BC-bk-KaN">
+            <objects>
+                <viewController id="jeg-Ra-RiY" customClass="Bracket4ViewController" customModule="newBracketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jtt-V0-kRr">
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="900"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBU-72-x2T">
+                                <rect key="frame" x="0.0" y="59" width="1200" height="841"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaR-zP-HiU">
+                                        <rect key="frame" x="0.0" y="0.0" width="1200" height="900"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="500" translatesAutoresizingMaskIntoConstraints="NO" id="KUf-l0-quq">
+                                                <rect key="frame" x="130" y="166" width="144" height="568"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 1 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKy-Ol-5st">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 2 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9fC-F5-GG2">
+                                                        <rect key="frame" x="0.0" y="534" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Finalist" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Yi-YZ-hMc">
+                                                <rect key="frame" x="404" y="433" width="156" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Finalist" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRN-k8-Sxt">
+                                                <rect key="frame" x="640" y="433" width="156" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="500" translatesAutoresizingMaskIntoConstraints="NO" id="ZnS-qf-W9h">
+                                                <rect key="frame" x="926" y="166" width="144" height="568"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 1 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u3i-eg-bTC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 2 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJw-L3-RsM">
+                                                        <rect key="frame" x="0.0" y="534" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8D-0s-b8N">
+                                                <rect key="frame" x="522" y="8" width="157" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="jeg-Ra-RiY" eventType="touchUpInside" id="6m5-RU-XIB"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bracket Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9js-Ib-0Cs">
+                                                <rect key="frame" x="450" y="166" width="300" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champion: (In Progress)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yd-Fc-2Il">
+                                                <rect key="frame" x="475" y="287" width="250" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstItem="1Yi-YZ-hMc" firstAttribute="leading" secondItem="KUf-l0-quq" secondAttribute="trailing" constant="130" id="1I2-Yu-RSx"/>
+                                            <constraint firstItem="KUf-l0-quq" firstAttribute="width" secondItem="LaR-zP-HiU" secondAttribute="width" multiplier="0.12" id="1Ji-Hl-sDb"/>
+                                            <constraint firstItem="1Yi-YZ-hMc" firstAttribute="width" secondItem="LaR-zP-HiU" secondAttribute="width" multiplier="0.13" id="4Qv-px-5fJ"/>
+                                            <constraint firstAttribute="height" constant="900" id="6BW-LT-n9m"/>
+                                            <constraint firstItem="ZnS-qf-W9h" firstAttribute="width" secondItem="LaR-zP-HiU" secondAttribute="width" multiplier="0.12" id="Bqo-XN-yJH"/>
+                                            <constraint firstAttribute="width" constant="1200" id="Bvj-aE-oAR"/>
+                                            <constraint firstAttribute="bottom" secondItem="DRN-k8-Sxt" secondAttribute="bottom" constant="433" id="D1O-GK-09w"/>
+                                            <constraint firstAttribute="bottom" secondItem="1Yi-YZ-hMc" secondAttribute="bottom" constant="433" id="FPQ-fT-cxj"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZnS-qf-W9h" secondAttribute="trailing" constant="130" id="GKH-2p-t3C"/>
+                                            <constraint firstAttribute="bottom" secondItem="KUf-l0-quq" secondAttribute="bottom" constant="166" id="HbV-tc-QNi"/>
+                                            <constraint firstItem="DRN-k8-Sxt" firstAttribute="top" secondItem="LaR-zP-HiU" secondAttribute="top" constant="433" id="J8X-li-EMs"/>
+                                            <constraint firstItem="1Yi-YZ-hMc" firstAttribute="top" secondItem="LaR-zP-HiU" secondAttribute="top" constant="433" id="Mqp-VV-FT4"/>
+                                            <constraint firstItem="KUf-l0-quq" firstAttribute="top" secondItem="LaR-zP-HiU" secondAttribute="top" constant="166" id="NIV-wb-LWj"/>
+                                            <constraint firstItem="KUf-l0-quq" firstAttribute="leading" secondItem="LaR-zP-HiU" secondAttribute="leading" constant="130" id="NQl-HE-bVs"/>
+                                            <constraint firstItem="ZnS-qf-W9h" firstAttribute="leading" secondItem="DRN-k8-Sxt" secondAttribute="trailing" constant="130" id="Nq3-Zc-rr3"/>
+                                            <constraint firstItem="DRN-k8-Sxt" firstAttribute="width" secondItem="LaR-zP-HiU" secondAttribute="width" multiplier="0.13" id="kOf-k0-Qim"/>
+                                            <constraint firstItem="ZnS-qf-W9h" firstAttribute="top" secondItem="LaR-zP-HiU" secondAttribute="top" constant="166" id="mdF-SJ-sXE"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZnS-qf-W9h" secondAttribute="bottom" constant="166" id="vwj-CT-Biy"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="LaR-zP-HiU" secondAttribute="bottom" id="O0v-Zn-XSU"/>
+                                    <constraint firstAttribute="trailing" secondItem="LaR-zP-HiU" secondAttribute="trailing" id="Ren-UQ-UzF"/>
+                                    <constraint firstItem="LaR-zP-HiU" firstAttribute="leading" secondItem="oBU-72-x2T" secondAttribute="leading" id="Vcu-LM-rBU"/>
+                                    <constraint firstItem="LaR-zP-HiU" firstAttribute="top" secondItem="oBU-72-x2T" secondAttribute="top" id="dog-OK-IEv"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="f8d-e8-kfH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oBU-72-x2T" firstAttribute="top" secondItem="f8d-e8-kfH" secondAttribute="top" id="gh9-eW-n0J"/>
+                            <constraint firstAttribute="bottom" secondItem="oBU-72-x2T" secondAttribute="bottom" id="iSs-4E-bcK"/>
+                            <constraint firstItem="oBU-72-x2T" firstAttribute="leading" secondItem="f8d-e8-kfH" secondAttribute="leading" id="lHn-Bt-LgX"/>
+                            <constraint firstItem="oBU-72-x2T" firstAttribute="trailing" secondItem="f8d-e8-kfH" secondAttribute="trailing" id="zAn-Kn-f5b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gnf-oN-vud"/>
+                    <size key="freeformSize" width="1200" height="900"/>
+                    <connections>
+                        <outlet property="f1" destination="1Yi-YZ-hMc" id="BKJ-YJ-eHL"/>
+                        <outlet property="f2" destination="DRN-k8-Sxt" id="yKG-Wd-FvH"/>
+                        <outlet property="r1t1" destination="xKy-Ol-5st" id="5xL-uU-O5B"/>
+                        <outlet property="r1t2" destination="9fC-F5-GG2" id="3sd-e6-w36"/>
+                        <outlet property="r1t3" destination="u3i-eg-bTC" id="Wde-3C-ocO"/>
+                        <outlet property="r1t4" destination="XJw-L3-RsM" id="1Zp-mc-w8p"/>
+                        <outletCollection property="round1Cells" destination="xKy-Ol-5st" collectionClass="NSMutableArray" id="mCj-3S-yJs"/>
+                        <outletCollection property="round1Cells" destination="9fC-F5-GG2" collectionClass="NSMutableArray" id="jsD-6I-mIl"/>
+                        <outletCollection property="round1Cells" destination="u3i-eg-bTC" collectionClass="NSMutableArray" id="Juk-n6-lzg"/>
+                        <outletCollection property="round1Cells" destination="XJw-L3-RsM" collectionClass="NSMutableArray" id="YEb-ut-gWd"/>
+                        <outletCollection property="finalsCells" destination="1Yi-YZ-hMc" collectionClass="NSMutableArray" id="CrC-df-m7v"/>
+                        <outletCollection property="finalsCells" destination="DRN-k8-Sxt" collectionClass="NSMutableArray" id="XFX-Ep-iUx"/>
+                        <segue destination="W6x-l4-xHF" kind="unwind" identifier="unwindToBracket3" unwindAction="unwind3With_seg:" id="20a-sM-kp7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pu9-UO-Web" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="W6x-l4-xHF" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="499" y="1501"/>
+        </scene>
+        <!--Bracket8 View Controller-->
+        <scene sceneID="y4M-dY-3kp">
+            <objects>
+                <viewController id="Jhy-Ic-2vD" customClass="Bracket8ViewController" customModule="newBracketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YdW-l0-8OB">
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="900"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T48-eY-LfK">
+                                <rect key="frame" x="0.0" y="59" width="1200" height="841"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjv-ub-qfR">
+                                        <rect key="frame" x="0.0" y="0.0" width="1200" height="900"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="180" translatesAutoresizingMaskIntoConstraints="NO" id="SdT-J4-eR1">
+                                                <rect key="frame" x="50" y="112" width="144" height="676"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 1 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0y-eG-T0Z">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 2 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-nh-48y">
+                                                        <rect key="frame" x="0.0" y="214" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 3 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzl-ry-eTW">
+                                                        <rect key="frame" x="0.0" y="428" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 4 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WVl-Mr-ohi">
+                                                        <rect key="frame" x="0.0" y="642" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="400" translatesAutoresizingMaskIntoConstraints="NO" id="jz6-nJ-DhT">
+                                                <rect key="frame" x="244" y="216" width="144" height="468"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRt-c3-7DB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YMD-ic-GEC">
+                                                        <rect key="frame" x="0.0" y="434" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Finalist" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cNe-IX-XhC">
+                                                <rect key="frame" x="428" y="433" width="156" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Finalist" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xp8-qz-vMV">
+                                                <rect key="frame" x="616" y="433" width="156" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="400" translatesAutoresizingMaskIntoConstraints="NO" id="G8L-9f-cH5">
+                                                <rect key="frame" x="812" y="216" width="144" height="468"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHr-pc-znE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="93a-iv-xqh">
+                                                        <rect key="frame" x="0.0" y="434" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="180" translatesAutoresizingMaskIntoConstraints="NO" id="Ck3-Zw-DLB">
+                                                <rect key="frame" x="1006" y="112" width="144" height="676"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 1 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Zu-Os-UT7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 2 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdK-6o-XmN">
+                                                        <rect key="frame" x="0.0" y="214" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 3 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0T1-7t-Me5">
+                                                        <rect key="frame" x="0.0" y="428" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 4 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKw-Vn-rxi">
+                                                        <rect key="frame" x="0.0" y="642" width="144" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caF-tH-rf1">
+                                                <rect key="frame" x="522" y="8" width="157" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="Jhy-Ic-2vD" eventType="touchUpInside" id="kCJ-Sm-97b"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bracket Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYG-mT-KYZ">
+                                                <rect key="frame" x="450" y="112" width="300" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champion: (In Progress)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWl-8n-A5n">
+                                                <rect key="frame" x="475" y="264" width="250" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="cNe-IX-XhC" secondAttribute="bottom" constant="433" id="11Q-vb-cjx"/>
+                                            <constraint firstItem="jz6-nJ-DhT" firstAttribute="top" secondItem="cjv-ub-qfR" secondAttribute="top" constant="216" id="5H6-eX-XMo"/>
+                                            <constraint firstItem="Ck3-Zw-DLB" firstAttribute="top" secondItem="cjv-ub-qfR" secondAttribute="top" constant="112" id="8ps-kf-rpR"/>
+                                            <constraint firstItem="SdT-J4-eR1" firstAttribute="leading" secondItem="cjv-ub-qfR" secondAttribute="leading" constant="50" id="8vi-ep-LKF"/>
+                                            <constraint firstAttribute="bottom" secondItem="G8L-9f-cH5" secondAttribute="bottom" constant="216" id="A11-dz-8ag"/>
+                                            <constraint firstItem="jz6-nJ-DhT" firstAttribute="leading" secondItem="SdT-J4-eR1" secondAttribute="trailing" constant="50" id="B4I-dV-pBX"/>
+                                            <constraint firstAttribute="bottom" secondItem="xp8-qz-vMV" secondAttribute="bottom" constant="433" id="C07-cy-UZ8"/>
+                                            <constraint firstItem="G8L-9f-cH5" firstAttribute="leading" secondItem="xp8-qz-vMV" secondAttribute="trailing" constant="40" id="DNR-Lr-br8"/>
+                                            <constraint firstItem="cNe-IX-XhC" firstAttribute="top" secondItem="cjv-ub-qfR" secondAttribute="top" constant="433" id="Fqb-lc-QbX"/>
+                                            <constraint firstItem="Ck3-Zw-DLB" firstAttribute="leading" secondItem="G8L-9f-cH5" secondAttribute="trailing" constant="50" id="MGb-DJ-zAu"/>
+                                            <constraint firstItem="xp8-qz-vMV" firstAttribute="width" secondItem="cjv-ub-qfR" secondAttribute="width" multiplier="0.13" id="NBJ-76-fnM"/>
+                                            <constraint firstAttribute="height" constant="900" id="TYC-6o-8BD"/>
+                                            <constraint firstItem="jz6-nJ-DhT" firstAttribute="width" secondItem="cjv-ub-qfR" secondAttribute="width" multiplier="0.12" id="UE8-tI-XwX"/>
+                                            <constraint firstItem="cNe-IX-XhC" firstAttribute="leading" secondItem="jz6-nJ-DhT" secondAttribute="trailing" constant="40" id="VGn-cp-c8Y"/>
+                                            <constraint firstItem="xp8-qz-vMV" firstAttribute="top" secondItem="cjv-ub-qfR" secondAttribute="top" constant="433" id="VYb-rl-IoF"/>
+                                            <constraint firstItem="SdT-J4-eR1" firstAttribute="top" secondItem="cjv-ub-qfR" secondAttribute="top" constant="112" id="WXr-ii-XNA"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ck3-Zw-DLB" secondAttribute="bottom" constant="112" id="WaR-5U-75X"/>
+                                            <constraint firstItem="cNe-IX-XhC" firstAttribute="width" secondItem="cjv-ub-qfR" secondAttribute="width" multiplier="0.13" id="XqM-m0-nyN"/>
+                                            <constraint firstItem="Ck3-Zw-DLB" firstAttribute="width" secondItem="cjv-ub-qfR" secondAttribute="width" multiplier="0.12" id="Y4g-YX-glh"/>
+                                            <constraint firstAttribute="bottom" secondItem="SdT-J4-eR1" secondAttribute="bottom" constant="112" id="Yl1-a2-Imu"/>
+                                            <constraint firstItem="G8L-9f-cH5" firstAttribute="width" secondItem="cjv-ub-qfR" secondAttribute="width" multiplier="0.12" id="ZEt-Uy-7gj"/>
+                                            <constraint firstItem="G8L-9f-cH5" firstAttribute="top" secondItem="cjv-ub-qfR" secondAttribute="top" constant="216" id="ZM2-LS-3re"/>
+                                            <constraint firstItem="SdT-J4-eR1" firstAttribute="width" secondItem="cjv-ub-qfR" secondAttribute="width" multiplier="0.12" id="c5F-Ml-cKD"/>
+                                            <constraint firstAttribute="bottom" secondItem="jz6-nJ-DhT" secondAttribute="bottom" constant="216" id="dyt-Aw-81y"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ck3-Zw-DLB" secondAttribute="trailing" constant="50" id="qqY-Z8-Kny"/>
+                                            <constraint firstAttribute="width" constant="1200" id="u83-uk-IK1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cjv-ub-qfR" secondAttribute="trailing" id="3mq-0q-WND"/>
+                                    <constraint firstItem="cjv-ub-qfR" firstAttribute="top" secondItem="T48-eY-LfK" secondAttribute="top" id="GjJ-zp-QFI"/>
+                                    <constraint firstItem="cjv-ub-qfR" firstAttribute="leading" secondItem="T48-eY-LfK" secondAttribute="leading" id="xwd-0x-veS"/>
+                                    <constraint firstAttribute="bottom" secondItem="cjv-ub-qfR" secondAttribute="bottom" id="y8w-40-2Lq"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YTM-gD-hN7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T48-eY-LfK" firstAttribute="trailing" secondItem="YTM-gD-hN7" secondAttribute="trailing" id="Mch-wf-d4i"/>
+                            <constraint firstItem="T48-eY-LfK" firstAttribute="top" secondItem="YTM-gD-hN7" secondAttribute="top" id="Sdo-kp-ib5"/>
+                            <constraint firstItem="T48-eY-LfK" firstAttribute="leading" secondItem="YTM-gD-hN7" secondAttribute="leading" id="j8x-V0-dt6"/>
+                            <constraint firstAttribute="bottom" secondItem="T48-eY-LfK" secondAttribute="bottom" id="kLX-Mn-3yH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="j4I-BK-Ta6"/>
+                    <size key="freeformSize" width="1200" height="900"/>
+                    <connections>
+                        <outlet property="f1" destination="cNe-IX-XhC" id="4FK-Fl-0GN"/>
+                        <outlet property="f2" destination="xp8-qz-vMV" id="s52-GV-LsF"/>
+                        <outlet property="r1t1" destination="b0y-eG-T0Z" id="9vt-1t-V8N"/>
+                        <outlet property="r1t2" destination="bcQ-nh-48y" id="1zl-1F-hP8"/>
+                        <outlet property="r1t3" destination="Nzl-ry-eTW" id="Lx5-VO-Aal"/>
+                        <outlet property="r1t4" destination="WVl-Mr-ohi" id="khU-bt-hlT"/>
+                        <outlet property="r1t5" destination="4Zu-Os-UT7" id="ECt-Fm-cx5"/>
+                        <outlet property="r1t6" destination="vdK-6o-XmN" id="KDW-Rx-Z4P"/>
+                        <outlet property="r1t7" destination="0T1-7t-Me5" id="Acg-WK-ztz"/>
+                        <outlet property="r1t8" destination="AKw-Vn-rxi" id="mbe-9n-FNR"/>
+                        <outlet property="r2t1" destination="KRt-c3-7DB" id="sX6-3Z-ZPY"/>
+                        <outlet property="r2t2" destination="YMD-ic-GEC" id="uM6-Xm-RCg"/>
+                        <outlet property="r2t3" destination="JHr-pc-znE" id="LgJ-J2-8yH"/>
+                        <outlet property="r2t4" destination="93a-iv-xqh" id="63P-oU-ODT"/>
+                        <outletCollection property="round1Cells" destination="b0y-eG-T0Z" collectionClass="NSMutableArray" id="sCa-gQ-GU4"/>
+                        <outletCollection property="round1Cells" destination="bcQ-nh-48y" collectionClass="NSMutableArray" id="DZz-xC-6Xx"/>
+                        <outletCollection property="round1Cells" destination="Nzl-ry-eTW" collectionClass="NSMutableArray" id="5J1-sZ-HVk"/>
+                        <outletCollection property="round1Cells" destination="WVl-Mr-ohi" collectionClass="NSMutableArray" id="kNm-Rn-ehp"/>
+                        <outletCollection property="round1Cells" destination="4Zu-Os-UT7" collectionClass="NSMutableArray" id="XKb-78-hvi"/>
+                        <outletCollection property="round1Cells" destination="vdK-6o-XmN" collectionClass="NSMutableArray" id="OUf-eJ-XST"/>
+                        <outletCollection property="round1Cells" destination="0T1-7t-Me5" collectionClass="NSMutableArray" id="0g7-BS-x77"/>
+                        <outletCollection property="round1Cells" destination="AKw-Vn-rxi" collectionClass="NSMutableArray" id="jMf-Ef-uD7"/>
+                        <outletCollection property="round2Cells" destination="KRt-c3-7DB" collectionClass="NSMutableArray" id="EnN-BO-1rN"/>
+                        <outletCollection property="round2Cells" destination="YMD-ic-GEC" collectionClass="NSMutableArray" id="gPp-Z2-ved"/>
+                        <outletCollection property="round2Cells" destination="JHr-pc-znE" collectionClass="NSMutableArray" id="Ach-OB-lFG"/>
+                        <outletCollection property="round2Cells" destination="93a-iv-xqh" collectionClass="NSMutableArray" id="3ny-5p-dWw"/>
+                        <outletCollection property="finalsCells" destination="cNe-IX-XhC" collectionClass="NSMutableArray" id="OwR-EE-mh1"/>
+                        <outletCollection property="finalsCells" destination="xp8-qz-vMV" collectionClass="NSMutableArray" id="VK9-YT-K05"/>
+                        <segue destination="BHb-tH-tRn" kind="unwind" identifier="unwindToBracket4" unwindAction="unwind4With_seg:" id="ME6-85-PE4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qn4-n4-ioH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="BHb-tH-tRn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2569" y="1501"/>
+        </scene>
+        <!--Bracket16 View Controller-->
+        <scene sceneID="7pN-hT-7M5">
+            <objects>
+                <viewController id="p8I-N5-ePH" customClass="Bracket16ViewController" customModule="newBracketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oKb-hS-Joi">
+                        <rect key="frame" x="0.0" y="0.0" width="2000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-7a-8Nt">
+                                <rect key="frame" x="0.0" y="59" width="2000" height="941"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0L-it-Y8l">
+                                        <rect key="frame" x="0.0" y="0.0" width="2000" height="1000"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="bAG-hO-leP">
+                                                <rect key="frame" x="120" y="84" width="150" height="832"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 1 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-19-1cG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 2 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGi-mL-47j">
+                                                        <rect key="frame" x="0.0" y="114" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 3 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cAo-YN-yPE">
+                                                        <rect key="frame" x="0.0" y="228" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 4 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvy-ms-maK">
+                                                        <rect key="frame" x="0.0" y="342" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 5 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fun-nL-4Ir">
+                                                        <rect key="frame" x="0.0" y="456" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 6 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nun-ZT-4Rn">
+                                                        <rect key="frame" x="0.0" y="570" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 7 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mkx-9z-XtQ">
+                                                        <rect key="frame" x="0.0" y="684" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 8 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B41-xl-zVh">
+                                                        <rect key="frame" x="0.0" y="798" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="195" translatesAutoresizingMaskIntoConstraints="NO" id="al3-Fp-9wE">
+                                                <rect key="frame" x="350" y="140" width="150" height="721"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3O-eP-k2E">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnX-pq-UXY">
+                                                        <rect key="frame" x="0.0" y="229" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Dd-Bc-zzA">
+                                                        <rect key="frame" x="0.0" y="458" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tbs-BE-eJf">
+                                                        <rect key="frame" x="0.0" y="687" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="440" translatesAutoresizingMaskIntoConstraints="NO" id="xNY-IF-Fyo">
+                                                <rect key="frame" x="580" y="246" width="150" height="508"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 2 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eko-kW-ad1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 2 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Szz-Ve-BQ7">
+                                                        <rect key="frame" x="0.0" y="474" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Finalist" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7qc-xc-Cb0">
+                                                <rect key="frame" x="810" y="483" width="160" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Finalist" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egz-dS-kO2">
+                                                <rect key="frame" x="1030" y="483" width="160" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="440" translatesAutoresizingMaskIntoConstraints="NO" id="aXd-xA-E25">
+                                                <rect key="frame" x="1270" y="246" width="150" height="508"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 2 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2R-pE-hVV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 2 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fiv-3H-IqH">
+                                                        <rect key="frame" x="0.0" y="474" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="195" translatesAutoresizingMaskIntoConstraints="NO" id="7A9-ro-bvI">
+                                                <rect key="frame" x="1500" y="140" width="150" height="721"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z91-F5-uMK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SuL-hm-Iud">
+                                                        <rect key="frame" x="0.0" y="229" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cnH-IF-agS">
+                                                        <rect key="frame" x="0.0" y="458" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round 1 Winner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUG-Sk-NCg">
+                                                        <rect key="frame" x="0.0" y="687" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="fZh-Tz-6XA">
+                                                <rect key="frame" x="1730" y="84" width="150" height="832"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 1 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MAl-Fm-hCc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 2 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ak-ab-GcH">
+                                                        <rect key="frame" x="0.0" y="114" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 3 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqW-kS-Rt9">
+                                                        <rect key="frame" x="0.0" y="228" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 4 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dTk-7E-TMD">
+                                                        <rect key="frame" x="0.0" y="342" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 5 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2km-3t-49I">
+                                                        <rect key="frame" x="0.0" y="456" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 6 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DdJ-we-rMi">
+                                                        <rect key="frame" x="0.0" y="570" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 7 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-s8-HcI">
+                                                        <rect key="frame" x="0.0" y="684" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team 8 Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBD-Li-501">
+                                                        <rect key="frame" x="0.0" y="798" width="150" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yin-tH-GHg">
+                                                <rect key="frame" x="922" y="8" width="157" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="p8I-N5-ePH" eventType="touchUpInside" id="nUY-LS-G4C"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bracket Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gl-sy-QPI">
+                                                <rect key="frame" x="850" y="140" width="300" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champion: (In Progress)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jF4-uE-ryI">
+                                                <rect key="frame" x="875" y="308" width="250" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstItem="bAG-hO-leP" firstAttribute="top" secondItem="I0L-it-Y8l" secondAttribute="top" constant="84" id="1Fv-At-DQK"/>
+                                            <constraint firstItem="bAG-hO-leP" firstAttribute="leading" secondItem="I0L-it-Y8l" secondAttribute="leading" constant="120" id="1Wa-ck-FE8"/>
+                                            <constraint firstItem="aXd-xA-E25" firstAttribute="width" secondItem="I0L-it-Y8l" secondAttribute="width" multiplier="0.075" id="3Jg-kp-A7I"/>
+                                            <constraint firstItem="egz-dS-kO2" firstAttribute="width" secondItem="I0L-it-Y8l" secondAttribute="width" multiplier="0.08" id="5fS-rC-hsi"/>
+                                            <constraint firstAttribute="width" constant="2000" id="5gN-dW-QeN"/>
+                                            <constraint firstItem="xNY-IF-Fyo" firstAttribute="leading" secondItem="al3-Fp-9wE" secondAttribute="trailing" constant="80" id="77H-Ng-FQO"/>
+                                            <constraint firstAttribute="bottom" secondItem="aXd-xA-E25" secondAttribute="bottom" constant="246" id="Evy-1G-ve0"/>
+                                            <constraint firstItem="fZh-Tz-6XA" firstAttribute="leading" secondItem="7A9-ro-bvI" secondAttribute="trailing" constant="80" id="GxO-0K-9kd"/>
+                                            <constraint firstItem="7A9-ro-bvI" firstAttribute="width" secondItem="I0L-it-Y8l" secondAttribute="width" multiplier="0.075" id="HVD-H9-zkc"/>
+                                            <constraint firstAttribute="trailing" secondItem="fZh-Tz-6XA" secondAttribute="trailing" constant="120" id="Hfh-Nb-poO"/>
+                                            <constraint firstItem="xNY-IF-Fyo" firstAttribute="top" secondItem="I0L-it-Y8l" secondAttribute="top" constant="246" id="Hfp-4Q-bPT"/>
+                                            <constraint firstAttribute="bottom" secondItem="7A9-ro-bvI" secondAttribute="bottom" constant="139" id="LTj-NF-lhC"/>
+                                            <constraint firstItem="7qc-xc-Cb0" firstAttribute="leading" secondItem="xNY-IF-Fyo" secondAttribute="trailing" constant="80" id="MPo-F1-zhx"/>
+                                            <constraint firstItem="fZh-Tz-6XA" firstAttribute="top" secondItem="I0L-it-Y8l" secondAttribute="top" constant="84" id="OAr-Zf-CGe"/>
+                                            <constraint firstAttribute="bottom" secondItem="7qc-xc-Cb0" secondAttribute="bottom" constant="483" id="Qed-da-g7V"/>
+                                            <constraint firstItem="7A9-ro-bvI" firstAttribute="leading" secondItem="aXd-xA-E25" secondAttribute="trailing" constant="80" id="Rvg-LJ-5AQ"/>
+                                            <constraint firstItem="bAG-hO-leP" firstAttribute="width" secondItem="I0L-it-Y8l" secondAttribute="width" multiplier="0.075" id="Tr8-05-Sk3"/>
+                                            <constraint firstItem="xNY-IF-Fyo" firstAttribute="width" secondItem="I0L-it-Y8l" secondAttribute="width" multiplier="0.075" id="X3m-az-TdN"/>
+                                            <constraint firstItem="aXd-xA-E25" firstAttribute="leading" secondItem="egz-dS-kO2" secondAttribute="trailing" constant="80" id="YXG-Uk-COO"/>
+                                            <constraint firstAttribute="height" constant="1000" id="aII-Fl-8I0"/>
+                                            <constraint firstItem="egz-dS-kO2" firstAttribute="top" secondItem="I0L-it-Y8l" secondAttribute="top" constant="483" id="b4F-TM-10n"/>
+                                            <constraint firstAttribute="bottom" secondItem="bAG-hO-leP" secondAttribute="bottom" constant="84" id="ccM-wn-vyE"/>
+                                            <constraint firstAttribute="bottom" secondItem="al3-Fp-9wE" secondAttribute="bottom" constant="139" id="eQ8-Gl-xu8"/>
+                                            <constraint firstItem="aXd-xA-E25" firstAttribute="top" secondItem="I0L-it-Y8l" secondAttribute="top" constant="246" id="hC4-LM-MWx"/>
+                                            <constraint firstItem="7A9-ro-bvI" firstAttribute="top" secondItem="I0L-it-Y8l" secondAttribute="top" constant="140" id="jrw-c1-8Qr"/>
+                                            <constraint firstItem="7qc-xc-Cb0" firstAttribute="width" secondItem="I0L-it-Y8l" secondAttribute="width" multiplier="0.08" id="kCd-jG-RG7"/>
+                                            <constraint firstItem="fZh-Tz-6XA" firstAttribute="width" secondItem="I0L-it-Y8l" secondAttribute="width" multiplier="0.075" id="lFj-Rm-uab"/>
+                                            <constraint firstAttribute="bottom" secondItem="xNY-IF-Fyo" secondAttribute="bottom" constant="246" id="lVw-8D-L2F"/>
+                                            <constraint firstItem="al3-Fp-9wE" firstAttribute="width" secondItem="I0L-it-Y8l" secondAttribute="width" multiplier="0.075" id="neP-rB-SYe"/>
+                                            <constraint firstItem="al3-Fp-9wE" firstAttribute="leading" secondItem="bAG-hO-leP" secondAttribute="trailing" constant="80" id="qZM-yp-dVh"/>
+                                            <constraint firstAttribute="bottom" secondItem="fZh-Tz-6XA" secondAttribute="bottom" constant="84" id="qlR-C9-Np2"/>
+                                            <constraint firstItem="7qc-xc-Cb0" firstAttribute="top" secondItem="I0L-it-Y8l" secondAttribute="top" constant="483" id="xbN-DY-N6m"/>
+                                            <constraint firstAttribute="bottom" secondItem="egz-dS-kO2" secondAttribute="bottom" constant="483" id="yng-0g-rZe"/>
+                                            <constraint firstItem="al3-Fp-9wE" firstAttribute="top" secondItem="I0L-it-Y8l" secondAttribute="top" constant="140" id="zfM-jZ-eab"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="I0L-it-Y8l" secondAttribute="bottom" id="UIZ-xt-cda"/>
+                                    <constraint firstItem="I0L-it-Y8l" firstAttribute="top" secondItem="M0c-7a-8Nt" secondAttribute="top" id="fe2-TH-hbr"/>
+                                    <constraint firstAttribute="trailing" secondItem="I0L-it-Y8l" secondAttribute="trailing" id="hTs-Vg-pXc"/>
+                                    <constraint firstItem="I0L-it-Y8l" firstAttribute="leading" secondItem="M0c-7a-8Nt" secondAttribute="leading" id="qQL-ur-YIw"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uq3-lr-hED"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="M0c-7a-8Nt" secondAttribute="bottom" id="E53-9i-3CH"/>
+                            <constraint firstItem="M0c-7a-8Nt" firstAttribute="trailing" secondItem="Uq3-lr-hED" secondAttribute="trailing" id="JrA-p0-tFd"/>
+                            <constraint firstItem="M0c-7a-8Nt" firstAttribute="top" secondItem="Uq3-lr-hED" secondAttribute="top" id="YcH-Jr-hFs"/>
+                            <constraint firstItem="M0c-7a-8Nt" firstAttribute="leading" secondItem="Uq3-lr-hED" secondAttribute="leading" id="gy9-k6-gkj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Gx-ha-doy"/>
+                    <size key="freeformSize" width="2000" height="1000"/>
+                    <connections>
+                        <outlet property="f1" destination="7qc-xc-Cb0" id="hMr-SW-Y3m"/>
+                        <outlet property="f2" destination="egz-dS-kO2" id="oeI-zN-a7C"/>
+                        <outlet property="r1t1" destination="zCb-19-1cG" id="phD-do-Vqj"/>
+                        <outlet property="r1t10" destination="7Ak-ab-GcH" id="Qer-B7-2CY"/>
+                        <outlet property="r1t11" destination="mqW-kS-Rt9" id="UGn-Ac-1Tx"/>
+                        <outlet property="r1t12" destination="dTk-7E-TMD" id="UO0-Qf-3NJ"/>
+                        <outlet property="r1t13" destination="2km-3t-49I" id="yQJ-mU-fWG"/>
+                        <outlet property="r1t14" destination="DdJ-we-rMi" id="25i-Dr-fjM"/>
+                        <outlet property="r1t15" destination="a4Y-s8-HcI" id="nav-XF-8TW"/>
+                        <outlet property="r1t16" destination="tBD-Li-501" id="GtH-nI-nqo"/>
+                        <outlet property="r1t2" destination="SGi-mL-47j" id="Bw1-Yn-899"/>
+                        <outlet property="r1t3" destination="cAo-YN-yPE" id="uzV-uH-vz2"/>
+                        <outlet property="r1t4" destination="mvy-ms-maK" id="u9j-BU-Xui"/>
+                        <outlet property="r1t5" destination="Fun-nL-4Ir" id="PXb-Sg-Gci"/>
+                        <outlet property="r1t6" destination="Nun-ZT-4Rn" id="YN0-B4-zjP"/>
+                        <outlet property="r1t7" destination="mkx-9z-XtQ" id="A8C-Rl-WAn"/>
+                        <outlet property="r1t8" destination="B41-xl-zVh" id="Ndd-1G-SHe"/>
+                        <outlet property="r1t9" destination="MAl-Fm-hCc" id="Qd5-W5-mNH"/>
+                        <outlet property="r2t1" destination="G3O-eP-k2E" id="b3k-di-vaJ"/>
+                        <outlet property="r2t2" destination="vnX-pq-UXY" id="dqh-RD-leQ"/>
+                        <outlet property="r2t3" destination="1Dd-Bc-zzA" id="o0o-ec-Plh"/>
+                        <outlet property="r2t4" destination="tbs-BE-eJf" id="yGf-b2-21U"/>
+                        <outlet property="r2t5" destination="z91-F5-uMK" id="usF-eU-Pa4"/>
+                        <outlet property="r2t6" destination="SuL-hm-Iud" id="yUP-w5-FgO"/>
+                        <outlet property="r2t7" destination="cnH-IF-agS" id="K4k-Te-cxx"/>
+                        <outlet property="r2t8" destination="pUG-Sk-NCg" id="IYH-J1-hAg"/>
+                        <outlet property="r3t1" destination="Eko-kW-ad1" id="AB3-hf-Cgt"/>
+                        <outlet property="r3t2" destination="Szz-Ve-BQ7" id="wxG-bq-6bj"/>
+                        <outlet property="r3t3" destination="M2R-pE-hVV" id="KNc-te-7SI"/>
+                        <outlet property="r3t4" destination="Fiv-3H-IqH" id="3jF-fE-55Y"/>
+                        <outletCollection property="round1Cells" destination="zCb-19-1cG" collectionClass="NSMutableArray" id="mAF-CX-Uf4"/>
+                        <outletCollection property="round1Cells" destination="SGi-mL-47j" collectionClass="NSMutableArray" id="eUx-sa-rgd"/>
+                        <outletCollection property="round1Cells" destination="cAo-YN-yPE" collectionClass="NSMutableArray" id="REU-OY-dl7"/>
+                        <outletCollection property="round1Cells" destination="mvy-ms-maK" collectionClass="NSMutableArray" id="UDn-aB-Jiy"/>
+                        <outletCollection property="round1Cells" destination="Fun-nL-4Ir" collectionClass="NSMutableArray" id="asl-dl-a1j"/>
+                        <outletCollection property="round1Cells" destination="Nun-ZT-4Rn" collectionClass="NSMutableArray" id="VGb-OS-vf2"/>
+                        <outletCollection property="round1Cells" destination="mkx-9z-XtQ" collectionClass="NSMutableArray" id="rYg-Vm-5NT"/>
+                        <outletCollection property="round1Cells" destination="B41-xl-zVh" collectionClass="NSMutableArray" id="HcD-yU-JP1"/>
+                        <outletCollection property="round1Cells" destination="MAl-Fm-hCc" collectionClass="NSMutableArray" id="xKf-af-LYD"/>
+                        <outletCollection property="round1Cells" destination="7Ak-ab-GcH" collectionClass="NSMutableArray" id="QnS-ZJ-3mk"/>
+                        <outletCollection property="round1Cells" destination="mqW-kS-Rt9" collectionClass="NSMutableArray" id="E9E-8F-dWv"/>
+                        <outletCollection property="round1Cells" destination="dTk-7E-TMD" collectionClass="NSMutableArray" id="unK-vI-ua6"/>
+                        <outletCollection property="round1Cells" destination="2km-3t-49I" collectionClass="NSMutableArray" id="O1g-oY-zvO"/>
+                        <outletCollection property="round1Cells" destination="DdJ-we-rMi" collectionClass="NSMutableArray" id="Trs-k8-c5b"/>
+                        <outletCollection property="round1Cells" destination="a4Y-s8-HcI" collectionClass="NSMutableArray" id="jV0-ZL-1ay"/>
+                        <outletCollection property="round1Cells" destination="tBD-Li-501" collectionClass="NSMutableArray" id="MWc-29-dg3"/>
+                        <outletCollection property="round2Cells" destination="G3O-eP-k2E" collectionClass="NSMutableArray" id="Bhs-Pd-2E3"/>
+                        <outletCollection property="round2Cells" destination="vnX-pq-UXY" collectionClass="NSMutableArray" id="jMV-xP-e5c"/>
+                        <outletCollection property="round2Cells" destination="1Dd-Bc-zzA" collectionClass="NSMutableArray" id="ieW-Aj-e9K"/>
+                        <outletCollection property="round2Cells" destination="tbs-BE-eJf" collectionClass="NSMutableArray" id="cRQ-gZ-em4"/>
+                        <outletCollection property="round2Cells" destination="z91-F5-uMK" collectionClass="NSMutableArray" id="aXn-O8-nbB"/>
+                        <outletCollection property="round2Cells" destination="SuL-hm-Iud" collectionClass="NSMutableArray" id="iEO-nu-ku6"/>
+                        <outletCollection property="round2Cells" destination="cnH-IF-agS" collectionClass="NSMutableArray" id="qzA-Ck-LLi"/>
+                        <outletCollection property="round2Cells" destination="pUG-Sk-NCg" collectionClass="NSMutableArray" id="iZV-XD-cpl"/>
+                        <outletCollection property="round3Cells" destination="Eko-kW-ad1" collectionClass="NSMutableArray" id="AgZ-Ye-aSf"/>
+                        <outletCollection property="round3Cells" destination="Szz-Ve-BQ7" collectionClass="NSMutableArray" id="tVE-1U-WR6"/>
+                        <outletCollection property="round3Cells" destination="M2R-pE-hVV" collectionClass="NSMutableArray" id="EiB-9M-mHK"/>
+                        <outletCollection property="round3Cells" destination="Fiv-3H-IqH" collectionClass="NSMutableArray" id="IjA-58-7mJ"/>
+                        <outletCollection property="finalsCells" destination="7qc-xc-Cb0" collectionClass="NSMutableArray" id="ch5-ui-iw2"/>
+                        <outletCollection property="finalsCells" destination="egz-dS-kO2" collectionClass="NSMutableArray" id="9pn-aW-znn"/>
+                        <segue destination="RvA-t5-Ynd" kind="unwind" identifier="unwindToBracket5" unwindAction="unwind5With_seg:" id="Bpq-7x-IQs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wQp-3Q-yqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="RvA-t5-Ynd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5316" y="1536"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c0g-h0-Ss3"/>
+        <segue reference="bfG-7L-TFS"/>
         <segue reference="8xR-Zn-0QZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

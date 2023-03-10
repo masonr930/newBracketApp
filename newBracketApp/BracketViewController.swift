@@ -88,7 +88,22 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             nvc.finalSegment = segmentedController.numberOfSegments
                 
         }
-        else if segue.identifier == "toBracket"
+        else if segue.identifier == "toBracket4"
+        {
+            let nvc = segue.destination as! Bracket4ViewController
+            nvc.theBracket = bigBracket
+        }
+        else if segue.identifier == "toBracket8"
+        {
+            let nvc = segue.destination as! Bracket8ViewController
+            nvc.theBracket = bigBracket
+        }
+        else if segue.identifier == "toBracket16"
+        {
+            let nvc = segue.destination as! Bracket16ViewController
+            nvc.theBracket = bigBracket
+        }
+        else if segue.identifier == "toBracket32"
         {
             let nvc = segue.destination as! NewBracketViewController
             nvc.theBracket = bigBracket
@@ -170,7 +185,19 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func goToBracket(_ sender: UIButton)
     {
-        performSegue(withIdentifier: "toBracket", sender: self)
+        if bigBracket.rounds.count == 2 {
+            performSegue(withIdentifier: "toBracket4", sender: self)
+        }
+        else if bigBracket.rounds.count == 3 {
+            performSegue(withIdentifier: "toBracket8", sender: self)
+        }
+        else if bigBracket.rounds.count == 4 {
+            performSegue(withIdentifier: "toBracket16", sender: self)
+        }
+        else if bigBracket.rounds.count == 5 {
+            performSegue(withIdentifier: "toBracket32", sender: self)
+        }
+        
     }
     
     
