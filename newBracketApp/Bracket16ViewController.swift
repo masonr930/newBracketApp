@@ -63,11 +63,17 @@ class Bracket16ViewController: UIViewController {
     
     @IBOutlet var finalsCells: [UITextField]!
     
+    @IBOutlet weak var bracketNameLabel: UILabel!
+    @IBOutlet weak var championLabel: UILabel!
+    
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        bracketNameLabel.text = "\(theBracket.title)"
+        
         populateRound1()
         populateRound2()
         populateRound3()
