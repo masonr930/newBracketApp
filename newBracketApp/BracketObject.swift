@@ -41,19 +41,19 @@ public class BracketObject: Codable{
         dictB = ["title": title, "roundDict": dictRound] as [String: Any]
         
         var ref = Database.database().reference()
-        let uRef = ref.childByAutoId()
-        uRef.setValue(dictB)
+        ref = ref.childByAutoId()
+        ref.setValue(dictB)
         
-//        for i in 0..<rounds.count{
-//
-//
-//            for j in 0..<rounds[i].matches.count{
-//                dictMatch = ["homeTeam": rounds[i].matches[j].homeTeam, "awayTeam": rounds[i].matches[j].awayTeam,"isMatch": rounds[i].matches[j].isMatch,"winner": rounds[i].matches[j].winner, "winnerCheck": rounds[i].matches[j].winnerCheck, "hasTeams": rounds[i].matches[j].hasTeams] as [String : Any]
-//
-//
-//            }
-//            dictRound = ["round": rounds[i].round] as [String : Any]
-//        }
+        for i in 0..<rounds.count{
+            print("Round: \(rounds[i].round)")
+            
+            for j in 0..<rounds[i].matches.count{
+                dictMatch = ["homeTeam": rounds[i].matches[j].homeTeam, "awayTeam": rounds[i].matches[j].awayTeam,"isMatch": rounds[i].matches[j].isMatch,"winner": rounds[i].matches[j].winner, "winnerCheck": rounds[i].matches[j].winnerCheck, "hasTeams": rounds[i].matches[j].hasTeams] as [String : Any]
+                
+                ref.child("rounds").child("\(rounds[i].round)").child("matches").child("\(j)").setValue(dictMatch)
+            }
+            
+        }
         
     }
 
