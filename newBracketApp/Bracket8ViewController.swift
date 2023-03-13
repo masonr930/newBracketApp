@@ -50,7 +50,16 @@ class Bracket8ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        bracketNameLabel.text = "\(theBracket.title)"
+        bracketNameLabel.text = "\(theBracket!.title)"
+        if theBracket!.rounds[2].matches[0].winnerCheck {
+            if theBracket!.rounds[2].matches[0].winner {
+                championLabel.text = "Champion:\n\(theBracket!.rounds[2].matches[0].homeTeam)"
+            } else {
+                championLabel.text = "Champion:\n\(theBracket!.rounds[2].matches[0].awayTeam)"
+            }
+        } else {
+            championLabel.text = "Champion:\n(In Progress)"
+        }
         
         populateRound1()
         populateRound2()
