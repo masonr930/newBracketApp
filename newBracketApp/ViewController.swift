@@ -27,6 +27,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+
+        
         // Do any additional setup after loading the view.
     }
 

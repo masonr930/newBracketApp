@@ -24,9 +24,13 @@ public class BracketObject: Codable{
         self.rounds = rounds
     }
     
-    init(dict: [String:Any]){
-        self.title
-    }
+//    init(dict: [String:Any]){
+//        self.title = dict["title"] as! String
+//       var dRounds = dict["rounds"]
+//        var dMathch = dRounds[0]
+//
+//
+//    }
 //homeTeam: String
 //var awayTeam: String
 //var homeScore: Int
