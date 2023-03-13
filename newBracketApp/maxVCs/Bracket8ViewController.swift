@@ -41,11 +41,26 @@ class Bracket8ViewController: UIViewController {
     
     @IBOutlet var finalsCells: [UITextField]!
     
+    @IBOutlet weak var bracketNameLabel: UILabel!
+    @IBOutlet weak var championLabel: UILabel!
+    
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        bracketNameLabel.text = "\(theBracket!.title)"
+        if theBracket!.rounds[2].matches[0].winnerCheck {
+            if theBracket!.rounds[2].matches[0].winner {
+                championLabel.text = "Champion:\n\(theBracket!.rounds[2].matches[0].homeTeam)"
+            } else {
+                championLabel.text = "Champion:\n\(theBracket!.rounds[2].matches[0].awayTeam)"
+            }
+        } else {
+            championLabel.text = "Champion:\n(In Progress)"
+        }
+        
         populateRound1()
         populateRound2()
         populateFinals()

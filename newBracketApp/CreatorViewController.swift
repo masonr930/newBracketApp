@@ -198,37 +198,41 @@ print("I'm having fun!")
             rounds += 1
         }
 //        addSegueButtons(rounds2: rounds)
+        
+        
+        matches = seeds(teams: teams)
+        
         //this if else covers first round matches and places them into the table, we need to find a way to show a seperate table for seperate matches
-        if(perfect){
-            var teamsTemp = teams
-            for _ in 0..<firstRoundMatches {
-                matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
-                print(teamsTemp)
-                tempTeams.remove(at: 0)
-                tempTeams.remove(at:0)
-                print(matches[0].homeTeam)
-            }
-//            //make table just print one array[0] and array [1] into each seperate spot and then delete them from the temporary array this is only minimum and first round only populate table with first round matches cells only
-        }
-        else{
-            var teamsTemp = teams
-            for _ in 0..<firstRoundMatches {
-                matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
-                print(teamsTemp)
-                tempTeams.remove(at: 0)
-                tempTeams.remove(at:0)
-                print(matches[0].homeTeam)
-            }
-            for _ in 0..<bies
-            {
-                matches.append(MatchupClass.init(hTeam: tempTeams[0], aTeam: "BYE", hScore: 0, aScore: 0, match: false))
-                tempTeams.remove(at: 0)
-            }
-            
-//           // populate table with only the amount of cells as first round matches and only run the loop to put people in that many times
-        }
-        print("Test")
-        print(rounds)
+//        if(perfect){
+//            var teamsTemp = teams
+//            for _ in 0..<firstRoundMatches {
+//                matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
+//                print(teamsTemp)
+//                tempTeams.remove(at: 0)
+//                tempTeams.remove(at:0)
+//                print(matches[0].homeTeam)
+//            }
+//            make table just print one array[0] and array [1] into each seperate spot and then delete them from the temporary array this is only minimum and first round only populate table with first round matches cells only
+//        }
+//        else{
+//            var teamsTemp = teams
+//            for _ in 0..<firstRoundMatches {
+//                matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
+//                print(teamsTemp)
+//                tempTeams.remove(at: 0)
+//                tempTeams.remove(at:0)
+//                print(matches[0].homeTeam)
+//            }
+//            for _ in 0..<bies
+//            {
+//                matches.append(MatchupClass.init(hTeam: tempTeams[0], aTeam: "BYE", hScore: 0, aScore: 0, match: false))
+//                tempTeams.remove(at: 0)
+//            }
+//
+//  populate table with only the amount of cells as first round matches and only run the loop to put people in that many times
+//        }
+//        print("Test")
+//        print(rounds)
     }
     
     //calclulates first roundMatches
@@ -313,14 +317,17 @@ print("I'm having fun!")
         return nRound
     }
     
-    func seeds(teams: [String])
+    func seeds(teams: [String])-> [MatchupClass]
     {
-        var matches: [MatchupClass]
+        var matches: [MatchupClass] = []
         var perfect = false
         var count = teams.count
         var start = 0
         var end = teams.count - 1
-        
+        var bies = 0
+        var check = false
+        var teams2 = teams
+
         //checks for perfect square
         while count > 1
         {
@@ -336,14 +343,59 @@ print("I'm having fun!")
             }
         }
         
-        //matches by seeds for a perfect bracket
-        while start > end
-        {
-            
+        // how many byes
+        if(!perfect){
+            while(!check){
+                count+=1
+                bies+=1
+                if (count%2 == 0){
+                    var temp = count
+                    while (temp%2 == 0 ){
+                        temp = temp/2
+                    }
+                    if (temp == 1){
+                       check = true
+                    }
+                }
+            }
         }
         
-        
-       // return matches
+        // adds matches by seeds for a perfect bracket
+        if perfect == true
+        {
+            while start > end
+            {
+                matches.append(MatchupClass(hTeam: teams[start], aTeam: teams[end], hScore: 0, aScore: 0, match: true))
+                start+=1
+                end-=1
+            }
+        }
+        // adds matches by seeds for a bracket with byes
+        else
+        {
+            while bies > 0
+            {
+                teams2.append("BYE")
+                bies = bies - 1
+            }
+            
+            while start > end
+            {
+                if teams2[end] == "BYE"
+                {
+                    matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false))
+                    start+=1
+                    end-=1
+                }
+                else
+                {
+                    matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true))
+                    start+=1
+                    end-=1
+                }
+            }
+        }
+       return matches
     }
     
     

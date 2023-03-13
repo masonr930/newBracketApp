@@ -802,6 +802,20 @@
                                                     <action selector="backButton:" destination="0Vs-cb-EHR" eventType="touchUpInside" id="eJW-wH-UDs"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bracket Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfx-K3-KMF">
+                                                <rect key="frame" x="1050" y="203" width="300" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champion: (In Progress)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1U-WL-WxW">
+                                                <rect key="frame" x="1075" y="379" width="250" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
@@ -862,6 +876,8 @@
                     <navigationItem key="navigationItem" id="TJW-ZZ-jYG"/>
                     <size key="freeformSize" width="2400" height="1200"/>
                     <connections>
+                        <outlet property="bracketNameLabel" destination="Gfx-K3-KMF" id="iHH-v1-7i9"/>
+                        <outlet property="championLabel" destination="A1U-WL-WxW" id="qfU-iC-Qgo"/>
                         <outlet property="f1" destination="qzC-X1-ovG" id="C5D-LX-ywu"/>
                         <outlet property="f2" destination="jkO-1q-dzD" id="dUx-Rz-ihA"/>
                         <outlet property="r1t1" destination="GLH-i5-wHR" id="klv-8f-zVQ"/>
@@ -1132,6 +1148,8 @@
                     <navigationItem key="navigationItem" id="gnf-oN-vud"/>
                     <size key="freeformSize" width="1200" height="900"/>
                     <connections>
+                        <outlet property="bracketNameLabel" destination="9js-Ib-0Cs" id="sVd-CB-jNr"/>
+                        <outlet property="championLabel" destination="8Yd-Fc-2Il" id="jaK-st-wQg"/>
                         <outlet property="f1" destination="1Yi-YZ-hMc" id="BKJ-YJ-eHL"/>
                         <outlet property="f2" destination="DRN-k8-Sxt" id="yKG-Wd-FvH"/>
                         <outlet property="r1t1" destination="xKy-Ol-5st" id="5xL-uU-O5B"/>
@@ -1331,6 +1349,8 @@
                     <navigationItem key="navigationItem" id="j4I-BK-Ta6"/>
                     <size key="freeformSize" width="1200" height="900"/>
                     <connections>
+                        <outlet property="bracketNameLabel" destination="tYG-mT-KYZ" id="5xH-LB-GCR"/>
+                        <outlet property="championLabel" destination="uWl-8n-A5n" id="MbB-lg-V92"/>
                         <outlet property="f1" destination="cNe-IX-XhC" id="4FK-Fl-0GN"/>
                         <outlet property="f2" destination="xp8-qz-vMV" id="s52-GV-LsF"/>
                         <outlet property="r1t1" destination="b0y-eG-T0Z" id="9vt-1t-V8N"/>
@@ -1644,6 +1664,8 @@
                     <navigationItem key="navigationItem" id="7Gx-ha-doy"/>
                     <size key="freeformSize" width="2000" height="1000"/>
                     <connections>
+                        <outlet property="bracketNameLabel" destination="4Gl-sy-QPI" id="ZIV-tg-Ln7"/>
+                        <outlet property="championLabel" destination="jF4-uE-ryI" id="daF-mN-agL"/>
                         <outlet property="f1" destination="7qc-xc-Cb0" id="hMr-SW-Y3m"/>
                         <outlet property="f2" destination="egz-dS-kO2" id="oeI-zN-a7C"/>
                         <outlet property="r1t1" destination="zCb-19-1cG" id="phD-do-Vqj"/>
