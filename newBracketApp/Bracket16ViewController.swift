@@ -72,6 +72,7 @@ class Bracket16ViewController: UIViewController {
         
         super.viewDidLoad()
         
+        
         bracketNameLabel.text = "\(theBracket!.title)"
         if theBracket!.rounds[3].matches[0].winnerCheck {
             if theBracket!.rounds[3].matches[0].winner {
