@@ -27,7 +27,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-
+        tableviewOutlet.dataSource = self
+        tableviewOutlet.delegate = self
+        ref.observe(.childAdded, with: { (snapshot) in
+            print("reading firebase")
+                   // snapshot is a dictionary with a key and a dictionary as a value
+                    // this gets the dictionary from each snapshot
+                    let dict = snapshot.value as! [String:Any]
+                   
+                    // building a Student object from the dictionary
+                    let s = BracketObject(dict: dict)
+                    // adding the student object to the Student array
+                    self.brackates.append(s)
+        // should only add the student if the student isn’t already in the array
+        // good place to update the tableview also
+            print("Trying to reload data")
+            self.tableviewOutlet.reloadData()
+                })
+        tableviewOutlet.reloadData()
         
         // Do any additional setup after loading the view.
     }
