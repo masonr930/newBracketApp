@@ -23,6 +23,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     var name = ""
     var Bracket1: BracketObject!
     var rounding:[RoundClass] = []
+    var seededMatches: [MatchupClass] = []
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -98,12 +99,14 @@ print("I'm having fun!")
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         makeBracket(teams: teams)
+        matches = seeds(teams: teams)
         rounding = makeRounds(rounds2: matches, r: rounds)
         Bracket1 = BracketObject(title: name, rounds: rounding)
         Bracket1.bracketKey = keyTextField.text!
         Bracket1.saveToFirebase()
         if segue.identifier == "createBracket"
         {
+            
             let nvc = segue.destination as! BracketViewController
             nvc.teams = teams
             nvc.bigBracket = Bracket1
@@ -260,12 +263,14 @@ print("I'm having fun!")
     //This creates a dictionary of rounds which can be updated by the table
     
     func makeRounds(rounds2: [MatchupClass], r: Int) -> [RoundClass]{
+        
         var rounder: [RoundClass] = []
-        rounder.append(RoundClass(bMatches: rounds2, brounds: 1))
+        rounder.append(RoundClass(bMatches: matches, brounds: 1))
         for i in 1 ..< r {
             var ron = RoundClass(bMatches: rounds2, brounds: 0)
             ron = newRound(rounds: rounder[i-1] , r: i+1)
             rounder.append(ron)
+            
         }
         return rounder
     }
@@ -323,18 +328,18 @@ print("I'm having fun!")
         var perfect = false
         var count = teams.count
         var start = 0
-        var end = teams.count - 1
         var bies = 0
-        var check = false
         var teams2 = teams
+        var end = teams2.count
 
         //checks for perfect square
-        while count > 1
+        var count2 = count
+        while count2 > 1
         {
-            if count%2 == 0
+            if count2%2 == 0
             {
                 perfect = true
-                count = count/2
+                count2 = count/2
             }
             else
             {
@@ -344,33 +349,29 @@ print("I'm having fun!")
         }
         
         // how many byes
-        if(!perfect){
-            while(!check){
-                count+=1
-                bies+=1
-                if (count%2 == 0){
-                    var temp = count
-                    while (temp%2 == 0 ){
-                        temp = temp/2
-                    }
-                    if (temp == 1){
-                       check = true
-                    }
-                }
+        if perfect == false
+        {
+            
+            var pow = 4
+            while pow < count
+            {
+               pow = pow*2
             }
+            bies = pow-count
+            
         }
         
         // adds matches by seeds for a perfect bracket
         if perfect == true
         {
-            while start > end
+            while start < end
             {
-                matches.append(MatchupClass(hTeam: teams[start], aTeam: teams[end], hScore: 0, aScore: 0, match: true))
+                matches.append(MatchupClass(hTeam: teams[start], aTeam: teams[end-1], hScore: 0, aScore: 0, match: true))
                 start+=1
                 end-=1
             }
         }
-        // adds matches by seeds for a bracket with byes
+        // adds matches by seeds for a bracket with bies
         else
         {
             while bies > 0
@@ -378,20 +379,23 @@ print("I'm having fun!")
                 teams2.append("BYE")
                 bies = bies - 1
             }
+            end = teams2.count - 1
             
-            while start > end
+            while start < end
             {
                 if teams2[end] == "BYE"
                 {
                     matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false))
                     start+=1
                     end-=1
+                    
                 }
                 else
                 {
                     matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true))
                     start+=1
                     end-=1
+                    
                 }
             }
         }
