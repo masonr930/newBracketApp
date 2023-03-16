@@ -109,6 +109,11 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             let nvc = segue.destination as! NewBracketViewController
             nvc.theBracket = bigBracket
         }
+        else if segue.identifier == "toBracket64"
+        {
+            let nvc = segue.destination as! Bracket64ViewController
+            nvc.theBracket = bigBracket
+        }
     }
     
     
@@ -198,6 +203,9 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         else if bigBracket.rounds.count == 5 {
             performSegue(withIdentifier: "toBracket32", sender: self)
         }
+        else if bigBracket.rounds.count == 6 {
+            performSegue(withIdentifier: "toBracket64", sender: self)
+        }
         
     }
     
@@ -228,6 +236,9 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         matchesTable.reloadData()
     }
     
+    @IBAction func unwind6(_seg: UIStoryboardSegue) {
+        matchesTable.reloadData()
+    }
     
     
     func gotTeams(match: MatchupClass)->Bool
