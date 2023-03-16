@@ -381,22 +381,42 @@ print("I'm having fun!")
             }
             end = teams2.count - 1
             
-            while start < end
-            {
-                if teams2[end] == "BYE"
-                {
-                    matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false))
-                    start+=1
-                    end-=1
-                    
+            
+            var n = 0
+            var x = 1
+            var y = 1
+            while start < end{
+                if teams2[end] == "BYE"{
+                    if n > 2{
+                        if n % 2 == 0{
+                            matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false), at: matches.count - x)
+                            x+=1
+                            start+=1
+                            end-=1
+                        }
+                        else{
+                            matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false), at: y)
+                            y+=1
+                            start+=1
+                            end-=1
+                        }
+                    }
                 }
-                else
-                {
-                    matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true))
-                    start+=1
-                    end-=1
-                    
+                else{
+                    if n % 2 == 0{
+                        matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false), at: matches.count - x)
+                        x+=1
+                        start+=1
+                        end-=1
+                    }
+                    else{
+                        matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false), at: y)
+                        y+=1
+                        start+=1
+                        end-=1
+                    }
                 }
+                n+=1
             }
         }
        return matches
