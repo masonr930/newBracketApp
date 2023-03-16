@@ -29,33 +29,29 @@ public class BracketObject: Codable{
         var rounds2: [RoundClass] = []
         var matches2: [MatchupClass] = []
         print("This is super fun")
-        if let dRounds = dict["rounds"] as? [Any]{
-            print("Do not read")
-            var matcher: MatchupClass!
-            for i in 1..<dRounds.count {
-                var dMatch = dRounds[i] as! [String: Any]
-                var gar = dMatch["matches"] as! [Any]
-                print (dMatch)
-                
-                for j in 0..<gar.count{
-                    print("Waddup looser")
-                    var blah = gar[j] as! [String: Any]
-                    matcher = MatchupClass(hTeam: blah["homeTeam"] as! String, aTeam: blah["awayTeam"] as! String, hScore: 0, aScore: 0, match: blah["isMatch"] as! Bool)
-                    matcher.winner = blah["winner"] as! Bool
-                    matcher.winnerCheck = blah["winnerCheck"] as! Bool
-                    matcher.hasTeams = blah["hasTeams"] as! Bool
-                    matches2.append(matcher)
-                    print(matcher.homeTeam)
+        var dRounds = dict["rounds"] as! [Any]
+                print("Do not read")
+                var matcher: MatchupClass!
+                for i in 1..<dRounds.count {
+                    var dMatch = dRounds[i] as! [String: Any]
+                    var gar = dMatch["matches"] as! [Any]
+                    print (dMatch)
+                    
+                    for j in 0..<gar.count{
+                        print("Waddup looser")
+                        var blah = gar[j] as! [String: Any]
+                        matcher = MatchupClass(hTeam: blah["homeTeam"] as! String, aTeam: blah["awayTeam"] as! String, hScore: 0, aScore: 0, match: blah["isMatch"] as! Bool)
+                        matcher.winner = blah["winner"] as! Bool
+                        matcher.winnerCheck = blah["winnerCheck"] as! Bool
+                        matcher.hasTeams = blah["hasTeams"] as! Bool
+                        matches2.append(matcher)
+                        print(matcher.homeTeam)
+                    }
+                    rounds2.append(RoundClass(bMatches: matches2, brounds: i))
                 }
-                rounds2.append(RoundClass(bMatches: matches2, brounds: i))
-            }
-            self.rounds = rounds2
+                self.rounds = rounds2
             
-        }
-        else {
-            print("loserVille")
-            self.rounds = []
-        }
+        
     }
 //homeTeam: String
 //var awayTeam: String
