@@ -23,6 +23,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     var sectionChoice = 1
     var matIndex = 0
     var bigBracket: BracketObject!
+
     
     
     override func viewDidLoad() {
