@@ -35,7 +35,6 @@ public class BracketObject: Codable{
                 for i in 1..<dRounds.count {
                     var dMatch = dRounds[i] as! [String: Any]
                     var gar = dMatch["matches"] as! [Any]
-                    print (dMatch)
                     
                     for j in 0..<gar.count{
                         print("Waddup looser")

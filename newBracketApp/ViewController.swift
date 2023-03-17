@@ -5,7 +5,9 @@
 //  Created by MASON ROZUMNY on 2/8/23.
 //
 
-
+class AppData {
+   static var loaded = false
+}
 
 import UIKit
 
@@ -32,27 +34,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
           
                    // snapshot is a dictionary with a key and a dictionary as a value
                     // this gets the dictionary from each snapshot
-                let seconds = 4.0
-                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-                    self.ref.observe(.childAdded, with: { (snapshot) in
-                    
-                    print("reading firebase")
-                        print("Timer fired!")
-                        let dict = snapshot.value as! [String:Any]
-                       print("Timer2")
-                        // building a Student object from the dictionary
-                        let s = BracketObject(dict: dict)
-                        print("timer3")
-                        // adding the student object to the Student array
-                        self.brackates.append(s)
-                        print("timer4")
+        
+        ref.observe(.childAdded, with: { (snapshot) in
+            if !AppData.loaded{
+                
+                print("reading firebase")
+                print("Timer fired!")
+                let dict = snapshot.value as! [String:Any]
+                print("Timer2")
+                // building a Student object from the dictionary
+                let s = BracketObject(dict: dict)
+                print("timer3")
+                // adding the student object to the Student array
+                self.brackates.append(s)
+                print("timer4")
+            }
             // should only add the student if the student isn’t already in the array
             // good place to update the tableview also
                 print("Trying to reload data")
                 self.tableviewOutlet.reloadData()
                     })
                 
-                }
         tableviewOutlet.reloadData()
         
         // Do any additional setup after loading the view.
@@ -78,6 +80,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        AppData.loaded = true
         if segue.identifier == "tableClick"{
             let nvc = segue.destination as! BracketViewController
             nvc.bigBracket = brackates[rowPick]
