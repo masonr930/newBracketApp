@@ -31,6 +31,7 @@
 		6867042529B0DFBA0056AF2F /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6867042429B0DFBA0056AF2F /* FirebaseDatabaseSwift */; };
 		6867042729B0DFBA0056AF2F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6867042629B0DFBA0056AF2F /* FirebaseFirestore */; };
 		6884ADBA299E68A100C353AD /* roundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884ADB9299E68A100C353AD /* roundClass.swift */; };
+		D81175CF29C3428D00A94754 /* Bracket64ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81175CE29C3428D00A94754 /* Bracket64ViewController.swift */; };
 		D899875329AF902000FE9B8F /* NewBracketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D899875229AF902000FE9B8F /* NewBracketViewController.swift */; };
 		D8ECDD1829BA3B6C009676C3 /* Bracket4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ECDD1729BA3B6C009676C3 /* Bracket4ViewController.swift */; };
 		D8ECDD1A29BA3B85009676C3 /* Bracket8ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ECDD1929BA3B85009676C3 /* Bracket8ViewController.swift */; };
@@ -78,6 +79,7 @@
 		68641AB929ACF366000294E8 /* BracketObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketObject.swift; sourceTree = "<group>"; };
 		6867041B29B0DE410056AF2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6884ADB9299E68A100C353AD /* roundClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundClass.swift; sourceTree = "<group>"; };
+		D81175CE29C3428D00A94754 /* Bracket64ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bracket64ViewController.swift; sourceTree = "<group>"; };
 		D899875229AF902000FE9B8F /* NewBracketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBracketViewController.swift; sourceTree = "<group>"; };
 		D8ECDD1729BA3B6C009676C3 /* Bracket4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bracket4ViewController.swift; sourceTree = "<group>"; };
 		D8ECDD1929BA3B85009676C3 /* Bracket8ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bracket8ViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				D8ECDD1729BA3B6C009676C3 /* Bracket4ViewController.swift */,
 				D8ECDD1929BA3B85009676C3 /* Bracket8ViewController.swift */,
 				D8ECDD1B29BA3B94009676C3 /* Bracket16ViewController.swift */,
+				D81175CE29C3428D00A94754 /* Bracket64ViewController.swift */,
 			);
 			path = maxVCs;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8ECDD1829BA3B6C009676C3 /* Bracket4ViewController.swift in Sources */,
+				D81175CF29C3428D00A94754 /* Bracket64ViewController.swift in Sources */,
 				D8ECDD1A29BA3B85009676C3 /* Bracket8ViewController.swift in Sources */,
 				4A9D295F299A7F270092B602 /* VsCell.swift in Sources */,
 				D899875329AF902000FE9B8F /* NewBracketViewController.swift in Sources */,
