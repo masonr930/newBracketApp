@@ -325,108 +325,93 @@ print("I'm having fun!")
         return nRound
     }
     
-    func seeds(teams: [String])-> [MatchupClass]{
-        var matches: [MatchupClass] = []
-        var perfect = false
-        var count = teams.count
-        var start = 0
-        var bies = 0
-        var teams2 = teams
-        var end = teams2.count
-
-        //checks for perfect square
+    func seeds(teams: [String])-> [MatchupClass]
+    {
+            var matches: [MatchupClass] = []
+            var perfect = false
+            var count = teams.count
+            var start = 0
+            var bies = 0
+            var teams2 = teams
+            var end = teams.count
+            //checks for perfect square
+            
         var count2 = count
-        while count2 > 1{
-            if count2%2 == 0{
-                perfect = true
-                count2 = count/2
+            while count2 > 1
+            {
+                if count2%2 == 0
+                {
+                    perfect = true
+                    count2 = count2/2
+                }
+                else
+                {
+                    perfect = false
+                    break
+                }
             }
-            else{
-                perfect = false
-                break
+            // how many byes
+
+            if perfect == false
+            {
+                var pow = 4
+                while pow < count
+                {
+                   pow = pow*2
+                }
+                bies = pow-count
             }
-        }
-        
-        // how many byes
-        if perfect == false{
+
             
-            var pow = 4
-            while pow < count{
-               pow = pow*2
-            }
-            bies = pow-count
-            
-        }
-        
-        // adds matches by seeds for a perfect bracket
-        if perfect == true{
-            var a = 0
-            var b = 1
-            var c = 1
-            while start < end{
-                if a % 2 == 0{
-                    matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true), at: matches.count - b)
-                    b+=1
+
+            // adds matches by seeds for a perfect bracket
+
+            if perfect == true
+            {
+                while start < end
+                {
+                    matches.append(MatchupClass(hTeam: teams[start], aTeam: teams[end-1], hScore: 0, aScore: 0, match: true))
                     start+=1
                     end-=1
                 }
-                else{
-                    matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true), at: c)
-                    c+=1
-                    start+=1
-                    end-=1
-                }
-                a+=1
+
             }
-        }
-        // adds matches by seeds for a bracket with bies
-        else{
-            while bies > 0{
-                teams2.append("BYE")
-                bies = bies - 1
-            }
-            end = teams2.count - 1
-            
-            
-            var n = 0
-            var x = 1
-            var y = 1
-            while start < end{
-                if teams2[end] == "BYE"{
-                    if n > 2{
-                        if n % 2 == 0{
-                            matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false), at: matches.count - x)
-                            x+=1
-                            start+=1
-                            end-=1
-                        }
-                        else{
-                            matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false), at: y)
-                            y+=1
-                            start+=1
-                            end-=1
-                        }
-                    }
+
+            // adds matches by seeds for a bracket with bies
+            else
+            {
+                while bies > 0
+                {
+                    teams2.append("BYE")
+                    bies = bies - 1
                 }
-                else{
-                    if n % 2 == 0{
-                        matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true), at: matches.count - x)
-                        x+=1
+                end = teams2.count - 1
+
+                while start < end
+                {
+                    if teams2[end] == "BYE"
+                    {
+                        matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false))
                         start+=1
                         end-=1
                     }
-                    else{
-                        matches.insert(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true), at: y)
-                        y+=1
+
+                    else
+                    {
+                        matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true))
                         start+=1
                         end-=1
                     }
+
                 }
-                n+=1
+
             }
+
+           return matches
+
         }
-       return matches
-    }
+
+
     
     
 }
