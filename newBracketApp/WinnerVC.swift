@@ -9,6 +9,7 @@ import UIKit
 
 class WinnerVC: UIViewController {
 
+    var bracket: BracketObject!
     var team1: String!
     var team2: String!
     var match: MatchupClass!
@@ -47,6 +48,7 @@ class WinnerVC: UIViewController {
         }
         else
         {
+            
             performSegue(withIdentifier: "unwindSegue", sender: nil)
         }
     }
@@ -55,6 +57,8 @@ class WinnerVC: UIViewController {
         
         match.winner = false
         match.winnerCheck = true
+        bracket.update(dictB: bracket.createDict())
+        
         
         if segment == finalSegment
         {
@@ -63,6 +67,7 @@ class WinnerVC: UIViewController {
         else
         {
             performSegue(withIdentifier: "unwindSegue", sender: nil)
+            
         }
         
     }

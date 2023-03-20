@@ -39,7 +39,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if !AppData.loaded{
                 
                 print("reading firebase")
-                print("Timer fired!")
                 let dict = snapshot.value as! [String:Any]
                 print("Timer2")
                 // building a Student object from the dictionary
@@ -54,6 +53,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print("Trying to reload data")
                 self.tableviewOutlet.reloadData()
                     })
+        
+        
+        
+        ref.child("students2").observe(.childChanged) { snapshot in
+            print("changing")
+            let key = snapshot.key
+            let value = snapshot.value as! [String: Any]
+            let dict = snapshot.value as! [String:Any]
+            let s = BracketObject(dict: dict)
+            self.brackates.append(s)
+            for i in 0 ..< self.brackates.count {
+                if key == self.brackates[i].fireKey{
+                    self.brackates[i] = s
+                }
+            }
+        }
+
+        
                 
         tableviewOutlet.reloadData()
         

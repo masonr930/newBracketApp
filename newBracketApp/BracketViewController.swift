@@ -81,6 +81,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         {
            
             let nvc = segue.destination as! WinnerVC
+            nvc.bracket = bigBracket
             nvc.team1 = selectedMatch.homeTeam
             nvc.team2 = selectedMatch.awayTeam
             nvc.match = selectedMatch

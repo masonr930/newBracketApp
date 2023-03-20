@@ -104,7 +104,7 @@ print("I'm having fun!")
         makeBracket(teams: teams)
         matches = seeds(teams: teams)
         rounding = makeRounds(rounds2: matches, r: rounds)
-        Bracket1 = BracketObject(title: name, rounds: rounding)
+        Bracket1 = BracketObject(title: name, rounds: rounding, bracketKey: keyTextField.text!)
         Bracket1.bracketKey = keyTextField.text!
         Bracket1.saveToFirebase()
         if segue.identifier == "createBracket"
@@ -172,7 +172,7 @@ print("I'm having fun!")
             if (count == 1){
                 perfect = true
                 count = teams.count
-                Swift.print("Perfect")
+                print("Perfect")
             }
             else{
                 perfect = false
