@@ -327,83 +327,91 @@ print("I'm having fun!")
     
     func seeds(teams: [String])-> [MatchupClass]
     {
-        var matches: [MatchupClass] = []
-        var perfect = false
-        var count = teams.count
-        var start = 0
-        var bies = 0
-        var teams2 = teams
-        var end = teams2.count
-
-        //checks for perfect square
+            var matches: [MatchupClass] = []
+            var perfect = false
+            var count = teams.count
+            var start = 0
+            var bies = 0
+            var teams2 = teams
+            var end = teams.count
+            //checks for perfect square
+            
         var count2 = count
-        while count2 > 1
-        {
-            if count2%2 == 0
+            while count2 > 1
             {
-                perfect = true
-                count2 = count/2
-            }
-            else
-            {
-                perfect = false
-                break
-            }
-        }
-        
-        // how many byes
-        if perfect == false
-        {
-            
-            var pow = 4
-            while pow < count
-            {
-               pow = pow*2
-            }
-            bies = pow-count
-            
-        }
-        
-        // adds matches by seeds for a perfect bracket
-        if perfect == true
-        {
-            while start < end
-            {
-                matches.append(MatchupClass(hTeam: teams[start], aTeam: teams[end-1], hScore: 0, aScore: 0, match: true))
-                start+=1
-                end-=1
-            }
-        }
-        // adds matches by seeds for a bracket with bies
-        else
-        {
-            while bies > 0
-            {
-                teams2.append("BYE")
-                bies = bies - 1
-            }
-            end = teams2.count - 1
-            
-            while start < end
-            {
-                if teams2[end] == "BYE"
+                if count2%2 == 0
                 {
-                    matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false))
-                    start+=1
-                    end-=1
-                    
+                    perfect = true
+                    count2 = count2/2
                 }
                 else
                 {
-                    matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true))
-                    start+=1
-                    end-=1
-                    
+                    perfect = false
+                    break
                 }
             }
+            // how many byes
+
+            if perfect == false
+            {
+                var pow = 4
+                while pow < count
+                {
+                   pow = pow*2
+                }
+                bies = pow-count
+            }
+
+            
+
+            // adds matches by seeds for a perfect bracket
+
+            if perfect == true
+            {
+                while start < end
+                {
+                    matches.append(MatchupClass(hTeam: teams[start], aTeam: teams[end-1], hScore: 0, aScore: 0, match: true))
+                    start+=1
+                    end-=1
+                }
+
+            }
+
+            // adds matches by seeds for a bracket with bies
+            else
+            {
+                while bies > 0
+                {
+                    teams2.append("BYE")
+                    bies = bies - 1
+                }
+                end = teams2.count - 1
+
+                while start < end
+                {
+                    if teams2[end] == "BYE"
+                    {
+                        matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: false))
+                        start+=1
+                        end-=1
+                    }
+
+                    else
+                    {
+                        matches.append(MatchupClass(hTeam: teams2[start], aTeam: teams2[end], hScore: 0, aScore: 0, match: true))
+                        start+=1
+                        end-=1
+                    }
+
+                }
+
+            }
+
+           return matches
+
         }
-       return matches
-    }
+
+
     
     
 }
