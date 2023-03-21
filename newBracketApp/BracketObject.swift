@@ -80,8 +80,8 @@ public class BracketObject{
         var dictMatch: [String : Any] = [:]
         
         
-        ref.child(fireKey).updateChildValues(dictB)
-        ref = ref.child(fireKey)
+//        ref.child(fireKey).updateChildValues(dictB)
+//        ref = ref.child(fireKey)
         for i in 0 ..< rounds.count{
             
             for j in 0..<rounds[i].matches.count{

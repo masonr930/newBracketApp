@@ -57,15 +57,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         ref.observe(.childChanged) { snapshot in
+            var made = false
             print("changing")
             let key = snapshot.key
             let value = snapshot.value as! [String: Any]
             let dict = snapshot.value as! [String:Any]
             let s = BracketObject(dict: dict)
-            self.brackates.append(s)
             for i in 0 ..< self.brackates.count {
                 if key == self.brackates[i].fireKey{
+                    print("replace")
                     self.brackates[i] = s
+                }
+                else{
+                    if !made{
+                        self.brackates.append(s)
+                        made = true
+                    }
+                    print("Not Replace")
                 }
             }
         }

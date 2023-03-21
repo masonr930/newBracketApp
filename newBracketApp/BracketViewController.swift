@@ -171,6 +171,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
                 bigBracket.rounds[r+1].matches[(matNum/2)].awayTeam = dub
             }
         }
+        bigBracket.update(dictB: bigBracket.createDict())
     }
     
     func byeCheck(){

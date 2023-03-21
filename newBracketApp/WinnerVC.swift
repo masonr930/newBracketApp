@@ -41,6 +41,7 @@ class WinnerVC: UIViewController {
         
         match.winner = true
         match.winnerCheck = true
+        bracket.update(dictB: bracket.createDict())
         
         if segment == finalSegment
         {
