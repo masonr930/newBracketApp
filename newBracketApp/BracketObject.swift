@@ -29,7 +29,7 @@ public class BracketObject{
     init(dict: [String:Any]){
         self.title = dict["title"] as! String
         self.bracketKey = dict["bracketKey"] as! String
-        self.fireKey = dict["fireKey"] as! String
+        self.fireKey = ref.key ?? "0"
         var rounds2: [RoundClass] = []
         var matches2: [MatchupClass] = []
         print("This is super fun")
@@ -70,7 +70,7 @@ public class BracketObject{
     func createDict() -> [String: Any]{
         var dictRound: [String : Any] = [:]
         var dictB: [String : Any] = [:]
-        dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey, "fireKey": fireKey] as [String: Any]
+        dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey] as [String: Any]
         return dictB
     }
     
@@ -78,6 +78,7 @@ public class BracketObject{
     func update(dictB: [String: Any]){
         var dictRound: [String : Any] = [:]
         var dictMatch: [String : Any] = [:]
+        
         
         ref.child(fireKey).updateChildValues(dictB)
         ref = ref.child(fireKey)
@@ -102,7 +103,7 @@ public class BracketObject{
        
         ref = ref.childByAutoId()
         fireKey = ref.key ?? "0"
-        dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey, "fireKey": fireKey] as [String: Any]
+        dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey] as [String: Any]
         ref.setValue(dictB)
         
         

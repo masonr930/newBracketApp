@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         
-        ref.child("students2").observe(.childChanged) { snapshot in
+        ref.observe(.childChanged) { snapshot in
             print("changing")
             let key = snapshot.key
             let value = snapshot.value as! [String: Any]
