@@ -43,12 +43,23 @@ print("I'm having fun!")
     }
     
     @IBAction func addTeamButton(_ sender: UIButton) {
-        if let x = textfieldOutlet.text {
-            teams.append(x)
-            tableViewOutlet.reloadData()
-            textfieldOutlet.text = ""
+        
+        if teams.count < 64 {
+            if let x = textfieldOutlet.text {
+                teams.append(x)
+                tableViewOutlet.reloadData()
+                textfieldOutlet.text = ""
+                
+            }
             
+        } else {
+            let theAlert = UIAlertController(title: "Too many teams", message: "The bracket can only hold up to 64 teams", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+            theAlert.addAction(yesAction)
+            present(theAlert, animated: true, completion: nil)
         }
+        
+        
     }
     
 
@@ -85,10 +96,10 @@ print("I'm having fun!")
         }
         
         let alert = UIAlertController(title: "Are you sure?", message: "Is the bracket complete?", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Yes", style: .destructive) { action in
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
             self.performSegue(withIdentifier: "createBracket", sender: self)
         }
-        let noAction = UIAlertAction(title: "No", style: .cancel)
+        let noAction = UIAlertAction(title: "No", style: .destructive)
         alert.addAction(yesAction)
         alert.addAction(noAction)
         present(alert, animated: true, completion: nil)

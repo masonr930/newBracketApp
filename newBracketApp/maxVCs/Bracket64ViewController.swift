@@ -190,12 +190,12 @@ class Bracket64ViewController: UIViewController {
             championLabel.text = "Champion:\n(In Progress)"
         }
         
-//        populateRound1()
-//        populateRound2()
-//        populateRound3()
-//        populateRound4()
-//        populateRound5()
-//        populateFinals()
+        populateRound1()
+        populateRound2()
+        populateRound3()
+        populateRound4()
+        populateRound5()
+        populateFinals()
     }
     
     // theBracket.roundMatches[0].matches[0].homeTeam

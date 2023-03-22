@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ByS-u7-1D2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1738,7 +1739,7 @@
         <!--Bracket64 View Controller-->
         <scene sceneID="S9o-MW-c0H">
             <objects>
-                <viewController id="xtU-Mv-9ZK" customClass="Bracket64ViewController" customModule="ScrollViewNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xtU-Mv-9ZK" customClass="Bracket64ViewController" customModule="newBracketApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cWs-GE-vTJ">
                         <rect key="frame" x="0.0" y="0.0" width="2800" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2793,7 +2794,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="bfG-7L-TFS"/>
-        <segue reference="zlH-WK-i7d"/>
+        <segue reference="8xR-Zn-0QZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
