@@ -15,6 +15,7 @@ import SwiftUI
 public class BracketObject{
     
     var bracketKey: String = ""
+    var made = false
    var title: String = ""
   var rounds: [RoundClass]
     var fireKey = ""
@@ -30,6 +31,7 @@ public class BracketObject{
         self.title = dict["title"] as! String
         self.bracketKey = dict["bracketKey"] as! String
         self.fireKey = ref.key ?? "0"
+        self.made = dict["made"] as! Bool
         var rounds2: [RoundClass] = []
         var matches2: [MatchupClass] = []
         print("This is super fun")
@@ -41,14 +43,12 @@ public class BracketObject{
                     var gar = dMatch["matches"] as! [Any]
                     
                     for j in 0..<gar.count{
-                        print("Waddup looser")
                         var blah = gar[j] as! [String: Any]
                         matcher = MatchupClass(hTeam: blah["homeTeam"] as! String, aTeam: blah["awayTeam"] as! String, hScore: 0, aScore: 0, match: blah["isMatch"] as! Bool)
                         matcher.winner = blah["winner"] as! Bool
                         matcher.winnerCheck = blah["winnerCheck"] as! Bool
                         matcher.hasTeams = blah["hasTeams"] as! Bool
                         matches2.append(matcher)
-                        print(matcher.homeTeam)
                     }
                     rounds2.append(RoundClass(bMatches: matches2, brounds: i))
                 }
@@ -70,7 +70,7 @@ public class BracketObject{
     func createDict() -> [String: Any]{
         var dictRound: [String : Any] = [:]
         var dictB: [String : Any] = [:]
-        dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey] as [String: Any]
+        dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey, "made": made] as [String: Any]
         return dictB
     }
     
@@ -78,7 +78,7 @@ public class BracketObject{
     func update(dictB: [String: Any]){
         var dictRound: [String : Any] = [:]
         var dictMatch: [String : Any] = [:]
-        
+        ref.updateChildValues(["made": made])
         
 //        ref.child(fireKey).updateChildValues(dictB)
 //        ref = ref.child(fireKey)
@@ -100,10 +100,10 @@ public class BracketObject{
         var dictRound: [String : Any] = [:]
         var dictB: [String : Any] = [:]
         
-       
-        ref = ref.childByAutoId()
-        fireKey = ref.key ?? "0"
-        dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey] as [String: Any]
+        fireKey = ref.childByAutoId().key ?? "0"
+        ref = ref.child(fireKey)
+        print(ref.key)
+        dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey, "made": made] as [String: Any]
         ref.setValue(dictB)
         
         

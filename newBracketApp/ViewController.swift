@@ -56,25 +56,46 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         
-        ref.observe(.childChanged) { snapshot in
-            var made = false
+        ref.observe(.childChanged) { snapshot  in
             print("changing")
-            let key = snapshot.key
-            let value = snapshot.value as! [String: Any]
+           var replaced = false
             let dict = snapshot.value as! [String:Any]
             let s = BracketObject(dict: dict)
+            s.fireKey = snapshot.key
+            print(s.made)
             for i in 0 ..< self.brackates.count {
-                if key == self.brackates[i].fireKey{
+                print("count is \(self.brackates.count)")
+//                print("FireKey is")
+//                print(self.brackates[i].fireKey)
+//                print("Normal Key")
+//                print(s.fireKey)
+                if s.fireKey == self.brackates[i].fireKey{
+                    print(i)
+                    replaced = true
                     print("replace")
+                    s.made = true
                     self.brackates[i] = s
+                    print(self.brackates[i].made)
+                    if self.brackates[i].made{
+                        s.made = true
+                    }
+                    else{
+                        s.made = true
+                        print(s.made)
+                        print("made")
+                        self.brackates.append(s)
+                        print(self.brackates[self.brackates.count-1].made)
+                        self.brackates[i].made = true
+                    }
                 }
                 else{
-                    if !made{
-                        self.brackates.append(s)
-                        made = true
-                    }
                     print("Not Replace")
                 }
+            }
+            if !replaced{
+                s.made = true
+                print("made")
+                self.brackates.append(s)
             }
         }
 
@@ -84,6 +105,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Do any additional setup after loading the view.
     }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         tableviewOutlet.reloadData()
