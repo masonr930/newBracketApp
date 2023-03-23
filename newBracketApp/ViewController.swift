@@ -4,6 +4,13 @@
 //
 //  Created by MASON ROZUMNY on 2/8/23.
 //
+// MASON THIS IS THE GOOD ONE NOT THE OTHER ONE DONT DELETE THIS CAUSE THIS ONE IS THE ONE!!!!!!!!
+//
+//
+// THIS ONE ********************
+//
+//
+//
 
 class AppData {
    static var loaded = false
