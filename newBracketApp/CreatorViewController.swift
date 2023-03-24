@@ -386,6 +386,18 @@ print("I'm having fun!")
                     start+=1
                     end-=1
                 }
+                
+                
+                var x = 0
+                while x < matches.count
+                {
+                    if x % 2 == 1
+                    {
+                        matches.insert(matches.remove(at: x), at: matches.count - 1)
+                        
+                    }
+                    x+=1
+                }
 
             }
 
