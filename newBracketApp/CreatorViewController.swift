@@ -117,6 +117,7 @@ print("I'm having fun!")
         rounding = makeRounds(rounds2: matches, r: rounds)
         Bracket1 = BracketObject(title: name, rounds: rounding, bracketKey: keyTextField.text!)
         Bracket1.bracketKey = keyTextField.text!
+        byeCheck()
         Bracket1.saveToFirebase()
         if segue.identifier == "createBracket"
         {
@@ -422,7 +423,22 @@ print("I'm having fun!")
 
         }
 
-
+    func byeCheck(){
+        var matNum = Bracket1.rounds[0].matches.count
+        for i in 0 ..< matNum{
+            if !Bracket1.rounds[0].matches[i].isMatch{
+                Bracket1.rounds[0].matches[i].winnerCheck = true
+                if i%2 == 0{
+                    Bracket1.rounds[1].matches[(i/2)].homeTeam = Bracket1.rounds[0].matches[i].homeTeam
+                    print("BOOOOO")
+                }
+                else {
+                    Bracket1.rounds[1].matches[(i/2)].awayTeam = Bracket1.rounds[0].matches[i].homeTeam
+                    print("hooray!")
+                }
+            }
+        }
+    }
     
     
 }

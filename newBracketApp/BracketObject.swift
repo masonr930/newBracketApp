@@ -43,6 +43,7 @@ public class BracketObject{
                     var gar = dMatch["matches"] as! [Any]
                     
                     for j in 0..<gar.count{
+                        print("Round \(i) Match \(j)")
                         var blah = gar[j] as! [String: Any]
                         matcher = MatchupClass(hTeam: blah["homeTeam"] as! String, aTeam: blah["awayTeam"] as! String, hScore: 0, aScore: 0, match: blah["isMatch"] as! Bool)
                         matcher.winner = blah["winner"] as! Bool
