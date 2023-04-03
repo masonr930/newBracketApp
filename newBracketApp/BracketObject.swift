@@ -27,10 +27,10 @@ public class BracketObject{
         self.bracketKey = bracketKey
     }
     
-    init(dict: [String:Any]){
+    init(dict: [String:Any], reference: String){
         self.title = dict["title"] as! String
         self.bracketKey = dict["bracketKey"] as! String
-        self.fireKey = ref.key ?? "0"
+        self.fireKey = reference
         self.made = dict["made"] as! Bool
         var rounds2: [RoundClass] = []
         var matches2: [MatchupClass] = []
@@ -80,6 +80,7 @@ public class BracketObject{
     func update(dictB: [String: Any]){
         var dictRound: [String : Any] = [:]
         var dictMatch: [String : Any] = [:]
+        ref = Database.database().reference().child(fireKey)
         ref.updateChildValues(["made": made])
         
 //        ref.child(fireKey).updateChildValues(dictB)
