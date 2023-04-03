@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let dict = snapshot.value as! [String:Any]
                 print("Timer2")
                 // building a Student object from the dictionary
-                let s = BracketObject(dict: dict)
+                let s = BracketObject(dict: dict, reference: snapshot.key)
                 print("timer3")
                 // adding the student object to the Student array
                 self.brackates.append(s)
@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("changing")
            var replaced = false
             let dict = snapshot.value as! [String:Any]
-            let s = BracketObject(dict: dict)
+            let s = BracketObject(dict: dict, reference: snapshot.key)
             s.fireKey = snapshot.key
             print(s.made)
             for i in 0 ..< self.brackates.count {

@@ -27,30 +27,32 @@ public class BracketObject{
         self.bracketKey = bracketKey
     }
     
-    init(dict: [String:Any]){
+    init(dict: [String:Any], reference: String){
         self.title = dict["title"] as! String
         self.bracketKey = dict["bracketKey"] as! String
-        self.fireKey = ref.key ?? "0"
+        self.fireKey = reference
         self.made = dict["made"] as! Bool
         var rounds2: [RoundClass] = []
         var matches2: [MatchupClass] = []
         print("This is super fun")
         var dRounds = dict["rounds"] as! [Any]
-                print("Do not read")
-                var matcher: MatchupClass!
-                for i in 1..<dRounds.count {
-                    var dMatch = dRounds[i] as! [String: Any]
-                    var gar = dMatch["matches"] as! [Any]
+        print("Do not read")
+        var matcher: MatchupClass!
+        for i in 1..<dRounds.count {
+            var dMatch = dRounds[i] as! [String: Any]
+            var gar = dMatch["matches"] as! [Any]
                     
-                    for j in 0..<gar.count{
-                        var blah = gar[j] as! [String: Any]
-                        matcher = MatchupClass(hTeam: blah["homeTeam"] as! String, aTeam: blah["awayTeam"] as! String, hScore: 0, aScore: 0, match: blah["isMatch"] as! Bool)
-                        matcher.winner = blah["winner"] as! Bool
-                        matcher.winnerCheck = blah["winnerCheck"] as! Bool
-                        matcher.hasTeams = blah["hasTeams"] as! Bool
-                        matches2.append(matcher)
-                    }
+            for j in 0..<gar.count{
+                    print("Round \(i) Match \(j)")
+                    var blah = gar[j] as! [String: Any]
+                    matcher = MatchupClass(hTeam: blah["homeTeam"] as! String, aTeam: blah["awayTeam"] as! String, hScore: 0, aScore: 0, match: blah["isMatch"] as! Bool)
+                    matcher.winner = blah["winner"] as! Bool
+                    matcher.winnerCheck = blah["winnerCheck"] as! Bool
+                    matcher.hasTeams = blah["hasTeams"] as! Bool
+                    matches2.append(matcher)
+            }
                     rounds2.append(RoundClass(bMatches: matches2, brounds: i))
+            matches2.removeAll()
                 }
                 self.rounds = rounds2
             
@@ -78,6 +80,7 @@ public class BracketObject{
     func update(dictB: [String: Any]){
         var dictRound: [String : Any] = [:]
         var dictMatch: [String : Any] = [:]
+        ref = Database.database().reference().child(fireKey)
         ref.updateChildValues(["made": made])
         
 //        ref.child(fireKey).updateChildValues(dictB)
