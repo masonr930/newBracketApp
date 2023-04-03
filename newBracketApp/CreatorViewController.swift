@@ -386,17 +386,22 @@ print("I'm having fun!")
                     end-=1
                 }
                 
+                var even: [MatchupClass] = []
+                var odd: [MatchupClass] = []
                 
-                var x = 0
-                while x < matches.count
+                while matches.count > 0
                 {
-                    if x % 2 == 1
-                    {
-                        matches.insert(matches.remove(at: x), at: matches.count - 1)
-                        
-                    }
-                    x+=1
+                    even.append(matches.remove(at: 0))
+                    odd.append(matches.remove(at: 0))
                 }
+                var a = even.count
+                var b = even.count/2
+                if a > 2
+                {
+                    
+                }
+                matches = even + odd
+                
 
             }
 
