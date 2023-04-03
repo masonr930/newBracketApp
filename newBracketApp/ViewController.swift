@@ -153,7 +153,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         
         
-        performSegue(withIdentifier: "bracketSegue", sender: nil)
+       // performSegue(withIdentifier: "bracketSegue", sender: nil)
     }
     
 
