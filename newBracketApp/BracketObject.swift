@@ -78,7 +78,6 @@ public class BracketObject{
     
     
     func update(dictB: [String: Any]){
-        var dictRound: [String : Any] = [:]
         var dictMatch: [String : Any] = [:]
         ref = Database.database().reference().child(fireKey)
         ref.updateChildValues(["made": made])
