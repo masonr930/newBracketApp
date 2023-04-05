@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var ref: DatabaseReference!
     var brackates: [BracketObject] = []
     var rowPick: Int = 0
+    var visible: [BracketObject] = []
     
     @IBOutlet weak var tableviewOutlet: UITableView!
     @IBOutlet weak var textFieldOutlet: UITextField!
@@ -151,9 +152,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func enterKeyButton(_ sender: UIButton)
     {
-        
-        
-       // performSegue(withIdentifier: "bracketSegue", sender: nil)
+        for i in brackates{
+            if (i.bracketKey == textFieldOutlet.text){
+                visible.append(i)
+            }
+        }
     }
     
 

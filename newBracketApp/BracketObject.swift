@@ -20,6 +20,7 @@ public class BracketObject{
   var rounds: [RoundClass]
     var fireKey = ""
     var ref = Database.database().reference()
+    var owner = false
 //    var roundsData = [Data]()
     init(title: String, rounds: [RoundClass], bracketKey: String) {
         self.title = title
