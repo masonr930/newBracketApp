@@ -27,6 +27,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     var Bracket1: BracketObject!
     var rounding:[RoundClass] = []
     var seededMatches: [MatchupClass] = []
+    var brackates: [BracketObject] = []
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -127,6 +128,19 @@ print("I'm having fun!")
         Bracket1.bracketKey = keyTextField.text!
         byeCheck()
         Bracket1.saveToFirebase()
+        var visible: [BracketObject] = []
+        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+                        let decoder = JSONDecoder()
+                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                            visible = decoded
+                        }
+                }
+        visible.append(Bracket1)
+        let encoder = JSONEncoder()
+           if let encoded = try? encoder.encode(visible) {
+                            UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+                        }
+
         if segue.identifier == "createBracket"
         {
             
