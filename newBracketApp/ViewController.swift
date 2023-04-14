@@ -29,12 +29,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var ref: DatabaseReference!
     var brackates: [BracketObject] = []
     var rowPick: Int = 0
+    var visible: [BracketObject] = []
     
     @IBOutlet weak var tableviewOutlet: UITableView!
     @IBOutlet weak var textFieldOutlet: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+                        let decoder = JSONDecoder()
+                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                            visible = decoded
+                        }
+                }
         ref = Database.database().reference()
         tableviewOutlet.dataSource = self
         tableviewOutlet.delegate = self
@@ -119,15 +126,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return brackates.count
+        return visible.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableviewOutlet.dequeueReusableCell(withIdentifier: "bracketCell")
-        cell!.textLabel!.text = brackates[indexPath.row].title
+        cell!.textLabel!.text = visible[indexPath.row].title
         return cell!
     }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete
+        {
+            visible.remove(at: indexPath.row)
+            tableviewOutlet.deleteRows(at: [indexPath], with: .fade)
+            tableviewOutlet.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         rowPick = indexPath.row
         performSegue(withIdentifier: "tableClick", sender: nil)
@@ -137,7 +154,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         AppData.loaded = true
         if segue.identifier == "tableClick"{
             let nvc = segue.destination as! BracketViewController
-            nvc.bigBracket = brackates[rowPick]
+            nvc.bigBracket = visible[rowPick]
+        }
+        else if segue.identifier == "create"{
+            let nvc = segue.destination as! CreatorViewController
+            nvc.brackates = brackates
         }
         else if segue.identifier == "bracketSegue"{
             let nvc = segue.destination as! NewBracketViewController
@@ -146,6 +167,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBAction func unwind(seg: UIStoryboardSegue)
     {
+        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+                        let decoder = JSONDecoder()
+                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                            visible = decoded
+                        }
+                }
+
         tableviewOutlet.reloadData()
     }
     @IBAction func unwind27(seg: UIStoryboardSegue)
@@ -156,9 +184,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func enterKeyButton(_ sender: UIButton)
     {
-        
-        
-       // performSegue(withIdentifier: "bracketSegue", sender: nil)
+        for i in brackates{
+            if (i.bracketKey == textFieldOutlet.text){
+                var boo = false
+                for j in visible{
+                    if j.bracketKey == textFieldOutlet.text{
+                        boo = true
+                    }
+                }
+                if !boo{
+                    visible.append(i)
+                }
+                
+            }
+            let encoder = JSONEncoder()
+               if let encoded = try? encoder.encode(visible) {
+                                UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+                            }
+        }
+        tableviewOutlet.reloadData()
     }
     
 

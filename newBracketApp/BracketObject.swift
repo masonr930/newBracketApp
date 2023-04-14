@@ -12,14 +12,15 @@ import UIKit
 import SwiftUI
 
 
-public class BracketObject{
+public class BracketObject: Codable{
     
     var bracketKey: String = ""
     var made = false
    var title: String = ""
   var rounds: [RoundClass]
     var fireKey = ""
-    var ref = Database.database().reference()
+//    var ref = Database.database().reference()
+    var owner = false
 //    var roundsData = [Data]()
     init(title: String, rounds: [RoundClass], bracketKey: String) {
         self.title = title
@@ -78,9 +79,8 @@ public class BracketObject{
     
     
     func update(dictB: [String: Any]){
-        var dictRound: [String : Any] = [:]
         var dictMatch: [String : Any] = [:]
-        ref = Database.database().reference().child(fireKey)
+        var ref = Database.database().reference().child(fireKey)
         ref.updateChildValues(["made": made])
         
 //        ref.child(fireKey).updateChildValues(dictB)
@@ -102,7 +102,7 @@ public class BracketObject{
         var dictMatch: [String : Any] = [:]
         var dictRound: [String : Any] = [:]
         var dictB: [String : Any] = [:]
-        
+        var ref = Database.database().reference()
         fireKey = ref.childByAutoId().key ?? "0"
         ref = ref.child(fireKey)
         print(ref.key)

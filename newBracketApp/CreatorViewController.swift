@@ -27,6 +27,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     var Bracket1: BracketObject!
     var rounding:[RoundClass] = []
     var seededMatches: [MatchupClass] = []
+    var brackates: [BracketObject] = []
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -44,7 +45,15 @@ print("I'm having fun!")
     
     @IBAction func addTeamButton(_ sender: UIButton) {
         
-        if teams.count < 64 {
+        if textfieldOutlet.text == "" {
+            let theAlert = UIAlertController(title: "Enter a Team", message: "Enter a team name in the box on the left", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+            theAlert.addAction(yesAction)
+            present(theAlert, animated: true, completion: nil)
+        }
+        
+        
+        else if teams.count < 64 {
             if let x = textfieldOutlet.text {
                 teams.append(x)
                 tableViewOutlet.reloadData()
@@ -126,6 +135,19 @@ print("I'm having fun!")
         Bracket1.bracketKey = keyTextField.text!
         byeCheck()
         Bracket1.saveToFirebase()
+        var visible: [BracketObject] = []
+        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+                        let decoder = JSONDecoder()
+                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                            visible = decoded
+                        }
+                }
+        visible.append(Bracket1)
+        let encoder = JSONEncoder()
+           if let encoded = try? encoder.encode(visible) {
+                            UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+                        }
+
         if segue.identifier == "createBracket"
         {
             
