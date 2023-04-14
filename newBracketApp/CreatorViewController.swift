@@ -111,6 +111,13 @@ print("I'm having fun!")
             
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if isMovingFromParent
+        {
+            performSegue(withIdentifier: "unwind27", sender: nil)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         makeBracket(teams: teams)
         matches = seeds(teams: teams)
@@ -456,6 +463,18 @@ print("I'm having fun!")
             }
         }
     }
+    
+    
+    @IBAction func backButton(_ sender: UIButton) {
+       performSegue(withIdentifier: "unwind27", sender: nil)
+    }
+    
+        
+    
+    
+        
+    
+    
     
     
 }

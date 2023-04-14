@@ -148,6 +148,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         tableviewOutlet.reloadData()
     }
+    @IBAction func unwind27(seg: UIStoryboardSegue)
+    {
+        tableviewOutlet.reloadData()
+    }
+    
     
     @IBAction func enterKeyButton(_ sender: UIButton)
     {
