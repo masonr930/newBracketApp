@@ -261,7 +261,9 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func homeButton(_ sender: UIButton)
     {
+        print("Bleh")
         performSegue(withIdentifier: "unwindToHome", sender: self)
+        print("hey")
     }
     
     
