@@ -121,9 +121,8 @@ print("I'm having fun!")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if isMovingFromParent
-        {
-            performSegue(withIdentifier: "unwind27", sender: self)
+        if isMovingFromParent{
+            performSegue(withIdentifier: "unwind25", sender: nil)
         }
     }
     
@@ -487,11 +486,13 @@ print("I'm having fun!")
     }
     
     
-    @IBAction func backButton(_ sender: UIButton) {
-        print("Big test")
-       performSegue(withIdentifier: "unwind27", sender: self)
-        print("Hey pall")
+    @IBAction func goBackButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "unwind25", sender: nil)
     }
+    
+    
+    
+    
     
         
     
