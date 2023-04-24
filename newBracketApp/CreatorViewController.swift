@@ -420,16 +420,60 @@ print("I'm having fun!")
                 
                 while matches.count > 0
                 {
-                    even.append(matches.remove(at: 0))
                     odd.append(matches.remove(at: 0))
+                    even.append(matches.remove(at: 0))
                 }
-                var a = even.count
-                var b = even.count/2
-                if a > 2
+                
+                if teams.count > 31
                 {
+                    var o1: [MatchupClass] = []
+                    var o2: [MatchupClass] = []
+                    var e1: [MatchupClass] = []
+                    var e2: [MatchupClass] = []
+                    
+                    //odd side
+                    while odd.count > 0
+                    {
+                        o1.append(odd.remove(at: 0))
+                        o2.append(odd.remove(at: 0))
+                    }
+                    o2.reverse()
+                    
+                    while o1.count > 0 || o2.count > 0
+                    {
+                        matches.append(o1.remove(at: 0))
+                        matches.append(o2.remove(at: 0))
+                    }
+                    
+                    
+                    //even side
+                    while even.count > 0
+                    {
+                        e1.append(even.remove(at: 0))
+                        e2.append(even.remove(at: 0))
+                    }
+                    e2.reverse()
+                    
+                    while e1.count > 0 || e2.count > 0
+                    {
+                        matches.append(e1.remove(at: 0))
+                        matches.append(e2.remove(at: 0))
+                    }
                     
                 }
-                matches = even + odd
+                else
+                {
+                    even.reverse()
+                    
+                    while even.count > 0 || odd.count > 0
+                    {
+                        matches.append(odd.remove(at: 0))
+                        matches.append(even.remove(at: 0))
+                    }
+                }
+                
+                
+                
                 
 
             }
@@ -461,6 +505,80 @@ print("I'm having fun!")
                     }
 
                 }
+                
+                var even: [MatchupClass] = []
+                var odd: [MatchupClass] = []
+                
+                while matches.count > 0
+                {
+                    odd.append(matches.remove(at: 0))
+                    even.append(matches.remove(at: 0))
+                }
+                
+                if teams.count > 31
+                {
+                    if teams.count > 31
+                    {
+                        var o1: [MatchupClass] = []
+                        var o2: [MatchupClass] = []
+                        var e1: [MatchupClass] = []
+                        var e2: [MatchupClass] = []
+                        
+                        //odd side
+                        while odd.count > 0
+                        {
+                            o1.append(odd.remove(at: 0))
+                            o2.append(odd.remove(at: 0))
+                        }
+                        o2.reverse()
+                        
+                        while o1.count > 0 || o2.count > 0
+                        {
+                            matches.append(o1.remove(at: 0))
+                            matches.append(o2.remove(at: 0))
+                        }
+                        
+                        
+                        //even side
+                        while even.count > 0
+                        {
+                            e1.append(even.remove(at: 0))
+                            e2.append(even.remove(at: 0))
+                        }
+                        e2.reverse()
+                        
+                        while e1.count > 0 || e2.count > 0
+                        {
+                            matches.append(e1.remove(at: 0))
+                            matches.append(e2.remove(at: 0))
+                        }
+                        
+                    }
+                    else
+                    {
+                        even.reverse()
+                        
+                        while even.count > 0 || odd.count > 0
+                        {
+                            matches.append(odd.remove(at: 0))
+                            matches.append(even.remove(at: 0))
+                        }
+                    }
+                }
+                else
+                {
+                    even.reverse()
+                        
+                    while even.count > 0 || odd.count > 0
+                    {
+                        matches.append(odd.remove(at: 0))
+                        matches.append(even.remove(at: 0))
+                    }
+                }
+                
+                
+                
+                
 
             }
 
