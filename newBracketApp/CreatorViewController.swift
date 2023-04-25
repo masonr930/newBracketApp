@@ -28,6 +28,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     var rounding:[RoundClass] = []
     var seededMatches: [MatchupClass] = []
     var brackates: [BracketObject] = []
+    var visIndex = 0
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -81,7 +82,7 @@ print("I'm having fun!")
         
         if teams.count < 3
         {
-            let theAlert = UIAlertController(title: "Not enough teams", message: "The bracket needs at least 3 teams", preferredStyle: .alert)
+            let theAlert = UIAlertController(title: "Not enough teams", message: "The bracket needs at least 3 teams to be created", preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Ok", style: .destructive)
             theAlert.addAction(yesAction)
             present(theAlert, animated: true, completion: nil)
@@ -155,6 +156,7 @@ print("I'm having fun!")
             nvc.bigBracket = Bracket1
             nvc.rounds = rounds
             nvc.teamCheck = teamCheck
+            nvc.visibleIndex = visIndex
         }
     }
     

@@ -142,6 +142,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             visible.remove(at: indexPath.row)
             tableviewOutlet.deleteRows(at: [indexPath], with: .fade)
             tableviewOutlet.reloadData()
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(visible) {
+                    UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+            }
         }
     }
     
@@ -155,10 +159,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "tableClick"{
             let nvc = segue.destination as! BracketViewController
             nvc.bigBracket = visible[rowPick]
+            nvc.visibleIndex = rowPick
         }
         else if segue.identifier == "create"{
             let nvc = segue.destination as! CreatorViewController
             nvc.brackates = brackates
+            nvc.visIndex = visible.count
         }
         else if segue.identifier == "bracketSegue"{
             let nvc = segue.destination as! NewBracketViewController
@@ -179,6 +185,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func unwind10(_seg: UIStoryboardSegue)
     {
+        print("AYOO")
         tableviewOutlet.reloadData()
     }
     
