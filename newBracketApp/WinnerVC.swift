@@ -43,6 +43,7 @@ class WinnerVC: UIViewController {
         match.winnerCheck = true
         bracket.update(dictB: bracket.createDict())
         
+        
         if segment == finalSegment
         {
             performSegue(withIdentifier: "finalWinnerSegue", sender: nil)
