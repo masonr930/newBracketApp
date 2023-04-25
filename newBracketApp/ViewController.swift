@@ -142,6 +142,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             visible.remove(at: indexPath.row)
             tableviewOutlet.deleteRows(at: [indexPath], with: .fade)
             tableviewOutlet.reloadData()
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(visible) {
+                    UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+            }
         }
     }
     

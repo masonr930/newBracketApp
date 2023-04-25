@@ -23,6 +23,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     var sectionChoice = 1
     var matIndex = 0
     var bigBracket: BracketObject!
+    
 
     
     
@@ -30,6 +31,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        print("Pre view load: \(bigBracket.rounds[2].matches[1].homeTeam)")
         matchesTable.dataSource = self
         matchesTable.delegate = self
         matches = bigBracket.rounds[0].matches
@@ -39,6 +41,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         addSegueButtons(rounds2: rounds)
 //        byeCheck()
         matchesTable.reloadData()
+        print("Post view load: \(bigBracket.rounds[2].matches[1].homeTeam)")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -171,26 +174,18 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             else {
                 bigBracket.rounds[r+1].matches[(matNum/2)].awayTeam = dub
             }
+            if bigBracket.rounds[r+1].matches[(matNum/2)].winnerCheck{
+                print("already done")
+                if (matNum/2)%2 == 0{
+                    bigBracket.rounds[r+2].matches[(matNum/4)].homeTeam = dub
+                }
+                else {
+                    bigBracket.rounds[r+2].matches[(matNum/4)].awayTeam = dub
+                }
+            }
         }
         bigBracket.update(dictB: bigBracket.createDict())
     }
-    
-//    func byeCheck(){
-//        var matNum = bigBracket.rounds[0].matches.count
-//        for i in 0 ..< matNum{
-//            if !bigBracket.rounds[0].matches[i].isMatch{
-//                bigBracket.rounds[0].matches[i].winnerCheck = true
-//                if i%2 == 0{
-//                    bigBracket.rounds[1].matches[(i/2)].homeTeam = bigBracket.rounds[0].matches[i].homeTeam
-//                    print("BOOOOO")
-//                }
-//                else {
-//                    bigBracket.rounds[1].matches[(i/2)].awayTeam = bigBracket.rounds[0].matches[i].homeTeam
-//                    print("hooray!")
-//                }
-//            }
-//        }
-//    }
     
     @IBAction func goToBracket(_ sender: UIButton)
     {
@@ -217,6 +212,10 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     {
         winnerMoment(r: sectionChoice-1, matNum: matIndex)
         matchesTable.reloadData()
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(visible) {
+                UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+        }
     }
     
     @IBAction func unwind2(_seg: UIStoryboardSegue)
@@ -261,9 +260,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func homeButton(_ sender: UIButton)
     {
-        print("Bleh")
         performSegue(withIdentifier: "unwindToHome", sender: self)
-        print("hey")
     }
     
     
