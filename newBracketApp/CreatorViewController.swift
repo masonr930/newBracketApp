@@ -81,7 +81,7 @@ print("I'm having fun!")
         
         if teams.count < 3
         {
-            let theAlert = UIAlertController(title: "Not enough teams", message: "The bracket needs at least 3 teams", preferredStyle: .alert)
+            let theAlert = UIAlertController(title: "Not enough teams", message: "The bracket needs at least 3 teams to be created", preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Ok", style: .destructive)
             theAlert.addAction(yesAction)
             present(theAlert, animated: true, completion: nil)

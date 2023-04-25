@@ -141,7 +141,7 @@
                                     <action selector="addTeamButton:" destination="3xt-BI-56u" eventType="touchUpInside" id="oKW-tM-5QL"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raE-bC-aQ5">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Team" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raE-bC-aQ5">
                                 <rect key="frame" x="16" y="180" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -150,8 +150,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-kn-wYD">
                                 <rect key="frame" x="295" y="179" width="82" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Create"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Create">
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="createButton:" destination="3xt-BI-56u" eventType="touchUpInside" id="sJg-Iq-W6r"/>
                                 </connections>
@@ -172,7 +175,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="teo-vq-JU9">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="teo-vq-JU9">
                                 <rect key="frame" x="211" y="133" width="146" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -185,7 +188,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZBJ-Al-wQX">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter bracket name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZBJ-Al-wQX">
                                 <rect key="frame" x="211" y="87" width="146" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -194,8 +197,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQc-Wa-NVX">
                                 <rect key="frame" x="34" y="48" width="62" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Back"/>
+                                <color key="tintColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="goBackButton:" destination="3xt-BI-56u" eventType="touchUpInside" id="hVz-Pv-cTF"/>
                                 </connections>
@@ -300,6 +304,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24g-fJ-VKq">
                                 <rect key="frame" x="16" y="59" width="145" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back to Home"/>
                                 <connections>
@@ -378,6 +383,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhi-PS-2qw">
                                 <rect key="frame" x="23" y="59" width="62" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back"/>
                                 <connections>
@@ -419,6 +425,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-pY-vu8">
                                 <rect key="frame" x="128" y="667" width="137" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back to Home"/>
                                 <connections>
@@ -810,7 +817,9 @@
                                                 <rect key="frame" x="1053" y="8" width="295" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection">
+                                                    <color key="baseBackgroundColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="backButton:" destination="0Vs-cb-EHR" eventType="touchUpInside" id="eJW-wH-UDs"/>
                                                 </connections>
@@ -1274,7 +1283,9 @@
                                                 <rect key="frame" x="522" y="8" width="157" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection">
+                                                    <color key="baseBackgroundColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="backButton:" destination="Jhy-Ic-2vD" eventType="touchUpInside" id="kCJ-Sm-97b"/>
                                                 </connections>
@@ -1581,7 +1592,9 @@
                                                 <rect key="frame" x="922" y="8" width="157" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection">
+                                                    <color key="baseBackgroundColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="backButton:" destination="p8I-N5-ePH" eventType="touchUpInside" id="nUY-LS-G4C"/>
                                                 </connections>
@@ -2428,7 +2441,9 @@
                                                 <rect key="frame" x="1322" y="8" width="157" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Back to Selection">
+                                                    <color key="baseBackgroundColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="backButton:" destination="xtU-Mv-9ZK" eventType="touchUpInside" id="kYw-Af-fgG"/>
                                                 </connections>
@@ -2805,7 +2820,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="bfG-7L-TFS"/>
-        <segue reference="8xR-Zn-0QZ"/>
+        <segue reference="zlH-WK-i7d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
