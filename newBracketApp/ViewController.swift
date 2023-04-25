@@ -159,10 +159,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "tableClick"{
             let nvc = segue.destination as! BracketViewController
             nvc.bigBracket = visible[rowPick]
+            nvc.visibleIndex = rowPick
         }
         else if segue.identifier == "create"{
             let nvc = segue.destination as! CreatorViewController
             nvc.brackates = brackates
+            nvc.visIndex = visible.count
         }
         else if segue.identifier == "bracketSegue"{
             let nvc = segue.destination as! NewBracketViewController

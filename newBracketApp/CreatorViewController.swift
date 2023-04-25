@@ -28,6 +28,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     var rounding:[RoundClass] = []
     var seededMatches: [MatchupClass] = []
     var brackates: [BracketObject] = []
+    var visIndex = 0
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -155,6 +156,7 @@ print("I'm having fun!")
             nvc.bigBracket = Bracket1
             nvc.rounds = rounds
             nvc.teamCheck = teamCheck
+            nvc.visibleIndex = visIndex
         }
     }
     

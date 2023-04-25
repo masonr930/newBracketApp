@@ -58,7 +58,7 @@ public class BracketObject: Codable{
             matches2.removeAll()
                 }
                 self.rounds = rounds2
-        print(rounds[2].matches[1].homeTeam)
+//        print(rounds[2].matches[1].homeTeam)
             
         
     }

@@ -23,13 +23,20 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     var sectionChoice = 1
     var matIndex = 0
     var bigBracket: BracketObject!
-    
+    var visible: [BracketObject] = []
+    var visibleIndex = 0
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+                        let decoder = JSONDecoder()
+                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                            visible = decoded
+                        }
+                }
+
         // Do any additional setup after loading the view.
         print("Pre view load: \(bigBracket.rounds[2].matches[1].homeTeam)")
         matchesTable.dataSource = self
@@ -212,6 +219,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     {
         winnerMoment(r: sectionChoice-1, matNum: matIndex)
         matchesTable.reloadData()
+        visible[visibleIndex] = bigBracket
+        
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(visible) {
                 UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
