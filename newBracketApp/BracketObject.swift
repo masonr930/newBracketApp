@@ -11,83 +11,74 @@ import FirebaseDatabase
 import UIKit
 import SwiftUI
 
-
 public class BracketObject: Codable{
     
+    //This is the key entered to see bracket
     var bracketKey: String = ""
+    //This helps track loading into the app
     var made = false
-   var title: String = ""
-  var rounds: [RoundClass]
+    var title: String = ""
+    //This is a dictionary of all the rounds
+    var rounds: [RoundClass]
+    //lets one get the firekey
     var fireKey = ""
-//    var ref = Database.database().reference()
+    //will work on in future
     var owner = false
-//    var roundsData = [Data]()
+    
+    
     init(title: String, rounds: [RoundClass], bracketKey: String) {
         self.title = title
         self.rounds = rounds
         self.bracketKey = bracketKey
     }
-    
+    //This should be called whenever we need to fetch from firebase
     init(dict: [String:Any], reference: String){
+        //Gets the easy variables
         self.title = dict["title"] as! String
         self.bracketKey = dict["bracketKey"] as! String
         self.fireKey = reference
         self.made = dict["made"] as! Bool
         var rounds2: [RoundClass] = []
         var matches2: [MatchupClass] = []
-        print("This is super fun")
-        var dRounds = dict["rounds"] as! [Any]
+        let dRounds = dict["rounds"] as! [Any]
         var matcher: MatchupClass!
+        
+        
         for i in 1..<dRounds.count {
-            var dMatch = dRounds[i] as! [String: Any]
-            var gar = dMatch["matches"] as! [Any]
+            let dMatch = dRounds[i] as! [String: Any]
+            let gar = dMatch["matches"] as! [Any]
                     
             for j in 0..<gar.count{
-                    print("Round \(i) Match \(j)")
+
+                let blah = gar[j] as! [String: Any]
+                matcher = MatchupClass(hTeam: blah["homeTeam"] as! String, aTeam: blah["awayTeam"] as! String, hScore: 0, aScore: 0, match: blah["isMatch"] as! Bool)
+                matcher.winner = blah["winner"] as! Bool
+                matcher.winnerCheck = blah["winnerCheck"] as! Bool
+                matcher.hasTeams = blah["hasTeams"] as! Bool
+                matches2.append(matcher)
                 
-                    var blah = gar[j] as! [String: Any]
-                print(blah["homeTeam"] as! String)
-                    matcher = MatchupClass(hTeam: blah["homeTeam"] as! String, aTeam: blah["awayTeam"] as! String, hScore: 0, aScore: 0, match: blah["isMatch"] as! Bool)
-                    matcher.winner = blah["winner"] as! Bool
-                    matcher.winnerCheck = blah["winnerCheck"] as! Bool
-                    matcher.hasTeams = blah["hasTeams"] as! Bool
-                    matches2.append(matcher)
-                    print(matcher.homeTeam)
             }
-                    rounds2.append(RoundClass(bMatches: matches2, brounds: i))
+            rounds2.append(RoundClass(bMatches: matches2, brounds: i))
             matches2.removeAll()
-                }
-                self.rounds = rounds2
-//        print(rounds[2].matches[1].homeTeam)
-            
-        
+        }
+        self.rounds = rounds2
     }
-//homeTeam: String
-//var awayTeam: String
-//var homeScore: Int
-//var awayScore: Int
-//var isMatch: Bool
-//var winner: Bool
-//var winnerCheck: Bool
-//var hasTeams: Bool
-    
-//    rounds[i].matches[j].awayTeam
-    
+
+    //This creates a dictionary to put into firebase
     func createDict() -> [String: Any]{
-        var dictRound: [String : Any] = [:]
+        let dictRound: [String : Any] = [:]
         var dictB: [String : Any] = [:]
         dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey, "made": made] as [String: Any]
         return dictB
     }
     
-    
+    //This updates any dictionary with winners, basically just creates a new dictionary
     func update(dictB: [String: Any]){
         var dictMatch: [String : Any] = [:]
-        var ref = Database.database().reference().child(fireKey)
+        let ref = Database.database().reference().child(fireKey)
         ref.updateChildValues(["made": made])
         
-//        ref.child(fireKey).updateChildValues(dictB)
-//        ref = ref.child(fireKey)
+        //Loops through all of rounds and matches
         for i in 0 ..< rounds.count{
             
             for j in 0..<rounds[i].matches.count{
@@ -101,14 +92,14 @@ public class BracketObject: Codable{
 
     }
     
+    //This actually saves to firebase
     func saveToFirebase(){
         var dictMatch: [String : Any] = [:]
-        var dictRound: [String : Any] = [:]
+        let dictRound: [String : Any] = [:]
         var dictB: [String : Any] = [:]
         var ref = Database.database().reference()
         fireKey = ref.childByAutoId().key ?? "0"
         ref = ref.child(fireKey)
-        print(ref.key)
         dictB = ["title": title, "roundDict": dictRound, "bracketKey": bracketKey, "made": made] as [String: Any]
         ref.setValue(dictB)
         
@@ -123,6 +114,7 @@ public class BracketObject: Codable{
             }
             
         }
+        //This saves bracket to visible class so one can see it on the app with user defaults
         var visible: [BracketObject] = []
         if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
                         let decoder = JSONDecoder()
