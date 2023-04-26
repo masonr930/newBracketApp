@@ -415,16 +415,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKv-Ek-7AB">
-                                <rect key="frame" x="16" y="141" width="361" height="141"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-pY-vu8">
-                                <rect key="frame" x="128" y="667" width="137" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="97y-Xu-Jjo">
+                                <rect key="frame" x="0.0" y="127" width="393" height="691"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="ymz-gJ-3cn" detailTextLabel="mKL-gd-OZP" style="IBUITableViewCellStyleValue1" id="buO-hQ-Kl7">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="buO-hQ-Kl7" id="9mj-VP-hvF">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ymz-gJ-3cn">
+                                                    <rect key="frame" x="20" y="15" width="25" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mKL-gd-OZP">
+                                                    <rect key="frame" x="340.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-pY-vu8">
+                                <rect key="frame" x="16" y="59" width="137" height="35"/>
                                 <color key="tintColor" red="0.97925740480422974" green="0.13211557269096375" blue="0.016700239852070808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back to Home"/>
@@ -435,17 +457,23 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5QI-1W-wuN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="97y-Xu-Jjo" firstAttribute="top" secondItem="Bp0-pY-vu8" secondAttribute="bottom" constant="33" id="6dV-Qb-Ihr"/>
+                            <constraint firstItem="97y-Xu-Jjo" firstAttribute="leading" secondItem="5QI-1W-wuN" secondAttribute="leading" id="NpC-hk-bCi"/>
+                            <constraint firstItem="97y-Xu-Jjo" firstAttribute="bottom" secondItem="5QI-1W-wuN" secondAttribute="bottom" id="UEA-pM-QHg"/>
+                            <constraint firstItem="97y-Xu-Jjo" firstAttribute="trailing" secondItem="5QI-1W-wuN" secondAttribute="trailing" id="oxf-Qq-6ax"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qBl-ht-VU7"/>
                     <connections>
-                        <outlet property="winnerLabel" destination="fKv-Ek-7AB" id="CPr-6s-Bp7"/>
+                        <outlet property="tableviewOutlet" destination="97y-Xu-Jjo" id="A16-Dh-dwF"/>
                         <segue destination="J6X-mX-5Pg" kind="unwind" identifier="toHome" unwindAction="unwindWithSeg:" id="zGq-J1-wXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTi-Oi-iKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="J6X-mX-5Pg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3482" y="401"/>
+            <point key="canvasLocation" x="3481.679389312977" y="400.7042253521127"/>
         </scene>
         <!--New Bracket View Controller-->
         <scene sceneID="wN2-Mr-ggY">
@@ -2820,7 +2848,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="bfG-7L-TFS"/>
-        <segue reference="zlH-WK-i7d"/>
+        <segue reference="8xR-Zn-0QZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

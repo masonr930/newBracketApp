@@ -7,14 +7,15 @@
 
 import UIKit
 
-class FinalWinnerViewController: UIViewController {
+class FinalWinnerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
-    @IBOutlet weak var winnerLabel: UILabel!
-    var text: String!
+    @IBOutlet weak var tableviewOutlet: UITableView!
+    var medalists: [String]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        winnerLabel.text = text
+        medalists.reverse()
         
     }
     
@@ -30,6 +31,17 @@ class FinalWinnerViewController: UIViewController {
     @IBAction func backToHome(_ sender: UIButton)
     {
         performSegue(withIdentifier: "toHome", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return medalists.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableviewOutlet.dequeueReusableCell(withIdentifier: "myCell")
+        cell?.textLabel?.text = medalists[indexPath.row]
+        cell?.detailTextLabel?.text = "\(indexPath.row + 1)"
+        return cell!
     }
     
 }
