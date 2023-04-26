@@ -72,11 +72,15 @@ class Bracket8ViewController: UIViewController {
         var n = 0 // match index
         while i < round1Cells.count {
             round1Cells[i].isUserInteractionEnabled = false
+            round1Cells[i].backgroundColor = UIColor.white
             round1Cells[i].textColor = UIColor.black
             
             round1Cells[i].text = "\(theBracket!.rounds[0].matches[n].homeTeam)"
+            
             i+=1
             round1Cells[i].isUserInteractionEnabled = false
+            round1Cells[i].backgroundColor = UIColor.white
+            round1Cells[i].textColor = UIColor.black
             if theBracket!.rounds[0].matches[n].isMatch {
                 round1Cells[i].text = "\(theBracket!.rounds[0].matches[n].awayTeam)"
             } else {
@@ -93,6 +97,7 @@ class Bracket8ViewController: UIViewController {
     func populateRound2() {
         for i in 0..<round2Cells.count {
             round2Cells[i].isUserInteractionEnabled = false
+            round2Cells[i].backgroundColor = UIColor.white
             round2Cells[i].textColor = UIColor.lightGray
 
             if theBracket!.rounds[0].matches[i].winnerCheck {
@@ -112,6 +117,7 @@ class Bracket8ViewController: UIViewController {
     func populateFinals() {
         for i in 0..<finalsCells.count {
             finalsCells[i].isUserInteractionEnabled = false
+            finalsCells[i].backgroundColor = UIColor.white
             finalsCells[i].textColor = UIColor.lightGray
 
             if theBracket!.rounds[1].matches[i].winnerCheck {
