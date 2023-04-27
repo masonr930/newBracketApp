@@ -249,38 +249,6 @@ print("I'm having fun!")
         
         
         matches = seeds(teams: teams)
-        
-        //this if else covers first round matches and places them into the table, we need to find a way to show a seperate table for seperate matches
-//        if(perfect){
-//            var teamsTemp = teams
-//            for _ in 0..<firstRoundMatches {
-//                matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
-//                print(teamsTemp)
-//                tempTeams.remove(at: 0)
-//                tempTeams.remove(at:0)
-//                print(matches[0].homeTeam)
-//            }
-//            make table just print one array[0] and array [1] into each seperate spot and then delete them from the temporary array this is only minimum and first round only populate table with first round matches cells only
-//        }
-//        else{
-//            var teamsTemp = teams
-//            for _ in 0..<firstRoundMatches {
-//                matches.append(MatchupClass.init(hTeam:tempTeams[0], aTeam: tempTeams[1], hScore: 0, aScore: 0, match: true))
-//                print(teamsTemp)
-//                tempTeams.remove(at: 0)
-//                tempTeams.remove(at:0)
-//                print(matches[0].homeTeam)
-//            }
-//            for _ in 0..<bies
-//            {
-//                matches.append(MatchupClass.init(hTeam: tempTeams[0], aTeam: "BYE", hScore: 0, aScore: 0, match: false))
-//                tempTeams.remove(at: 0)
-//            }
-//
-//  populate table with only the amount of cells as first round matches and only run the loop to put people in that many times
-//        }
-//        print("Test")
-//        print(rounds)
     }
     
     //calclulates first roundMatches
@@ -419,7 +387,6 @@ print("I'm having fun!")
                 
                 var even: [MatchupClass] = []
                 var odd: [MatchupClass] = []
-                
                 while matches.count > 0
                 {
                     odd.append(matches.remove(at: 0))
@@ -473,11 +440,6 @@ print("I'm having fun!")
                         matches.append(even.remove(at: 0))
                     }
                 }
-                
-                
-                
-                
-
             }
 
             // adds matches by seeds for a bracket with bies
@@ -577,15 +539,8 @@ print("I'm having fun!")
                         matches.append(even.remove(at: 0))
                     }
                 }
-                
-                
-                
-                
-
             }
-
            return matches
-
         }
 
     func byeCheck(){
@@ -609,17 +564,6 @@ print("I'm having fun!")
     @IBAction func goBackButton(_ sender: UIButton) {
         performSegue(withIdentifier: "unwind25", sender: nil)
     }
-    
-    
-    
-    
-    
-        
-    
-    
-        
-    
-    
     
     
 }

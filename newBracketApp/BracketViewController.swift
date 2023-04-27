@@ -38,6 +38,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
 
         // Do any additional setup after loading the view.
+      
         matchesTable.dataSource = self
         matchesTable.delegate = self
         matches = bigBracket.rounds[0].matches

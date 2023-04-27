@@ -16,6 +16,7 @@ class WinnerVC: UIViewController {
     var cell: VsCell!
     var segment: Int!
     var finalSegment: Int!
+    var medalists: [String] = []
     
     @IBOutlet weak var homeLabel: UILabel!
     
@@ -43,14 +44,19 @@ class WinnerVC: UIViewController {
         match.winnerCheck = true
         bracket.update(dictB: bracket.createDict())
         
-        
-        if segment == finalSegment
+        if segment == finalSegment - 1
         {
+            medalists.append(match.awayTeam)
+        }
+        
+        else if segment == finalSegment
+        {
+            medalists.append(match.awayTeam)
+            medalists.append(match.homeTeam)
             performSegue(withIdentifier: "finalWinnerSegue", sender: nil)
         }
         else
         {
-            
             performSegue(withIdentifier: "unwindSegue", sender: nil)
         }
     }
@@ -61,9 +67,15 @@ class WinnerVC: UIViewController {
         match.winnerCheck = true
         bracket.update(dictB: bracket.createDict())
         
+        if segment == finalSegment - 1
+        {
+            medalists.append(match.homeTeam)
+        }
         
         if segment == finalSegment
         {
+            medalists.append(match.homeTeam)
+            medalists.append(match.awayTeam)
             performSegue(withIdentifier: "finalWinnerSegue", sender: nil)
         }
         else
@@ -78,15 +90,8 @@ class WinnerVC: UIViewController {
         if segue.identifier == "finalWinnerSegue"
         {
             let nvc = segue.destination as! FinalWinnerViewController
+            nvc.medalists = medalists
             
-            if match.winner == true
-            {
-                nvc.text = "\(match.homeTeam) won!"
-            }
-            else
-            {
-                nvc.text = "\(match.awayTeam) won!"
-            }
         }
     }
     
