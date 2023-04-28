@@ -128,29 +128,31 @@ print("I'm having fun!")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        makeBracket(teams: teams)
-        matches = seeds(teams: teams)
-        rounding = makeRounds(rounds2: matches, r: rounds)
-        Bracket1 = BracketObject(title: name, rounds: rounding, bracketKey: keyTextField.text!)
-        Bracket1.bracketKey = keyTextField.text!
-        byeCheck()
-        Bracket1.saveToFirebase()
-        var visible: [BracketObject] = []
-        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
-                        let decoder = JSONDecoder()
-                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
-                            visible = decoded
-                        }
-                }
-        visible.append(Bracket1)
-        let encoder = JSONEncoder()
-           if let encoded = try? encoder.encode(visible) {
-                            UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
-                        }
+        
+        
 
         if segue.identifier == "createBracket"
         {
-            
+            makeBracket(teams: teams)
+            matches = seeds(teams: teams)
+            rounding = makeRounds(rounds2: matches, r: rounds)
+            Bracket1 = BracketObject(title: name, rounds: rounding, bracketKey: keyTextField.text!)
+            Bracket1.bracketKey = keyTextField.text!
+            byeCheck()
+            Bracket1.owner = true
+            Bracket1.saveToFirebase()
+            var visible: [BracketObject] = []
+            if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+                let decoder = JSONDecoder()
+                if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                    visible = decoded
+                }
+            }
+            visible.append(Bracket1)
+            let encoder = JSONEncoder()
+               if let encoded = try? encoder.encode(visible) {
+                                UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+                            }
             let nvc = segue.destination as! BracketViewController
             nvc.teams = teams
             nvc.bigBracket = Bracket1

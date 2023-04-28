@@ -151,9 +151,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         rowPick = indexPath.row
-        performSegue(withIdentifier: "tableClick", sender: nil)
+        doSegue(brack: visible[rowPick])
+//        performSegue(withIdentifier: "tableClick", sender: nil)
       }
     
+    func doSegue(brack: BracketObject){
+        if(brack.owner){
+            performSegue(withIdentifier: "tableClick", sender: nil)
+        }
+        else if brack.rounds.count == 2 {
+            performSegue(withIdentifier: "toBracket4", sender: self)
+        }
+        else if brack.rounds.count == 3 {
+            performSegue(withIdentifier: "toBracket8", sender: self)
+        }
+        else if brack.rounds.count == 4 {
+            performSegue(withIdentifier: "toBracket16", sender: self)
+        }
+        else if brack.rounds.count == 5 {
+            performSegue(withIdentifier: "toBracket32", sender: self)
+        }
+        else if brack.rounds.count == 6 {
+            performSegue(withIdentifier: "toBracket64", sender: self)
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         AppData.loaded = true
         if segue.identifier == "tableClick"{
@@ -166,8 +187,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             nvc.brackates = brackates
             nvc.visIndex = visible.count
         }
-        else if segue.identifier == "bracketSegue"{
+        else if segue.identifier == "toBracket4"
+        {
+            let nvc = segue.destination as! Bracket4ViewController
+            nvc.theBracket = brackates[rowPick]
+        }
+        else if segue.identifier == "toBracket8"
+        {
+            let nvc = segue.destination as! Bracket8ViewController
+            nvc.theBracket = brackates[rowPick]
+        }
+        else if segue.identifier == "toBracket16"
+        {
+            let nvc = segue.destination as! Bracket16ViewController
+            nvc.theBracket = brackates[rowPick]
+        }
+        else if segue.identifier == "toBracket32"
+        {
             let nvc = segue.destination as! NewBracketViewController
+            nvc.theBracket = brackates[rowPick]
+        }
+        else if segue.identifier == "toBracket64"
+        {
+            let nvc = segue.destination as! Bracket64ViewController
+            nvc.theBracket = brackates[rowPick]
         }
     }
 
