@@ -156,6 +156,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       }
     
     func doSegue(brack: BracketObject){
+        print("Count is")
+        print(brack.rounds.count)
         if(brack.owner){
             performSegue(withIdentifier: "tableClick", sender: nil)
         }
@@ -190,27 +192,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         else if segue.identifier == "toBracket4"
         {
             let nvc = segue.destination as! Bracket4ViewController
-            nvc.theBracket = brackates[rowPick]
+            nvc.theBracket = visible[rowPick]
         }
         else if segue.identifier == "toBracket8"
         {
             let nvc = segue.destination as! Bracket8ViewController
-            nvc.theBracket = brackates[rowPick]
+            nvc.theBracket = visible[rowPick]
         }
         else if segue.identifier == "toBracket16"
         {
             let nvc = segue.destination as! Bracket16ViewController
-            nvc.theBracket = brackates[rowPick]
+            nvc.theBracket = visible[rowPick]
         }
         else if segue.identifier == "toBracket32"
         {
             let nvc = segue.destination as! NewBracketViewController
-            nvc.theBracket = brackates[rowPick]
+            nvc.theBracket = visible[rowPick]
         }
         else if segue.identifier == "toBracket64"
         {
             let nvc = segue.destination as! Bracket64ViewController
-            nvc.theBracket = brackates[rowPick]
+            nvc.theBracket = visible[rowPick]
         }
     }
 

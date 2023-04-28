@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//This class just stores variables
 class MatchupClass: Codable{
     var homeTeam: String
     var awayTeam: String
