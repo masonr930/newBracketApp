@@ -9,7 +9,7 @@ import UIKit
 
 class BracketViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    @IBOutlet weak var teamLabel: UILabel!
     
     @IBOutlet weak var matchesTable: UITableView!
     @IBOutlet weak var segmentedController: UISegmentedControl!
@@ -48,6 +48,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         addSegueButtons(rounds2: rounds)
 //        byeCheck()
         matchesTable.reloadData()
+        
+        teamLabel.text = "\(bigBracket.title)"
         
     }
     
