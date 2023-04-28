@@ -88,7 +88,7 @@
                         <segue destination="rsB-6z-2FB" kind="show" identifier="tableClick" id="zlH-WK-i7d"/>
                         <segue destination="0Vs-cb-EHR" kind="show" identifier="toBracket32" id="c0g-h0-Ss3"/>
                         <segue destination="xtU-Mv-9ZK" kind="show" identifier="toBracket64" id="Z6P-MC-8v3"/>
-                        <segue destination="p8I-N5-ePH" kind="show" identifier="toBracke16" id="RR0-Ld-88Y"/>
+                        <segue destination="p8I-N5-ePH" kind="show" identifier="toBracket16" id="RR0-Ld-88Y"/>
                         <segue destination="Jhy-Ic-2vD" kind="show" identifier="toBracket8" id="Smd-Jl-pab"/>
                         <segue destination="jeg-Ra-RiY" kind="show" identifier="toBracket4" id="8Fm-Yj-SJP"/>
                     </connections>

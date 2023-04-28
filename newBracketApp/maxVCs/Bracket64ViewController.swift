@@ -180,6 +180,8 @@ class Bracket64ViewController: UIViewController {
 //        }
         
         bracketNameLabel.text = "\(theBracket!.title)"
+        print(theBracket!.title)
+        print(theBracket!.rounds.count)
         if theBracket!.rounds[5].matches[0].winnerCheck {
             if theBracket!.rounds[5].matches[0].winner {
                 championLabel.text = "Champion:\n\(theBracket!.rounds[5].matches[0].homeTeam)"
