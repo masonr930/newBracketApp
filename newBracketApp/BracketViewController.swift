@@ -48,7 +48,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         addSegueButtons(rounds2: rounds)
 //        byeCheck()
         matchesTable.reloadData()
-//        print("Post view load: \(bigBracket.rounds[2].matches[1].homeTeam)")
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

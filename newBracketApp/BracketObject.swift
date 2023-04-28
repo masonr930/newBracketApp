@@ -36,6 +36,7 @@ public class BracketObject: Codable{
         //Gets the easy variables
         self.title = dict["title"] as! String
         self.bracketKey = dict["bracketKey"] as! String
+        print(reference)
         self.fireKey = reference
         self.made = dict["made"] as! Bool
         var rounds2: [RoundClass] = []
