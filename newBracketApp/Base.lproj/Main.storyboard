@@ -491,8 +491,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="2400" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xmh-2Q-X7s">
-                                <rect key="frame" x="0.0" y="59" width="2400" height="1200"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xmh-2Q-X7s">
+                                <rect key="frame" x="0.0" y="59" width="2400" height="1141"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yy-Rg-oTt">
                                         <rect key="frame" x="0.0" y="0.0" width="2400" height="1200"/>
