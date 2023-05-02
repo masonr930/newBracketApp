@@ -45,6 +45,21 @@ print("I'm having fun!")
     }
     
     @IBAction func addTeamButton(_ sender: UIButton) {
+        var canAdd = true
+        
+        for i in 0..<teams.count {
+            if textfieldOutlet.text == teams[i] {
+                let theAlert = UIAlertController(title: "Duplicate Team", message: "Make sure every team name is different", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+                theAlert.addAction(yesAction)
+                present(theAlert, animated: true, completion: nil)
+                canAdd = false
+                break
+            }
+            else {
+                canAdd = true
+            }
+        }
         
         if textfieldOutlet.text == "" {
             let theAlert = UIAlertController(title: "Enter a Team", message: "Enter a team name in the box on the left", preferredStyle: .alert)
@@ -53,8 +68,7 @@ print("I'm having fun!")
             present(theAlert, animated: true, completion: nil)
         }
         
-        
-        else if teams.count < 64 {
+        else if teams.count < 64 && canAdd {
             if let x = textfieldOutlet.text {
                 teams.append(x)
                 tableViewOutlet.reloadData()
@@ -68,6 +82,8 @@ print("I'm having fun!")
             theAlert.addAction(yesAction)
             present(theAlert, animated: true, completion: nil)
         }
+        
+        
         
         
     }
