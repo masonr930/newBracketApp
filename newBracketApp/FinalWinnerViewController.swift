@@ -10,12 +10,14 @@ import UIKit
 class FinalWinnerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableviewOutlet: UITableView!
-    var medalists: [String]!
+    
+    var medalists: [String] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        medalists.reverse()
+        tableviewOutlet.dataSource = self
+        tableviewOutlet.delegate = self
         
     }
     
@@ -39,8 +41,17 @@ class FinalWinnerViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableviewOutlet.dequeueReusableCell(withIdentifier: "myCell")
-        cell?.textLabel?.text = medalists[indexPath.row]
-        cell?.detailTextLabel?.text = "\(indexPath.row + 1)"
+        cell!.textLabel!.text = medalists[indexPath.row]
+        if indexPath.row + 1 < 3
+        {
+            cell!.detailTextLabel!.text = "Place: \(indexPath.row + 1)"
+        }
+        else
+        {
+            cell!.detailTextLabel!.text = "Place: 3"
+        }
+        
+        
         return cell!
     }
     

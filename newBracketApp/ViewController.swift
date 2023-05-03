@@ -147,6 +147,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
             }
         }
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(visible) {
+                UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+            print("Delete saved")
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
