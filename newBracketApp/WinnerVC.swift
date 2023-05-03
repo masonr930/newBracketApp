@@ -8,7 +8,7 @@
 import UIKit
 
 class WinnerVC: UIViewController {
-
+    
     var bracket: BracketObject!
     var team1: String!
     var team2: String!
@@ -16,9 +16,11 @@ class WinnerVC: UIViewController {
     var cell: VsCell!
     var segment: Int!
     var finalSegment: Int!
-    var medalists: [String] = []
+    var sfinalSegment: Int!
     var visible: [BracketObject] = []
     var index: Int?
+    var semis: [String] = []
+    var finals: [String] = []
     
     @IBOutlet weak var homeLabel: UILabel!
     
@@ -67,16 +69,16 @@ class WinnerVC: UIViewController {
                 UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
         }
         
-        if segment == finalSegment - 1
+        if segment == sfinalSegment
         {
-            medalists.append(match.awayTeam)
+            semis.append(match.awayTeam)
             performSegue(withIdentifier: "unwindSegue", sender: nil)
+            
         }
-        
         else if segment == finalSegment
         {
-            medalists.append(match.awayTeam)
-            medalists.append(match.homeTeam)
+            finals.append(match.homeTeam)
+            finals.append(match.awayTeam)
             performSegue(withIdentifier: "finalWinnerSegue", sender: nil)
         }
         else
@@ -91,15 +93,16 @@ class WinnerVC: UIViewController {
         match.winnerCheck = true
         bracket.update(dictB: bracket.createDict())
         
-        if segment == finalSegment - 1
+        if segment == sfinalSegment
         {
-            medalists.append(match.homeTeam)
+            semis.append(match.homeTeam)
+            performSegue(withIdentifier: "unwindSegue", sender: nil)
+            
         }
-        
-        if segment == finalSegment
+        else if segment == finalSegment
         {
-            medalists.append(match.homeTeam)
-            medalists.append(match.awayTeam)
+            finals.append(match.awayTeam)
+            finals.append(match.homeTeam)
             performSegue(withIdentifier: "finalWinnerSegue", sender: nil)
         }
         else
@@ -114,8 +117,7 @@ class WinnerVC: UIViewController {
         if segue.identifier == "finalWinnerSegue"
         {
             let nvc = segue.destination as! FinalWinnerViewController
-            nvc.medalists = medalists
-            
+            nvc.medalists = finals + semis
         }
     }
     

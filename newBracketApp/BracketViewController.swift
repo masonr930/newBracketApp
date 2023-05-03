@@ -25,6 +25,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     var bigBracket: BracketObject!
     var visible: [BracketObject] = []
     var visibleIndex = 0
+    var semiTeams: [String] = []
 
     
     
@@ -101,6 +102,9 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
             nvc.cell = cell
             nvc.segment = segmentedController.selectedSegmentIndex + 1
             nvc.finalSegment = segmentedController.numberOfSegments
+            nvc.sfinalSegment = nvc.finalSegment - 1
+            nvc.semis = semiTeams
+            
                 
         }
         else if segue.identifier == "toBracket4"
@@ -219,6 +223,8 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func unwind(_seg: UIStoryboardSegue)
     {
+        let svc = _seg.source as! WinnerVC
+        semiTeams = svc.semis
         winnerMoment(r: sectionChoice-1, matNum: matIndex)
         matchesTable.reloadData()
         visible[visibleIndex] = bigBracket
@@ -227,6 +233,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let encoded = try? encoder.encode(visible) {
                 UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
         }
+        
     }
     
     @IBAction func unwind2(_seg: UIStoryboardSegue)
