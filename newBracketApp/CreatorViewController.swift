@@ -121,6 +121,17 @@ print("I'm having fun!")
             present(theAlert, animated: true, completion: nil)
         }
         
+        for i in brackates
+        {
+            if keyTextField.text == i.bracketKey
+            {
+                let theAlert = UIAlertController(title: "Bracket code already in use", message: "Enter a different bracket code", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+                theAlert.addAction(yesAction)
+                present(theAlert, animated: true, completion: nil)
+            }
+        }
+        
         let alert = UIAlertController(title: "Are you sure?", message: "Is the bracket complete?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
             self.performSegue(withIdentifier: "createBracket", sender: self)
