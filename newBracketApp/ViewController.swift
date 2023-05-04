@@ -30,22 +30,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var brackates: [BracketObject] = []
     var rowPick: Int = 0
     var visible: [BracketObject] = []
+    var numbers: [Int] = []
+    var createdBracks: [BracketObject] = []
+    var headers = ["Created Brackets", "Other Brackets"]
+    
+    
     
     @IBOutlet weak var tableviewOutlet: UITableView!
     @IBOutlet weak var textFieldOutlet: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
-                        let decoder = JSONDecoder()
-                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
-                            visible = decoded
-                        }
-                }
+        
+//        print(visible[0].title)
         ref = Database.database().reference()
         tableviewOutlet.dataSource = self
         tableviewOutlet.delegate = self
           
+        if let items = UserDefaults.standard.data(forKey: "createdBrackets") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                self.createdBracks = decoded
+            }
+        }
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(createdBracks) {
+                UserDefaults.standard.set(encoded, forKey: "createdBrackets")
+            print("Delete saved")
+        }
                    // snapshot is a dictionary with a key and a dictionary as a value
                     // this gets the dictionary from each snapshot
         
@@ -54,18 +66,53 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 print("reading firebase")
                 let dict = snapshot.value as! [String:Any]
-                print("Timer2")
                 // building a Student object from the dictionary
                 let s = BracketObject(dict: dict, reference: snapshot.key)
-                print("timer3")
                 // adding the student object to the Student array
                 self.brackates.append(s)
-                print("timer4")
             }
             // should only add the student if the student isn’t already in the array
             // good place to update the tableview also
                 print("Trying to reload data")
                 self.tableviewOutlet.reloadData()
+            print(self.visible)
+            if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+                            let decoder = JSONDecoder()
+                            if let decoded = try? decoder.decode([Int].self, from: items) {
+                                self.numbers = decoded
+                            }
+                print(self.numbers)
+                print(self.brackates.count)
+                if self.numbers.count>0{
+                    var big: Int = self.numbers[0]
+                    for t in self.numbers{
+                        if t>big{
+                            big = t
+                        }
+                    }
+                    if self.brackates.count > big{
+                        print("big number is \(big)")
+                        for i in self.numbers {
+                            var brack: BracketObject?
+                            var niner: Bool = false
+                            print("i is \(i)")
+                            brack = self.brackates[i]
+                            print("i is \(i)")
+                            if let j = brack {
+                                for l in self.visible{
+                                    if l.bracketKey == j.bracketKey{
+                                        niner = true
+                                    }
+                                }
+                                if !niner{
+                                    self.visible.append(j)
+                                }
+                            }
+                        }
+                    }
+                   
+                }
+            }
                     })
         
         
@@ -125,30 +172,59 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableviewOutlet.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return visible.count
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        print("This is the number of sections")
+        return 2
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            print("Happppppy")
+            if visible.count != 0{
+                print(visible.count)
+                print(visible[0].rounds[0].matches[0].homeTeam)
+            }
+            return createdBracks.count
+        }
+        else{
+            print("Size =\(visible.count)")
+            return visible.count
+        }
+        }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableviewOutlet.dequeueReusableCell(withIdentifier: "bracketCell")
-        cell!.textLabel!.text = visible[indexPath.row].title
+        if indexPath.section == 0{
+            cell!.textLabel!.text = createdBracks[indexPath.row].title
+        }
+        else{
+            print("sectionOne")
+            cell!.textLabel!.text = visible[indexPath.row].title
+        }
         return cell!
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return headers[section]
+    }
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete
         {
             visible.remove(at: indexPath.row)
+            numbers.remove(at: indexPath.row)
             tableviewOutlet.deleteRows(at: [indexPath], with: .fade)
             tableviewOutlet.reloadData()
             let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(visible) {
+            if let encoded = try? encoder.encode(numbers) {
                     UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
             }
         }
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(visible) {
+        if let encoded = try? encoder.encode(numbers) {
                 UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
             print("Delete saved")
         }
@@ -225,10 +301,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
                         let decoder = JSONDecoder()
-                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
-                            visible = decoded
+                        if let decoded = try? decoder.decode([Int].self, from: items) {
+                            numbers = decoded
                         }
+            for i in 0..<brackates.count{
+                if (numbers.contains(i)){
+                    visible.append(brackates[i])
                 }
+            }
+        }
 
         tableviewOutlet.reloadData()
     }
@@ -242,24 +323,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func enterKeyButton(_ sender: UIButton)
     {
-        for i in brackates{
-            if (i.bracketKey == textFieldOutlet.text){
+        for i in 0..<brackates.count{
+            if (brackates[i].bracketKey == textFieldOutlet.text){
                 var boo = false
                 for j in visible{
                     if j.bracketKey == textFieldOutlet.text{
                         boo = true
+                        print("true")
                     }
+                    print("i is \(i)")
+                    print(visible)
                 }
                 if !boo{
-                    visible.append(i)
+                    print("i is \(i) and cool")
+                    if !numbers.contains(i){
+                        numbers.append(i)
+                        visible.append(brackates[i])
+                    }
+                    else{
+                        print("Already contains")
+                    }
                 }
                 
             }
             let encoder = JSONEncoder()
-               if let encoded = try? encoder.encode(visible) {
+               if let encoded = try? encoder.encode(numbers) {
                                 UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+                   print(numbers)
                             }
         }
+        print(self.visible[0].rounds[0].matches[0].homeTeam)
         tableviewOutlet.reloadData()
     }
     
