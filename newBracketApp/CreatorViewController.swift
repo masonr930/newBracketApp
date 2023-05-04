@@ -13,7 +13,7 @@ import UIKit
 class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // added a comment
     
-    
+    @IBOutlet weak var numOutlet: UITextField!
 
     @IBOutlet weak var keyTextField: UITextField!
     @IBOutlet weak var textfieldOutlet: UITextField!
@@ -89,6 +89,71 @@ print("I'm having fun!")
     }
     
 
+    @IBAction func quickCreate(_ sender: UIButton) {
+        var toAdd : Int = 0
+        var canAdd = true
+        
+        if let blah = Int(numOutlet.text!) {
+            toAdd = blah
+        } else {
+            let theAlert = UIAlertController(title: "Not a valid input", message: "Enter an integer between 3 and 64", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+            theAlert.addAction(yesAction)
+            present(theAlert, animated: true, completion: nil)
+            canAdd = false
+        }
+        
+        if canAdd {
+            
+            if toAdd < 3
+            {
+                let theAlert = UIAlertController(title: "Not enough teams", message: "The bracket needs at least 3 teams to be created", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+                theAlert.addAction(yesAction)
+                present(theAlert, animated: true, completion: nil)
+            }
+            
+            else if toAdd > 64
+            {
+                let theAlert = UIAlertController(title: "Too many teams", message: "The bracket can only hold up to 64 teams", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+                theAlert.addAction(yesAction)
+                present(theAlert, animated: true, completion: nil)
+            }
+            
+            else if nameOutlet.text == ""
+            {
+                let theAlert = UIAlertController(title: "No bracket name", message: "Enter a bracket name", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+                theAlert.addAction(yesAction)
+                present(theAlert, animated: true, completion: nil)
+            }
+            
+            
+            else if keyTextField.text == "" || keyTextField.text == nil
+            {
+                let theAlert = UIAlertController(title: "No bracket code", message: "Enter a bracket code", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Ok", style: .destructive)
+                theAlert.addAction(yesAction)
+                present(theAlert, animated: true, completion: nil)
+            }
+            
+            let alert = UIAlertController(title: "Are you sure?", message: "Is the bracket complete?", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
+                for i in 0..<toAdd {
+                    self.teams.append("Team \(i+1)")
+                }
+                self.performSegue(withIdentifier: "createBracket", sender: self)
+            }
+            let noAction = UIAlertAction(title: "No", style: .destructive)
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            present(alert, animated: true, completion: nil)
+            
+            name = nameOutlet.text!
+        }
+        
+    }
    
     @IBAction func createButton(_ sender: UIButton)
     {
@@ -330,7 +395,7 @@ print("I'm having fun!")
         for i in 0 ..< mats.count {
             if bool{
                 if mats[i].winnerCheck == false{
-                    str1 = "Winner of round \(i+1) masonshouldntgotoalabama"
+                    str1 = "Winner masonshouldntgotoalabama"
                 }
                 else{
                     if mats[i].winnerCheck{
@@ -344,7 +409,7 @@ print("I'm having fun!")
             }
             else{
                 if mats[i].winnerCheck == false{
-                    str2 = "Winner of round \(i+1) masonshouldntgotoalabama"
+                    str2 = "Winner masonshouldntgotoalabama"
                 }
                 else{
                     if mats[i].winnerCheck{

@@ -96,6 +96,7 @@ class NewBracketViewController: UIViewController {
     
     @IBOutlet var finalsCells: [UITextField]!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bracketNameLabel: UILabel!
     @IBOutlet weak var championLabel: UILabel!
     

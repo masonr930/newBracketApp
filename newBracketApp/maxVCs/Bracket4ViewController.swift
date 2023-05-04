@@ -29,6 +29,7 @@ class Bracket4ViewController: UIViewController {
     
     @IBOutlet var finalsCells: [UITextField]!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bracketNameLabel: UILabel!
     @IBOutlet weak var championLabel: UILabel!
     
@@ -37,6 +38,8 @@ class Bracket4ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        scrollView.setContentOffset(CGPoint(x: 600 , y: 450), animated: true)
         
         bracketNameLabel.text = "\(theBracket!.title)"
         if theBracket!.rounds[1].matches[0].winnerCheck {
