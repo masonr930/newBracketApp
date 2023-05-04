@@ -2885,19 +2885,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="Z6P-MC-8v3"/>
-        <segue reference="RR0-Ld-88Y"/>
-        <segue reference="Smd-Jl-pab"/>
-        <segue reference="8Fm-Yj-SJP"/>
-        <segue reference="c0g-h0-Ss3"/>
-=======
         <segue reference="Azt-Po-ESJ"/>
         <segue reference="L1M-Lg-vY1"/>
         <segue reference="82y-6e-fh0"/>
         <segue reference="vNm-5h-5ch"/>
         <segue reference="bfG-7L-TFS"/>
->>>>>>> main
         <segue reference="8xR-Zn-0QZ"/>
     </inferredMetricsTieBreakers>
     <resources>
