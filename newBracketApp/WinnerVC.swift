@@ -31,7 +31,9 @@ class WinnerVC: UIViewController {
         super.viewDidLoad()
         
         homeLabel.text = team1
+        homeLabel.textColor = UIColor.red
         awayLabel.text = team2
+        awayLabel.textColor = UIColor.blue
         if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
                         let decoder = JSONDecoder()
                         if let decoded = try? decoder.decode([BracketObject].self, from: items) {
