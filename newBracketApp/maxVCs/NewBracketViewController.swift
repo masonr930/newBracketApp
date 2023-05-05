@@ -123,6 +123,10 @@ class NewBracketViewController: UIViewController {
         populateFinals()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.setContentOffset(CGPoint(x: 1005, y: 10), animated: true)
+    }
+    
     // theBracket.roundMatches[0].matches[0].homeTeam
     func populateRound1() {
         var i = 0 // cells index

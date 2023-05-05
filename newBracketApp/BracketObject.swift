@@ -38,7 +38,10 @@ public class BracketObject: Codable{
         self.bracketKey = dict["bracketKey"] as! String
         print(reference)
         self.fireKey = reference
-        self.made = dict["made"] as! Bool
+        if let m = dict["made"]{
+            self.made = m as! Bool
+        }
+       // self.made = dict["made"] as! Bool
         var rounds2: [RoundClass] = []
         var matches2: [MatchupClass] = []
         let dRounds = dict["rounds"] as! [Any]
