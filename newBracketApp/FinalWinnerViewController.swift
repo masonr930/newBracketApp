@@ -51,7 +51,18 @@ class FinalWinnerViewController: UIViewController, UITableViewDelegate, UITableV
             cell!.detailTextLabel!.text = "Place: 3"
         }
         
-        
+        if indexPath.row == 0
+        {
+            cell!.backgroundColor = UIColor(red: 255.0/255, green: 215.0/255, blue: 0.0, alpha: 1)
+        }
+        else if indexPath.row == 1
+        {
+            cell!.backgroundColor = UIColor(red: 192.0/255, green: 192.0/255, blue: 192.0/255, alpha: 1)
+        }
+        else
+        {
+            cell!.backgroundColor = UIColor(red: 205.0/255, green: 127.0/255, blue: 50.0/255, alpha: 1)
+        }
         return cell!
     }
     
