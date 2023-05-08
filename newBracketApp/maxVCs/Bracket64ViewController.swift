@@ -166,6 +166,7 @@ class Bracket64ViewController: UIViewController {
     @IBOutlet var finalsCells: [UITextField]!
     
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bracketNameLabel: UILabel!
     @IBOutlet weak var championLabel: UILabel!
     
@@ -198,6 +199,10 @@ class Bracket64ViewController: UIViewController {
         populateRound4()
         populateRound5()
         populateFinals()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.setContentOffset(CGPoint(x: 1205, y: 10), animated: true)
     }
     
     // theBracket.roundMatches[0].matches[0].homeTeam

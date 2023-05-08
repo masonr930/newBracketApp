@@ -41,6 +41,8 @@ class Bracket8ViewController: UIViewController {
     
     @IBOutlet var finalsCells: [UITextField]!
     
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bracketNameLabel: UILabel!
     @IBOutlet weak var championLabel: UILabel!
     
@@ -64,6 +66,10 @@ class Bracket8ViewController: UIViewController {
         populateRound1()
         populateRound2()
         populateFinals()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.setContentOffset(CGPoint(x: 405, y: 10), animated: true)
     }
     
     // theBracket.roundMatches[0].matches[0].homeTeam
