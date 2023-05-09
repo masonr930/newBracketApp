@@ -263,7 +263,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func gotTeams(match: MatchupClass)->Bool
     {
-        if match.homeTeam.hasSuffix("masonshouldntgotoalabama") || match.awayTeam.hasSuffix("masonshouldntgotoalabama")
+        if match.homeTeam.hasSuffix("round") || match.awayTeam.hasSuffix("round")
         {
             match.hasTeams = false
         }

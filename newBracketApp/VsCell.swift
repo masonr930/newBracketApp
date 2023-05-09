@@ -44,14 +44,10 @@ class VsCell: UITableViewCell{
                 if match.winner == true
                 {
                     winnerLabel.text = "\(match.homeTeam)"
-                    teamOneLabel.textColor = UIColor.green
-                    teamTwoLabel.textColor = UIColor.red
                 }
                 else
                 {
                     winnerLabel.text = "\(match.awayTeam)"
-                    teamTwoLabel.textColor = UIColor.green
-                    teamOneLabel.textColor = UIColor.red
                 }
                 
             }
