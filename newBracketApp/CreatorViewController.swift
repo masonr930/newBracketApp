@@ -403,7 +403,7 @@ print("I'm having fun!")
         for i in 0 ..< mats.count {
             if bool{
                 if mats[i].winnerCheck == false{
-                    str1 = "Winner masonshouldntgotoalabama"
+                    str1 = "Winner                                            masonshouldntgotoalabama"
                 }
                 else{
                     if mats[i].winnerCheck{

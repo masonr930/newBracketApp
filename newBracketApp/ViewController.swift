@@ -169,6 +169,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 
     override func viewWillAppear(_ animated: Bool) {
+        if let items = UserDefaults.standard.data(forKey: "createdBrackets") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                self.createdBracks = decoded
+            }
+        }
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(numbers) {
+            UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+        }
         tableviewOutlet.reloadData()
     }
     
