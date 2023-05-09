@@ -250,7 +250,6 @@ print("I'm having fun!")
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(createdBracks) {
                     UserDefaults.standard.set(encoded, forKey: "createdBrackets")
-                print("Delete saved")
             }
             
             let nvc = segue.destination as! BracketViewController

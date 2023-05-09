@@ -53,6 +53,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.createdBracks = decoded
             }
         }
+        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([Int].self, from: items) {
+                self.numbers = decoded
+                print(self.numbers)
+            }
+        }
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(createdBracks) {
                 UserDefaults.standard.set(encoded, forKey: "createdBrackets")
@@ -175,11 +182,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.createdBracks = decoded
             }
         }
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(numbers) {
-            UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([Int].self, from: items) {
+                self.numbers = decoded
+            }
         }
-        tableviewOutlet.reloadData()
     }
     
     
