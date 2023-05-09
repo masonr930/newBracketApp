@@ -10,6 +10,7 @@ import UIKit
 class NewBracketViewController: UIViewController {
     
     var theBracket : BracketObject!
+    var unWind: Bool = false
     
     // LEFT SIDE OUTLETS
     @IBOutlet weak var r1t1: UITextField!
@@ -239,6 +240,9 @@ class NewBracketViewController: UIViewController {
     
     @IBAction func backButton(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToBracket", sender: nil)
+        if unWind{
+            performSegue(withIdentifier: "unwindToHome", sender: nil)
+        }
     }
     
     
