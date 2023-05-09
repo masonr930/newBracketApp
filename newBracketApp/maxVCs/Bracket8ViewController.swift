@@ -11,6 +11,7 @@ class Bracket8ViewController: UIViewController {
 
     var theBracket : BracketObject?
     var currentRound : Int!
+    var unWind: Bool = false
     
     // LEFT SIDE OUTLETS
     @IBOutlet weak var r1t1: UITextField!
@@ -144,6 +145,9 @@ class Bracket8ViewController: UIViewController {
     
     @IBAction func backButton(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToBracket4", sender: nil)
+        if unWind{
+            performSegue(withIdentifier: "unwindToHome", sender: nil)
+        }
     }
     
 

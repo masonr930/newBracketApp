@@ -29,6 +29,8 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     var seededMatches: [MatchupClass] = []
     var brackates: [BracketObject] = []
     var visIndex = 0
+    var numbers: [Int] = []
+    var createdBracks: [BracketObject] = []
 
     
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -42,8 +44,18 @@ print("I'm having fun!")
         tableViewOutlet.dragInteractionEnabled = true
         tableViewOutlet.isEditing = true
         tableViewOutlet.allowsSelectionDuringEditing = true
+        
+        if let items = UserDefaults.standard.data(forKey: "createdBrackets") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                createdBracks = decoded
+            }
+        }
+        
+        
     }
     
+
     @IBAction func addTeamButton(_ sender: UIButton) {
         var canAdd = true
         
@@ -233,18 +245,14 @@ print("I'm having fun!")
             byeCheck()
             Bracket1.owner = true
             Bracket1.saveToFirebase()
-            var visible: [BracketObject] = []
-            if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
-                let decoder = JSONDecoder()
-                if let decoded = try? decoder.decode([BracketObject].self, from: items) {
-                    visible = decoded
-                }
-            }
-            visible.append(Bracket1)
+            createdBracks.append(Bracket1)
+            
             let encoder = JSONEncoder()
-               if let encoded = try? encoder.encode(visible) {
-                                UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
-                            }
+            if let encoded = try? encoder.encode(createdBracks) {
+                    UserDefaults.standard.set(encoded, forKey: "createdBrackets")
+                print("Delete saved")
+            }
+            
             let nvc = segue.destination as! BracketViewController
             nvc.teams = teams
             nvc.bigBracket = Bracket1
