@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fuO-Sl-znA">
-                                <rect key="frame" x="0.0" y="159" width="393" height="659"/>
+                                <rect key="frame" x="0.0" y="174" width="393" height="644"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bracketCell" textLabel="3Hl-tz-dIE" style="IBUITableViewCellStyleDefault" id="u7i-8R-J8k">
@@ -78,7 +78,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fuO-Sl-znA" secondAttribute="bottom" id="D3A-Oj-LCD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fuO-Sl-znA" secondAttribute="trailing" id="E0H-UF-EIk"/>
                             <constraint firstItem="fuO-Sl-znA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aik-sV-JHQ"/>
-                            <constraint firstItem="fuO-Sl-znA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="cGH-JS-BsT"/>
+                            <constraint firstItem="fuO-Sl-znA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="cGH-JS-BsT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zms-Nr-bZr"/>
@@ -292,7 +292,7 @@
                                 <rect key="frame" x="130" y="154" width="132" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Bracket"/>
+                                <buttonConfiguration key="configuration" style="plain" title="View Bracket"/>
                                 <connections>
                                     <action selector="goToBracket:" destination="rsB-6z-2FB" eventType="touchUpInside" id="uCE-tp-mXa"/>
                                 </connections>
@@ -320,14 +320,14 @@
                                                     <rect key="frame" x="180" y="0.66666666666666663" width="100" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" systemColor="systemGreenColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOo-EA-Pqb">
                                                     <rect key="frame" x="331" y="0.66666666666666663" width="42" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="systemGreenColor"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7G-6u-H5s">
@@ -389,7 +389,7 @@
                                 <rect key="frame" x="197" y="136" width="180" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Who won?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O88-eU-Rj9">
@@ -404,7 +404,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Away">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="awayButton:" destination="Hc0-9X-4kf" eventType="touchUpInside" id="ODB-Da-nZ0"/>
@@ -2894,11 +2894,14 @@
         <segue reference="82y-6e-fh0"/>
         <segue reference="vNm-5h-5ch"/>
         <segue reference="bfG-7L-TFS"/>
-        <segue reference="8xR-Zn-0QZ"/>
+        <segue reference="zlH-WK-i7d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
