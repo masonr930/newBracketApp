@@ -11,6 +11,7 @@ class Bracket16ViewController: UIViewController {
 
     var theBracket : BracketObject?
     var currentRound : Int!
+    var unWind: Bool = false
     
     
     
@@ -186,6 +187,9 @@ class Bracket16ViewController: UIViewController {
     
     @IBAction func backButton(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToBracket5", sender: nil)
+        if unWind{
+            performSegue(withIdentifier: "unwindToHome", sender: nil)
+        }
     }
     
 

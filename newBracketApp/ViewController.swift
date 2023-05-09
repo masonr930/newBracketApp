@@ -214,25 +214,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if editingStyle == .delete
         {
-            visible.remove(at: indexPath.row)
-            numbers.remove(at: indexPath.row)
-            tableviewOutlet.deleteRows(at: [indexPath], with: .fade)
-            tableviewOutlet.reloadData()
+            if indexPath.section == 0{
+                createdBracks.remove(at: indexPath.row)
+                tableviewOutlet.deleteRows(at: [indexPath], with: .fade)
+                tableviewOutlet.reloadData()
+                let encoder = JSONEncoder()
+                if let encoded = try? encoder.encode(createdBracks) {
+                    UserDefaults.standard.set(encoded, forKey: "createdBrackets")
+                }
+            }
+            if indexPath.section == 1{
+                visible.remove(at: indexPath.row)
+                numbers.remove(at: indexPath.row)
+                tableviewOutlet.deleteRows(at: [indexPath], with: .fade)
+                tableviewOutlet.reloadData()
+                let encoder = JSONEncoder()
+                if let encoded = try? encoder.encode(numbers) {
+                    UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+                }
+            }
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(numbers) {
-                    UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
-            }
-        }
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(numbers) {
                 UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
-            print("Delete saved")
+                print("Delete saved")
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        rowPick = indexPath.row
-        doSegue(brack: visible[rowPick])
+        if indexPath.section == 0{
+            rowPick = indexPath.row
+            doSegue(brack: createdBracks[rowPick])
+        }
+        if indexPath.section == 1{
+            rowPick = indexPath.row
+            doSegue(brack: visible[rowPick])
+        }
 //        performSegue(withIdentifier: "tableClick", sender: nil)
       }
     
@@ -262,7 +279,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         AppData.loaded = true
         if segue.identifier == "tableClick"{
             let nvc = segue.destination as! BracketViewController
-            nvc.bigBracket = visible[rowPick]
+            nvc.bigBracket = createdBracks[rowPick]
             nvc.visibleIndex = rowPick
         }
         else if segue.identifier == "create"{
@@ -274,26 +291,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         {
             let nvc = segue.destination as! Bracket4ViewController
             nvc.theBracket = visible[rowPick]
+            nvc.unWind = true
         }
         else if segue.identifier == "toBracket8"
         {
             let nvc = segue.destination as! Bracket8ViewController
             nvc.theBracket = visible[rowPick]
+            nvc.unWind = true
         }
         else if segue.identifier == "toBracket16"
         {
             let nvc = segue.destination as! Bracket16ViewController
             nvc.theBracket = visible[rowPick]
+            nvc.unWind = true
         }
         else if segue.identifier == "toBracket32"
         {
             let nvc = segue.destination as! NewBracketViewController
             nvc.theBracket = visible[rowPick]
+            nvc.unWind = true
         }
         else if segue.identifier == "toBracket64"
         {
             let nvc = segue.destination as! Bracket64ViewController
             nvc.theBracket = visible[rowPick]
+            nvc.unWind = true
         }
     }
 
@@ -306,7 +328,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         }
             for i in 0..<brackates.count{
                 if (numbers.contains(i)){
-                    visible.append(brackates[i])
+                    print(numbers)
+                    var keyCheck = true
+                    for j in visible {
+                        if brackates[i].bracketKey == j.bracketKey{
+                            keyCheck = false
+                        }
+                    }
+                    if keyCheck{
+                        visible.append(brackates[i])
+                    }
                 }
             }
         }
@@ -352,7 +383,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                    print(numbers)
                             }
         }
-        print(self.visible[0].rounds[0].matches[0].homeTeam)
         tableviewOutlet.reloadData()
     }
     

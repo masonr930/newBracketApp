@@ -31,7 +31,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+        if let items = UserDefaults.standard.data(forKey: "createdBrackets") {
                         let decoder = JSONDecoder()
                         if let decoded = try? decoder.decode([BracketObject].self, from: items) {
                             visible = decoded
@@ -231,7 +231,7 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(visible) {
-                UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+                UserDefaults.standard.set(encoded, forKey: "createdBrackets")
         }
         
     }
