@@ -225,9 +225,21 @@ class BracketViewController: UIViewController, UITableViewDelegate, UITableViewD
     {
         let svc = _seg.source as! WinnerVC
         semiTeams = svc.semis
+        if let items = UserDefaults.standard.data(forKey: "createdBrackets") {
+                        let decoder = JSONDecoder()
+                        if let decoded = try? decoder.decode([BracketObject].self, from: items) {
+                            visible = decoded
+                        }
+                }
+
         winnerMoment(r: sectionChoice-1, matNum: matIndex)
         matchesTable.reloadData()
-        visible[visibleIndex] = bigBracket
+        for i in 0..<visible.count{
+            if visible[i].bracketKey == bigBracket.bracketKey{
+                visible[i] = bigBracket
+            }
+        }
+        
         
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(visible) {

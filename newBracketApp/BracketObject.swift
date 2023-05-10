@@ -120,7 +120,7 @@ public class BracketObject: Codable{
         }
         //This saves bracket to visible class so one can see it on the app with user defaults
         var visible: [BracketObject] = []
-        if let items = UserDefaults.standard.data(forKey: "visibleBrackets") {
+        if let items = UserDefaults.standard.data(forKey: "createdBrackets") {
                         let decoder = JSONDecoder()
                         if let decoded = try? decoder.decode([BracketObject].self, from: items) {
                             visible = decoded
@@ -129,7 +129,7 @@ public class BracketObject: Codable{
 
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(visible) {
-                UserDefaults.standard.set(encoded, forKey: "visibleBrackets")
+                UserDefaults.standard.set(encoded, forKey: "createdBrackets")
         }
     }
 
